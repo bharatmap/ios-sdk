@@ -1,0 +1,5 @@
+framework module BharatMaps {
+  umbrella header "BharatMaps.h"
+  export *
+  module * { export * }
+}
