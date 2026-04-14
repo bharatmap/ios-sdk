@@ -17,6 +17,13 @@ typedef void (^BharatNavigationCallback)(NSError *_Nullable error);
 typedef void (^BharatRoutesCallback)(NSArray<BharatMapsRouteOption *> *_Nullable routes, NSError *_Nullable error);
 typedef void (^BharatLicenseValidationCallback)(NSDictionary<NSString *, id> *_Nullable result, NSError *_Nullable error);
 
+typedef NS_ENUM(NSInteger, BharatMapStyle) {
+    BharatMapStyleLight = 0,
+    BharatMapStyleDark = 1,
+    BharatMapStyleLightSimplified = 2,
+    BharatMapStyleDarkSimplified = 3
+};
+
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionDidChangeNotification;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionRoutesKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionSelectedRouteIdKey;
@@ -75,6 +82,9 @@ BharatMaps_EXPORT
 /// Default location used before first GPS fix and as a fallback for centerOnUserLocation().
 @property (nonatomic, assign) CLLocationCoordinate2D defaultLocation;
 
+/// Current built-in map style.
+@property (nonatomic, assign) BharatMapStyle mapStyle;
+
 /// Last validated license token returned by licensing backend.
 @property (nonatomic, copy, readonly, nullable) NSString *licenseToken;
 /// YES only after successful license validation with a non-empty token.
@@ -84,6 +94,9 @@ BharatMaps_EXPORT
 
 - (instancetype)initWithFrame:(CGRect)frame
                       styleURL:(nullable NSURL *)styleURL;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                     mapStyle:(BharatMapStyle)mapStyle;
 
 // MARK: License
 
@@ -99,6 +112,10 @@ BharatMaps_EXPORT
 - (void)validateLicense:(NSString *)apiKey
                   appId:(nullable NSString *)appId
              completion:(nullable BharatLicenseValidationCallback)completion NS_SWIFT_NAME(validateLicense(apiKey:appId:completion:));
+
+// MARK: Style
+
+- (void)setMapStyle:(BharatMapStyle)mapStyle NS_SWIFT_NAME(setMapStyle(_:));
 
 // MARK: Camera
 
