@@ -80,6 +80,7 @@ class ViewController: UIViewController, BharatMapsMapViewDelegate {
         mapView.delegate = self
         mapView.defaultZoom = 16.0
         mapView.defaultLocation = CLLocationCoordinate2D(latitude: 26.86112024047445, longitude: 75.79514297855094)
+        // Replace with your own API key from the Bharat Maps developer portal.
         mapView.validateLicense(apiKey: "YOUR_BHARATMAPS_API_KEY") { result, error in
             if let error {
                 print("license error: \(error.localizedDescription)")
