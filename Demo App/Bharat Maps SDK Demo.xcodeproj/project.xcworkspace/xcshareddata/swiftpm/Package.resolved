@@ -1,0 +1,15 @@
+{
+  "originHash" : "c6dfe0cfb012792c1ee38212d28fbe76b4b3972c4aa17f4e666e37fa0d9aa820",
+  "pins" : [
+    {
+      "identity" : "ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bharatmap/ios-sdk.git",
+      "state" : {
+        "revision" : "2db512845811e72f4a73791be39abca36b188087",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}
