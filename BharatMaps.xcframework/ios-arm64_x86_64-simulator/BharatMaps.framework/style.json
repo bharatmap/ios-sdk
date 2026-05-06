@@ -14,6 +14,32 @@
             "tiles": ["https://subtiles.bharat-maps.com/data/subthirteen/{z}/{x}/{y}.pbf"],
             "minzoom": 0,
             "maxzoom": 10
+        },
+        "u_pin": {
+            "type": "vector",
+            "tiles": ["https://upin.bharat-maps.com/data/upin/{z}/{x}/{y}.pbf"],
+            "maxzoom": 17
+        },
+        "dynamic": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": []
+            }
+        },
+        "ads": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": []
+            }
+        },
+        "static": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": []
+            }
         }
     },
     "sprite": "https://assets.bharat-maps.com/icons/sprite?2",
