@@ -84,6 +84,8 @@ BharatMaps_EXPORT
 
 /// Current built-in map style.
 @property (nonatomic, assign) BharatMapStyle mapStyle;
+/// Current map viewport padding.
+@property (nonatomic, assign) UIEdgeInsets mapPadding;
 
 /// Last validated license token returned by licensing backend.
 @property (nonatomic, copy, readonly, nullable) NSString *licenseToken;
@@ -118,6 +120,10 @@ BharatMaps_EXPORT
 - (void)setMapStyle:(BharatMapStyle)mapStyle NS_SWIFT_NAME(setMapStyle(_:));
 
 // MARK: Camera
+
+- (void)setMapPadding:(UIEdgeInsets)padding NS_SWIFT_NAME(setMapPadding(_:));
+- (void)animateMapPadding:(UIEdgeInsets)padding
+                 duration:(NSTimeInterval)duration NS_SWIFT_NAME(animateMapPadding(_:duration:));
 
 - (void)animateCameraTo:(CLLocationCoordinate2D)location
                    zoom:(double)zoom NS_SWIFT_NAME(animateCameraTo(location:zoom:));
