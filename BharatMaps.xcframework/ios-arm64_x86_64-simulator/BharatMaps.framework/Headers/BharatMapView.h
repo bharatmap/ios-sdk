@@ -125,6 +125,8 @@ BharatMaps_EXPORT
 - (void)animateMapPadding:(UIEdgeInsets)padding
                  duration:(NSTimeInterval)duration NS_SWIFT_NAME(animateMapPadding(_:duration:));
 
+- (void)setLogoMargins:(UIEdgeInsets)margins NS_SWIFT_NAME(setLogoMargins(_:));
+
 - (void)animateCameraTo:(CLLocationCoordinate2D)location
                    zoom:(double)zoom NS_SWIFT_NAME(animateCameraTo(location:zoom:));
 
