@@ -223,10 +223,25 @@ BharatMaps_EXPORT
                                                image:(UIImage *)image NS_SWIFT_NAME(addCustomMarker(id:location:image:));
 
 /**
+ Adds or replaces a lightweight custom marker with bearing.
+ */
+- (BharatMapsPointAnnotation *)addCustomMarkerWithId:(NSString *)identifier
+                                            location:(CLLocationCoordinate2D)location
+                                               image:(UIImage *)image
+                                             bearing:(CLLocationDirection)bearing NS_SWIFT_NAME(addCustomMarker(id:location:image:bearing:));
+
+/**
  Updates custom marker position.
  */
 - (BOOL)updateCustomMarkerWithId:(NSString *)identifier
                          location:(CLLocationCoordinate2D)location NS_SWIFT_NAME(updateCustomMarker(id:location:));
+
+/**
+ Updates custom marker position and bearing.
+ */
+- (BOOL)updateCustomMarkerWithId:(NSString *)identifier
+                         location:(CLLocationCoordinate2D)location
+                          bearing:(CLLocationDirection)bearing NS_SWIFT_NAME(updateCustomMarker(id:location:bearing:));
 
 /**
  Updates custom marker position with optional linear animation.
@@ -235,6 +250,15 @@ BharatMaps_EXPORT
                          location:(CLLocationCoordinate2D)location
                          animated:(BOOL)animated
                          duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarker(id:location:animated:duration:));
+
+/**
+ Updates custom marker position and bearing with optional linear animation.
+ */
+- (BOOL)updateCustomMarkerWithId:(NSString *)identifier
+                         location:(CLLocationCoordinate2D)location
+                          bearing:(CLLocationDirection)bearing
+                         animated:(BOOL)animated
+                         duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarker(id:location:bearing:animated:duration:));
 
 /**
  Removes a custom marker by id.
