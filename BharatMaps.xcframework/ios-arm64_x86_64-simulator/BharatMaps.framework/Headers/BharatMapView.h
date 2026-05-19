@@ -153,6 +153,15 @@ BharatMaps_EXPORT
                pitch:(CGFloat)pitch
             duration:(NSTimeInterval)duration NS_SWIFT_NAME(easeCameraTo(location:zoom:bearing:pitch:duration:));
 
+/**
+ Fits camera to all provided locations with viewport padding in screen points.
+ Returns NO when locations is empty.
+ */
+- (BOOL)fitCameraToLocations:(NSArray<CLLocation *> *)locations
+                 edgePadding:(UIEdgeInsets)edgePadding
+                    animated:(BOOL)animated
+                    duration:(NSTimeInterval)duration NS_SWIFT_NAME(fitCamera(to:edgePadding:animated:duration:));
+
 // MARK: Map annotations
 
 /**
