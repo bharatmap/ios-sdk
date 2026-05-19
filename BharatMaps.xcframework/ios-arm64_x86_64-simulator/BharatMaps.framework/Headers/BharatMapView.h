@@ -203,6 +203,40 @@ BharatMaps_EXPORT
  */
 - (void)clearMapAnnotations;
 
+// MARK: Custom Markers
+
+/**
+ Adds or replaces a lightweight custom marker.
+ Use this for dynamic objects such as cars, couriers, drivers, or moving assets.
+ */
+- (BharatMapsPointAnnotation *)addCustomMarkerWithId:(NSString *)identifier
+                                            location:(CLLocationCoordinate2D)location
+                                               image:(UIImage *)image NS_SWIFT_NAME(addCustomMarker(id:location:image:));
+
+/**
+ Updates custom marker position.
+ */
+- (BOOL)updateCustomMarkerWithId:(NSString *)identifier
+                         location:(CLLocationCoordinate2D)location NS_SWIFT_NAME(updateCustomMarker(id:location:));
+
+/**
+ Updates custom marker position with optional linear animation.
+ */
+- (BOOL)updateCustomMarkerWithId:(NSString *)identifier
+                         location:(CLLocationCoordinate2D)location
+                         animated:(BOOL)animated
+                         duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarker(id:location:animated:duration:));
+
+/**
+ Removes a custom marker by id.
+ */
+- (BOOL)removeCustomMarkerWithId:(NSString *)identifier NS_SWIFT_NAME(removeCustomMarker(id:));
+
+/**
+ Removes all custom markers.
+ */
+- (void)clearCustomMarkers;
+
 // MARK: Advanced Annotations
 
 - (BharatMapsAdvancedAnnotation *)addAdvancedAnnotationWithId:(NSString *)identifier
