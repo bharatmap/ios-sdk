@@ -82,6 +82,9 @@ BharatMaps_EXPORT
 /// Default location used before first GPS fix and as a fallback for centerOnUserLocation().
 @property (nonatomic, assign) CLLocationCoordinate2D defaultLocation;
 
+/// Optional SDK accent color used for route lines, user puck and accuracy ring.
+@property (nonatomic, strong, nullable) UIColor *accentColor;
+
 /// Current built-in map style.
 @property (nonatomic, assign) BharatMapStyle mapStyle;
 /// Current map viewport padding.
@@ -99,6 +102,13 @@ BharatMaps_EXPORT
 
 - (instancetype)initWithFrame:(CGRect)frame
                      mapStyle:(BharatMapStyle)mapStyle;
+
+- (instancetype)initWithFrame:(CGRect)frame
+                   accentColor:(nullable UIColor *)accentColor NS_SWIFT_NAME(init(frame:accentColor:));
+
+- (instancetype)initWithFrame:(CGRect)frame
+                     mapStyle:(BharatMapStyle)mapStyle
+                  accentColor:(nullable UIColor *)accentColor NS_SWIFT_NAME(init(frame:mapStyle:accentColor:));
 
 // MARK: License
 
