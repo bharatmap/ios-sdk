@@ -302,6 +302,18 @@ BharatMaps_EXPORT
 - (void)disableUserLocation;
 
 /**
+ Starts a custom pulse ring around the user puck.
+ The ring is visual-only and does not depend on GPS accuracy.
+ */
+- (void)startUserLocationPulseRingWithColor:(UIColor *)color
+                                  maxRadius:(CGFloat)maxRadius NS_SWIFT_NAME(startUserLocationPulseRing(color:maxRadius:));
+
+/**
+ Stops the custom user puck pulse ring.
+ */
+- (void)stopUserLocationPulseRing NS_SWIFT_NAME(stopUserLocationPulseRing());
+
+/**
  Centers camera on current user location, resets bearing/pitch to 0 and re-enables follow mode.
  */
 - (void)centerOnUserLocation:(double)zoom NS_SWIFT_NAME(centerOnUserLocation(zoom:));
