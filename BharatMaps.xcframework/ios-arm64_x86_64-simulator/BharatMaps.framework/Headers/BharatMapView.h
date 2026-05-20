@@ -343,6 +343,15 @@ BharatMaps_EXPORT
                completion:(nullable BharatRoutesCallback)completion NS_SWIFT_NAME(requestRoutes(origin:destination:completion:));
 
 /**
+ Requests route preview with explicit alternatives and camera-fit behavior.
+ */
+- (void)requestRoutePreviewFrom:(CLLocationCoordinate2D)origin
+                    destination:(CLLocationCoordinate2D)destination
+                   alternatives:(BOOL)alternatives
+                        autoFit:(BOOL)autoFit
+                     completion:(nullable BharatRoutesCallback)completion NS_SWIFT_NAME(requestRoutePreview(origin:destination:alternatives:autoFit:completion:));
+
+/**
  Requests routes (including alternatives) from current location and previews them on map.
  */
 - (void)requestRoutesTo:(CLLocationCoordinate2D)destination
