@@ -380,13 +380,45 @@ BharatMaps_EXPORT
                                     completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startSelectedNavigation(simulation:completion:));
 
 /**
- Clears preview routes and route selection state without starting navigation.
- */
+Clears preview routes and route selection state without starting navigation.
+*/
 - (void)clearRoutePreview NS_SWIFT_NAME(clearRoutePreview());
 
 /**
- Starts navigation immediately from origin to destination and draws route on map.
+ Draws an app-owned route polyline from polyline6 geometry without requesting routes or moving camera.
  */
+- (void)showRoutePolylineWithEncodedPolyline:(NSString *)encodedPolyline
+                                 strokeColor:(UIColor *)strokeColor
+                                 strokeWidth:(CGFloat)strokeWidth
+                                     routeId:(nullable NSString *)routeId NS_SWIFT_NAME(showRoutePolyline(encodedPolyline:strokeColor:strokeWidth:routeId:));
+
+/**
+ Draws an app-owned route polyline from encoded polyline geometry without requesting routes or moving camera.
+ Passing the same routeId updates the existing line. If routeId is nil, a default app route id is used.
+ */
+- (void)showRoutePolylineWithEncodedPolyline:(NSString *)encodedPolyline
+                                   precision:(NSInteger)precision
+                                 strokeColor:(UIColor *)strokeColor
+                                 strokeWidth:(CGFloat)strokeWidth
+                                     routeId:(nullable NSString *)routeId NS_SWIFT_NAME(showRoutePolyline(encodedPolyline:precision:strokeColor:strokeWidth:routeId:));
+
+/**
+ Draws an app-owned route polyline from coordinates without requesting routes or moving camera.
+ Passing the same routeId updates the existing line. If routeId is nil, a default app route id is used.
+ */
+- (void)showRoutePolylineWithCoordinates:(NSArray<CLLocation *> *)coordinates
+                             strokeColor:(UIColor *)strokeColor
+                             strokeWidth:(CGFloat)strokeWidth
+                                 routeId:(nullable NSString *)routeId NS_SWIFT_NAME(showRoutePolyline(coordinates:strokeColor:strokeWidth:routeId:));
+
+/**
+ Clears app-owned route polylines. If routeId is nil, clears all app-owned route polylines.
+ */
+- (void)clearRoutePolylineWithRouteId:(nullable NSString *)routeId NS_SWIFT_NAME(clearRoutePolyline(routeId:));
+
+/**
+Starts navigation immediately from origin to destination and draws route on map.
+*/
 - (void)startNavigationFrom:(CLLocationCoordinate2D)origin
                 destination:(CLLocationCoordinate2D)destination
                  simulation:(BOOL)simulation
