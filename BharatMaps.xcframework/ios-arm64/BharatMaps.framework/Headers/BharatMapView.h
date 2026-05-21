@@ -412,6 +412,18 @@ Clears preview routes and route selection state without starting navigation.
                                  routeId:(nullable NSString *)routeId NS_SWIFT_NAME(showRoutePolyline(coordinates:strokeColor:strokeWidth:routeId:));
 
 /**
+ Trims an app-owned route polyline so only the remaining route from currentLocation to destination is visible.
+ */
+- (void)updateRoutePolylineProgressWithRouteId:(NSString *)routeId
+                               currentLocation:(CLLocationCoordinate2D)currentLocation NS_SWIFT_NAME(updateRoutePolylineProgress(routeId:currentLocation:));
+
+/**
+ Trims an app-owned route polyline by progress where 0 means full route visible and 1 means route hidden.
+ */
+- (void)updateRoutePolylineProgressWithRouteId:(NSString *)routeId
+                                      progress:(double)progress NS_SWIFT_NAME(updateRoutePolylineProgress(routeId:progress:));
+
+/**
  Clears app-owned route polylines. If routeId is nil, clears all app-owned route polylines.
  */
 - (void)clearRoutePolylineWithRouteId:(nullable NSString *)routeId NS_SWIFT_NAME(clearRoutePolyline(routeId:));
