@@ -17,6 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class BharatMapsTripProgress;
 @class BharatMapsRouteOption;
 
+typedef NS_ENUM(NSInteger, BharatMapCameraInteractionReason) {
+    BharatMapCameraInteractionReasonUnknown = 0,
+    BharatMapCameraInteractionReasonPan = 1,
+    BharatMapCameraInteractionReasonZoom = 2,
+    BharatMapCameraInteractionReasonRotate = 3,
+    BharatMapCameraInteractionReasonTilt = 4
+};
+
 /**
  The ``BharatMapsMapViewDelegate`` protocol defines a set of optional methods that you
  can use to receive map-related update messages. Because many map operations
@@ -31,6 +39,36 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 // MARK: Responding to Map Position Changes
+
+/**
+ Tells the delegate that the user started manually changing the camera.
+
+ This method is called only for user gestures. Programmatic camera changes such as
+ `fitCamera`, `moveCameraTo`, `animateCameraTo`, `easeCameraTo`, `centerOnUserLocation`,
+ `recenterCamera`, and route preview camera fitting do not trigger it.
+
+ @param mapView The high-level map view that the user is manipulating.
+ @param reason The gesture type that started the camera interaction.
+ */
+- (void)mapView:(BharatMapView *)mapView didBeginCameraInteraction:(BharatMapCameraInteractionReason)reason;
+
+/**
+ Tells the delegate that the user finished manually changing the camera.
+
+ @param mapView The high-level map view that the user manipulated.
+ @param reason The gesture type that ended the camera interaction.
+ */
+- (void)mapView:(BharatMapView *)mapView didEndCameraInteraction:(BharatMapCameraInteractionReason)reason;
+
+/**
+ Tells the delegate that the user started manually changing the camera.
+ */
+- (void)mapViewDidBeginUserCameraGesture:(BharatMapView *)mapView;
+
+/**
+ Tells the delegate that the user finished manually changing the camera.
+ */
+- (void)mapViewDidEndUserCameraGesture:(BharatMapView *)mapView;
 
 /**
  Asks the delegate whether the map view should be allowed to change from the
