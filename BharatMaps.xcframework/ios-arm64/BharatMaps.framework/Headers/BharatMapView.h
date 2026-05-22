@@ -172,6 +172,16 @@ BharatMaps_EXPORT
                     animated:(BOOL)animated
                     duration:(NSTimeInterval)duration NS_SWIFT_NAME(fitCamera(to:edgePadding:animated:duration:));
 
+/**
+ Fits camera to all provided locations with viewport padding and optional maximum zoom.
+ Returns NO when locations is empty.
+ */
+- (BOOL)fitCameraToLocations:(NSArray<CLLocation *> *)locations
+                 edgePadding:(UIEdgeInsets)edgePadding
+                    animated:(BOOL)animated
+                    duration:(NSTimeInterval)duration
+                     maxZoom:(double)maxZoom NS_SWIFT_NAME(fitCamera(to:edgePadding:animated:duration:maxZoom:));
+
 // MARK: Map annotations
 
 /**
@@ -269,6 +279,24 @@ BharatMaps_EXPORT
                           bearing:(CLLocationDirection)bearing
                          animated:(BOOL)animated
                          duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarker(id:location:bearing:animated:duration:));
+
+/**
+ Updates custom marker along app-owned route geometry, avoiding straight-line corner cuts.
+ */
+- (BOOL)updateCustomMarkerAlongRouteWithId:(NSString *)identifier
+                                    routeId:(NSString *)routeId
+                            currentLocation:(CLLocationCoordinate2D)currentLocation
+                                   animated:(BOOL)animated
+                                   duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarkerAlongRoute(id:routeId:currentLocation:animated:duration:));
+
+/**
+ Updates custom marker along app-owned route geometry and trims the same route polyline progress.
+ */
+- (BOOL)updateCustomMarkerAlongRouteAndProgressWithId:(NSString *)identifier
+                                               routeId:(NSString *)routeId
+                                       currentLocation:(CLLocationCoordinate2D)currentLocation
+                                              animated:(BOOL)animated
+                                              duration:(NSTimeInterval)duration NS_SWIFT_NAME(updateCustomMarkerAlongRouteAndProgress(id:routeId:currentLocation:animated:duration:));
 
 /**
  Removes a custom marker by id.
