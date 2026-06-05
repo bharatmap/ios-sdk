@@ -136,6 +136,12 @@ BharatMaps_EXPORT
                  duration:(NSTimeInterval)duration NS_SWIFT_NAME(animateMapPadding(_:duration:));
 
 - (void)setLogoMargins:(UIEdgeInsets)margins NS_SWIFT_NAME(setLogoMargins(_:));
+- (void)setAttributionInsets:(UIEdgeInsets)insets NS_SWIFT_NAME(setAttributionInsets(_:));
+
+- (void)setUserLocationPuckImage:(nullable UIImage *)image NS_SWIFT_NAME(setUserLocationPuckImage(_:));
+- (void)setUserLocationPuckImage:(nullable UIImage *)image
+                             size:(CGSize)size NS_SWIFT_NAME(setUserLocationPuckImage(_:size:));
+- (void)setUserLocationPuckBearingEnabled:(BOOL)enabled NS_SWIFT_NAME(setUserLocationPuckBearingEnabled(_:));
 
 - (void)animateCameraTo:(CLLocationCoordinate2D)location
                    zoom:(double)zoom NS_SWIFT_NAME(animateCameraTo(location:zoom:));
