@@ -24,6 +24,13 @@ typedef NS_ENUM(NSInteger, BharatMapStyle) {
     BharatMapStyleDarkSimplified = 3
 };
 
+typedef NS_ENUM(NSInteger, BharatMapsUserLocationPuckBearingMode) {
+    BharatMapsUserLocationPuckBearingModeNone = 0,
+    BharatMapsUserLocationPuckBearingModeCourseOnly = 1,
+    BharatMapsUserLocationPuckBearingModeCourseThenHeading = 2,
+    BharatMapsUserLocationPuckBearingModeNavigationRoute = 3
+};
+
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionDidChangeNotification;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionRoutesKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewRouteSelectionSelectedRouteIdKey;
@@ -142,6 +149,8 @@ BharatMaps_EXPORT
 - (void)setUserLocationPuckImage:(nullable UIImage *)image
                              size:(CGSize)size NS_SWIFT_NAME(setUserLocationPuckImage(_:size:));
 - (void)setUserLocationPuckBearingEnabled:(BOOL)enabled NS_SWIFT_NAME(setUserLocationPuckBearingEnabled(_:));
+- (void)setUserLocationPuckBearingMode:(BharatMapsUserLocationPuckBearingMode)mode NS_SWIFT_NAME(setUserLocationPuckBearingMode(_:));
+- (void)setNavigationCameraViewport:(UIEdgeInsets)viewport NS_SWIFT_NAME(setNavigationCameraViewport(_:));
 
 - (void)animateCameraTo:(CLLocationCoordinate2D)location
                    zoom:(double)zoom NS_SWIFT_NAME(animateCameraTo(location:zoom:));
