@@ -14,6 +14,29 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^BharatNavigationCallback)(NSError *_Nullable error);
+
+/**
+ Options for simulated navigation sessions.
+ */
+BharatMaps_EXPORT
+@interface BharatNavigationSimulationOptions : NSObject <NSCopying>
+
+/// Enables SDK route simulation.
+@property (nonatomic, assign) BOOL enabled;
+/// Keeps the native user-location puck at the simulated destination after route end.
+@property (nonatomic, assign) BOOL holdAtDestination;
+/// Stops navigation guidance automatically when destination is reached.
+@property (nonatomic, assign) BOOL autoStopOnArrival;
+/// Multiplies default simulation speed. Values <= 0 are treated as 1.
+@property (nonatomic, assign) double speedMultiplier;
+
+- (instancetype)init;
+- (instancetype)initWithEnabled:(BOOL)enabled
+              holdAtDestination:(BOOL)holdAtDestination
+               autoStopOnArrival:(BOOL)autoStopOnArrival
+                  speedMultiplier:(double)speedMultiplier NS_DESIGNATED_INITIALIZER;
+
+@end
 typedef void (^BharatRoutesCallback)(NSArray<BharatMapsRouteOption *> *_Nullable routes, NSError *_Nullable error);
 typedef void (^BharatLicenseValidationCallback)(NSDictionary<NSString *, id> *_Nullable result, NSError *_Nullable error);
 
@@ -75,6 +98,10 @@ BharatMaps_EXPORT
 
 /// Last known user location.
 @property (nonatomic, strong, readonly, nullable) CLLocation *currentUserLocation;
+/// Current navigation location. During simulation this returns simulated location when available.
+@property (nonatomic, strong, readonly, nullable) CLLocation *currentNavigationLocation;
+/// Current simulated navigation location, if simulated navigation is active or held.
+@property (nonatomic, strong, readonly, nullable) CLLocation *currentSimulatedNavigationLocation;
 /// Whether navigation session is currently active.
 @property (nonatomic, assign, readonly, getter=isNavigationActive) BOOL navigationActive;
 /// Whether camera is currently following user location.
@@ -480,11 +507,26 @@ Starts navigation immediately from origin to destination and draws route on map.
                  completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startNavigation(origin:destination:simulation:completion:));
 
 /**
+ Starts navigation with explicit simulation options.
+ */
+- (void)startNavigationFrom:(CLLocationCoordinate2D)origin
+                destination:(CLLocationCoordinate2D)destination
+          simulationOptions:(nullable BharatNavigationSimulationOptions *)simulationOptions
+                 completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startNavigation(origin:destination:simulationOptions:completion:));
+
+/**
  Convenience overload. Uses current user location as origin.
  */
 - (void)startNavigationTo:(CLLocationCoordinate2D)destination
                simulation:(BOOL)simulation
                completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startNavigation(destination:simulation:completion:));
+
+/**
+ Convenience overload. Uses current navigation/user location as origin.
+ */
+- (void)startNavigationTo:(CLLocationCoordinate2D)destination
+        simulationOptions:(nullable BharatNavigationSimulationOptions *)simulationOptions
+               completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startNavigation(destination:simulationOptions:completion:));
 
 /**
  Manually requests a reroute while navigation is active.
@@ -505,6 +547,11 @@ Starts navigation immediately from origin to destination and draws route on map.
  Stops active navigation and clears route from map.
  */
 - (void)stopNavigation;
+
+/**
+ Stops active navigation and optionally keeps simulated provider at its last coordinate.
+ */
+- (void)stopNavigationWithResetToRealLocation:(BOOL)resetToRealLocation NS_SWIFT_NAME(stopNavigation(resetToRealLocation:));
 
 /**
  Test helper: when simulated navigation is active, injects an off-route deviation to trigger auto reroute.
