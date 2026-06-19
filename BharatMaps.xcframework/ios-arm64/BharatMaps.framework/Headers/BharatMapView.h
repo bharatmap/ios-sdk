@@ -549,9 +549,29 @@ Starts navigation immediately from origin to destination and draws route on map.
 - (void)stopNavigation;
 
 /**
- Stops active navigation and optionally keeps simulated provider at its last coordinate.
- */
+Stops active navigation and optionally keeps simulated provider at its last coordinate.
+*/
 - (void)stopNavigationWithResetToRealLocation:(BOOL)resetToRealLocation NS_SWIFT_NAME(stopNavigation(resetToRealLocation:));
+
+/**
+ Enables or disables trip-end calibration line overlay. Default is YES.
+ */
+- (void)setNavigationCalibrationLineEnabled:(BOOL)enabled NS_SWIFT_NAME(setNavigationCalibrationLineEnabled(_:));
+
+/**
+ Returns whether trip-end calibration line overlay is enabled.
+ */
+- (BOOL)isNavigationCalibrationLineEnabled NS_SWIFT_NAME(isNavigationCalibrationLineEnabled());
+
+/**
+ Enables or disables vanishing line for the SDK-owned active navigation route. Default is NO.
+ */
+- (void)setNavigationRouteVanishingEnabled:(BOOL)enabled NS_SWIFT_NAME(setNavigationRouteVanishingEnabled(_:));
+
+/**
+ Returns whether active navigation route vanishing line is enabled.
+ */
+- (BOOL)isNavigationRouteVanishingEnabled NS_SWIFT_NAME(isNavigationRouteVanishingEnabled());
 
 /**
  Test helper: when simulated navigation is active, injects an off-route deviation to trigger auto reroute.
