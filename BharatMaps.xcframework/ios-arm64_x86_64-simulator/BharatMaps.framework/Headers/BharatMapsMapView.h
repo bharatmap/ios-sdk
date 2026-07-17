@@ -314,8 +314,7 @@ BharatMaps_EXPORT
 /**
  A Boolean value indicating whether the map may display Compass View.
 
- The view controlled by this property is available at `compassView`. The default value
- of this property is `YES`.
+ Compass UI is disabled in BharatMaps SDK. Setting this property to `YES` has no effect.
  */
 @property (nonatomic, assign) BOOL showsCompassView;
 
