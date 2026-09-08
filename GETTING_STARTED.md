@@ -249,6 +249,8 @@ Behavior:
 - manual gesture on map stops follow
 - `centerOnUserLocation(zoom:)` restores follow mode
 - `centerOnUserLocation()` uses `defaultZoom`
+- In normal map mode, recenter animates center, requested zoom, north-up heading and zero pitch together. Location updates continue updating the puck during the transition without interrupting camera animation. After finishing, the camera smoothly catches up to the latest fix at the requested zoom before resuming ordinary follow.
+- A user camera gesture, disabling location, a newer recenter, or an app-owned camera movement cancels the previous recenter. Its delayed completion cannot restore follow or reset the camera. GPS updates are never suppressed; no app-side animation workaround is needed.
 - if GPS is not available yet and `defaultLocation` is valid, center fallback uses `defaultLocation`
 
 ### Map padding (instant + animated)
