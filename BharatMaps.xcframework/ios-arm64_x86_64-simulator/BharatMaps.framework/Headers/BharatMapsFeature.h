@@ -50,8 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 
  In vector tiles loaded by ``BharatMapsVectorTileSource`` objects, the identifier
  corresponds to the
- <a href="https://github.com/mapbox/vector-tile-spec/tree/master/2.1#42-features">feature
- identifier</a>
+ feature
+ identifier
  (`id`). If the source does not specify the feature’s identifier, the value of
  this property is `nil`. If specified, the identifier may be an integer,
  floating-point number, or string. These data types are mapped to instances of
@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  listed above for each attribute value. In addition to the Foundation types, you
  may also set an attribute to an `NSColor` (macOS) or `UIColor` (iOS), which
  will be converted into its
- <a href="https://maplibre.org/maplibre-style-spec/types/#color">CSS string representation</a>
+ CSS string representation
  when the feature is added to an ``BharatMapsShapeSource``. This can be convenient when
  using the attribute to supply a value for a color-typed layout or paint
  attribute via a key path expression.
@@ -220,7 +220,7 @@ BharatMaps_EXPORT
 @interface BharatMapsPointCollectionFeature : BharatMapsPointCollection <BharatMapsFeature>
 @end
 
-// https://github.com/mapbox/mapbox-gl-native/issues/7473
+// https://portal.bharat-maps.com
 @compatibility_alias BharatMapsMultiPointFeature BharatMapsPointCollectionFeature;
 
 /**

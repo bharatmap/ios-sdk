@@ -65,9 +65,8 @@ NS_INLINE BharatMapsSphericalPosition BharatMapsSphericalPositionMake(CGFloat ra
  ```
  
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/light-example/">Adjust light of
- 3D buildings</a> to learn how to create and modify the light source for 3D
+ See the Adjust light of
+ 3D buildings to learn how to create and modify the light source for 3D
  geometries.
  */
 BharatMaps_EXPORT
@@ -96,9 +95,8 @@ BharatMaps_EXPORT
  `$zoomLevel` variable or applying interpolation or step functions to feature
  attributes.
 
- This property corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/light/#anchor"><code>anchor</code></a>
- light property in the MapLibre Style Spec.
+ This property corresponds to the <code>anchor</code>
+ light property in the style specification.
  */
 @property (nonatomic) NSExpression *anchor;
 
@@ -128,14 +126,12 @@ BharatMaps_EXPORT
  This property does not support applying interpolation or step functions to
  feature attributes.
 
- This property corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/light/#position"><code>position</code></a>
- light property in the MapLibre Style Spec.
+ This property corresponds to the <code>position</code>
+ light property in the style specification.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/light-example/">Adjust light of
- 3D buildings</a> example to learn how to create and modify the position of
+ See the Adjust light of
+ 3D buildings example to learn how to create and modify the position of
  value of an ``BharatMapsLight`` object for 3D geometries.
  */
 @property (nonatomic) NSExpression *position;
@@ -165,9 +161,8 @@ BharatMaps_EXPORT
  This property does not support applying interpolation or step functions to
  feature attributes.
 
- This property corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/light/#color"><code>color</code></a>
- light property in the MapLibre Style Spec.
+ This property corresponds to the <code>color</code>
+ light property in the style specification.
  */
 @property (nonatomic) NSExpression *color;
 #else
@@ -188,9 +183,8 @@ BharatMaps_EXPORT
  This property does not support applying interpolation or step functions to
  feature attributes.
 
- This property corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/light/#color"><code>color</code></a>
- light property in the MapLibre Style Spec.
+ This property corresponds to the <code>color</code>
+ light property in the style specification.
  */
 @property (nonatomic) NSExpression *color;
 #endif
@@ -220,9 +214,8 @@ BharatMaps_EXPORT
  This property does not support applying interpolation or step functions to
  feature attributes.
 
- This property corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/light/#intensity"><code>intensity</code></a>
- light property in the MapLibre Style Spec.
+ This property corresponds to the <code>intensity</code>
+ light property in the style specification.
  */
 @property (nonatomic) NSExpression *intensity;
 

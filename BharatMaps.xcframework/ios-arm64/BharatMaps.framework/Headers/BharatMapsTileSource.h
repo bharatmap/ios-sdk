@@ -22,7 +22,7 @@ typedef NSString *BharatMapsTileSourceOption NS_STRING_ENUM;
  option is 0.
 
  This option corresponds to the `minzoom` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionMinimumZoomLevel;
@@ -36,7 +36,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  option is 22.
 
  This option corresponds to the `maxzoom` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionMaximumZoomLevel;
@@ -50,7 +50,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  to cover the viewport, as it does by default.
 
  This option corresponds to the `bounds` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionCoordinateBounds;
@@ -66,7 +66,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  ignored.
 
  This option corresponds to the `attribution` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionAttributionHTMLString;
@@ -89,7 +89,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  ignored.
 
  This option corresponds to the `attribution` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionAttributionHTMLString;
@@ -112,7 +112,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  The default value for this option is ``BharatMapsTileCoordinateSystem/BharatMapsTileCoordinateSystemXYZ``.
 
  This option corresponds to the `scheme` key in the
- <a href="https://github.com/mapbox/tilejson-spec/tree/master/2.1.0">TileJSON</a>
+ TileJSON
  specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsTileSourceOptionTileCoordinateSystem;
@@ -126,7 +126,7 @@ typedef NS_ENUM(NSUInteger, BharatMapsTileCoordinateSystem) {
    The origin is at the top-left (northwest), and `y` values increase
    southwards.
 
-   This tile coordinate system is used by Mapbox and OpenStreetMap tile
+   This tile coordinate system is used by Bharat Maps and OpenStreetMap tile
    servers.
    */
   BharatMapsTileCoordinateSystemXYZ = 0,
@@ -146,14 +146,13 @@ typedef NS_ENUM(NSUInteger, BharatMapsTileCoordinateSystem) {
  ``BharatMapsTileSource`` is a map content source that supplies map tiles to be shown on
  the map. The location of and metadata about the tiles are defined either by an
  option dictionary or by an external file that conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
  A tile source is added to an ``BharatMapsStyle`` object along with one or more
  ``BharatMapsRasterStyleLayer`` or ``BharatMapsRasterStyleLayer`` objects. Use a style layer to
  control the appearance of content supplied by the tile source.
 
- A tile source is also known as a tile set. To learn about the structure of a
- Mapbox-hosted tile set, view it in
- <a href="https://www.mapbox.com/studio/tilesets/">Mapbox Studio’s Tilesets editor</a>.
+ A tile source is also known as a tile set. Its TileJSON metadata describes the
+ available tiles and their coordinate range.
 
  Create instances of ``BharatMapsRasterTileSource`` and ``BharatMapsRasterTileSource`` in order
  to use ``BharatMapsTileSource``'s properties and methods. Do not create instances of

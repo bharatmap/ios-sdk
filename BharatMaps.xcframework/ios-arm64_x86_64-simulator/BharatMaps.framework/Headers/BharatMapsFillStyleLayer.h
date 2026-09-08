@@ -42,12 +42,10 @@ typedef NS_ENUM(NSUInteger, BharatMapsFillTranslationAnchor) {
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/select-layer/">Select a feature
- within a layer</a> example to learn how to use a `TERNARY` expression to modify
- the `fillOpacity` of an ``BharatMapsFillStyleLayer`` object. See the <a
- href="https://docs.mapbox.com/ios/maps/examples/fill-pattern/">Add a pattern to
- a polygon</a> example to learn how to use an image to add pattern to the
+ See the Select a feature
+ within a layer example to learn how to use a `TERNARY` expression to modify
+ the `fillOpacity` of an ``BharatMapsFillStyleLayer`` object. See the Add a pattern to
+ a polygon example to learn how to use an image to add pattern to the
  features styled by a ``BharatMapsFillStyleLayer``.
 
  ### Example
@@ -98,9 +96,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to `YES`.
  Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-fill-antialias"><code>fill-antialias</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>fill-antialias</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -272,9 +269,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points downward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-fill-translate"><code>fill-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>fill-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -298,9 +294,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points upward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-fill-translate"><code>fill-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>fill-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -334,9 +329,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `fillTranslation` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-fill-translate-anchor"><code>fill-translate-anchor</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>fill-translate-anchor</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  

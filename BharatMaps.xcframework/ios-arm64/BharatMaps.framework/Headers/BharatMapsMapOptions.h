@@ -20,7 +20,7 @@ BharatMaps_EXPORT
 
 /**
  JSON string of the map style to display. The JSON must conform to the
- <a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Specification</a>.
+ style specification.
  Specify `nil` for the default style.
  Ignored if `styleURL` is set to a non-nil value.
  */

@@ -34,12 +34,11 @@ typedef NS_ENUM(NSUInteger, BharatMapsRasterResamplingMode) {
  Use a raster style layer to configure the color parameters of raster tiles
  loaded by an ``BharatMapsRasterStyleLayer`` object or raster images loaded by
  an ``BharatMapsRasterStyleLayer`` object. For example, you could use a raster
- style layer to render <a href="https://www.mapbox.com/satellite/">Mapbox
- Satellite</a> imagery, a <a
- href="https://docs.mapbox.com/help/glossary/tileset/#raster-tilesets">raster
- tile set</a> uploaded to Mapbox Studio, or a raster map authored in <a
+ style layer to render Bharat Maps
+ Satellite imagery, a raster
+ tile set uploaded to Bharat Maps Studio, or a raster map authored in <a
  href="https://tilemill-project.github.io/tilemill/">TileMill</a>, the classic
- Mapbox Editor, or Mapbox Studio Classic.
+ Bharat Maps Editor, or Bharat Maps Studio Classic.
  
  Raster images may also be used as icons or patterns in a style layer. To
  register an image for use as an icon or pattern, use the
@@ -53,10 +52,9 @@ typedef NS_ENUM(NSUInteger, BharatMapsRasterResamplingMode) {
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a href="https://docs.mapbox.com/ios/maps/examples/image-source/">Add
- an image</a> and <a
- href="https://docs.mapbox.com/ios/maps/examples/source-custom-raster/">Add
- raster imagery</a> examples to learn how to add imagery with this style layer.
+ See the Add
+ an image and Add
+ raster imagery examples to learn how to add imagery with this style layer.
 
  ### Example
 
@@ -90,9 +88,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to the float
  `1`. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-raster-brightness-max"><code>raster-brightness-max</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>raster-brightness-max</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -123,9 +120,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to the float
  `0`. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-raster-brightness-min"><code>raster-brightness-min</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>raster-brightness-min</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -205,9 +201,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to the float
  `0`. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-raster-hue-rotate"><code>raster-hue-rotate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>raster-hue-rotate</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -264,9 +259,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to `linear`.
  Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-raster-resampling"><code>raster-resampling</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>raster-resampling</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  

@@ -149,11 +149,11 @@ FOUNDATION_EXTERN BharatMaps_EXPORT BharatMapsExceptionName const BharatMapsUser
  viewpoints, and present information in the form of annotations and overlays.
 
  The map view loads scalable vector tiles that conform to the
- <a href="https://github.com/mapbox/vector-tile-spec">Mapbox Vector Tile Specification</a>.
+ MVT vector tile specification.
  It styles them with a style that conforms to the
- <a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Spec</a>.
+ style specification.
  Such styles can be designed with
- <a href="https://maplibre.org/maputnik/">Maputnik</a>.
+ Maputnik.
 
 
  Because ``BharatMapsMapView`` loads asynchronously, several delegate methods are available
@@ -336,7 +336,7 @@ BharatMaps_EXPORT
 @property (nonatomic, assign) CGPoint compassViewMargins;
 
 /**
- A Boolean value indicating whether the map may display MapLibre logo.
+ A Boolean value indicating whether the map may display Bharat Maps logo.
 
  The view controlled by this property is available at `logoView`. The default value
  of this property is `YES`.
@@ -344,7 +344,7 @@ BharatMaps_EXPORT
 @property (nonatomic, assign) BOOL showsLogoView;
 
 /**
- A logo, the MapLibre logo by default, positioned in the lower-left corner.
+ A logo, the Bharat Maps logo by default, positioned in the lower-left corner.
  You are not required to display this, but some vector-sources may require attribution.
  */
 @property (nonatomic, readonly) UIImageView *logoView;
@@ -2061,8 +2061,7 @@ of north, the map will automatically snap to exact north.
  which are unsupported by this SDK.
 
  The returned features are drawn by a style layer in the current style. For
- example, suppose the current style uses the
- <a href="https://www.mapbox.com/vector-tiles/mapbox-streets/">Mapbox Streets source</a>,
+ example, suppose the current style uses a vector tile source,
  but none of the specified style layers includes features that have the `maki`
  property set to `bus`. If you pass a point corresponding to the location of a
  bus stop into this method, the bus stop feature does not appear in the
@@ -2086,7 +2085,7 @@ of north, the map will automatically snap to exact north.
  point, even if the road extends into other tiles.
 
  To find out the layer names in a particular style, view the style in
- <a href="https://maplibre.org/maputnik">Maputnik</a>.
+ Maputnik.
 
  Only visible features are returned. To obtain features regardless of
  visibility, use the
@@ -2188,7 +2187,7 @@ of north, the map will automatically snap to exact north.
  the road within each map tile is included individually.
 
  To find out the layer names in a particular style, view the style in
- <a href="https://maplibre.org/maputnik">Maputnik</a>.
+ Maputnik.
 
  Only visible features are returned. To obtain features regardless of
  visibility, use the

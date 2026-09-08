@@ -1,3 +1,2 @@
 /* Inform developer an update is available */
-"UPDATE_AVAILABLE" = "Доступна версия Mapbox Navigation SDK %@ для iOS.";
-
+"UPDATE_AVAILABLE" = "Доступна версия Bharat Maps Navigation SDK %@ для iOS.";

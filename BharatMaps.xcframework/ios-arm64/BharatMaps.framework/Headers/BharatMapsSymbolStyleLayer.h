@@ -405,11 +405,9 @@ typedef NS_ENUM(NSUInteger, BharatMapsTextTranslationAnchor) {
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/runtime-multiple-annotations/">Dynamically
- style interactive points</a> and <a
- href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
- images to cluster point data</a> examples learn how to style data on your map
+ See the Dynamically
+ style interactive points and Use
+ images to cluster point data examples learn how to style data on your map
  using this layer.
 
  ### Example
@@ -447,9 +445,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`, and
  `iconOverlap` is set to `nil`. Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-allow-overlap"><code>icon-allow-overlap</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-allow-overlap</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -511,9 +508,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-ignore-placement"><code>icon-ignore-placement</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-ignore-placement</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -543,9 +539,8 @@ BharatMaps_EXPORT
  Tokens inside non-constant expressions are ignored; instead, use `mgl_join:`
  and key path expressions.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-image"><code>icon-image</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-image</code> property in the style
+ specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -557,9 +552,8 @@ BharatMaps_EXPORT
  feature attributes
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
- images to cluster point data</a> example to learn how to dynamically set your
+ See the Use
+ images to cluster point data example to learn how to dynamically set your
  icons with an expression.
  */
 @property (nonatomic, null_resettable) NSExpression *iconImageName;
@@ -723,9 +717,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-rotate"><code>icon-rotate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-rotate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -787,9 +780,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-size"><code>icon-size</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-size</code> property in the style
+ specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -905,9 +897,8 @@ BharatMaps_EXPORT
  `BharatMapsSymbolPlacementLine` or `BharatMapsSymbolPlacementLineCenter`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-icon-keep-upright"><code>icon-keep-upright</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-keep-upright</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -939,9 +930,8 @@ BharatMaps_EXPORT
  `BharatMapsSymbolPlacementLine` or `BharatMapsSymbolPlacementLineCenter`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-keep-upright"><code>text-keep-upright</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-keep-upright</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -973,9 +963,8 @@ BharatMaps_EXPORT
  `BharatMapsSymbolPlacementLine` or `BharatMapsSymbolPlacementLineCenter`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-max-angle"><code>text-max-angle</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-max-angle</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1004,9 +993,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-max-width"><code>text-max-width</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-max-width</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1037,9 +1025,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to `NO`. Set
  this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-symbol-avoid-edges"><code>symbol-avoid-edges</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>symbol-avoid-edges</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1192,9 +1179,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to the empty
  string. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-field"><code>text-field</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-field</code> property in the style
+ specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1207,10 +1193,9 @@ BharatMaps_EXPORT
  feature attributes
 
  #### Related examples
- See the <a href="https://docs.mapbox.com/ios/maps/examples/clustering/">Cluster
- point data</a> and <a
- href="https://docs.mapbox.com/ios/maps/examples/clustering-with-images/">Use
- images to cluster point data</a> to learn how to use an expression to set this
+ See the Cluster
+ point data and Use
+ images to cluster point data to learn how to use an expression to set this
  attribute to the number of markers within a cluster.
  */
 @property (nonatomic, null_resettable) NSExpression *text;
@@ -1228,9 +1213,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-allow-overlap"><code>text-allow-overlap</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-allow-overlap</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1300,9 +1284,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-font"><code>text-font</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-font</code> property in the style
+ specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1329,9 +1312,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-size"><code>text-size</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-size</code> property in the style
+ specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1356,9 +1338,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-ignore-placement"><code>text-ignore-placement</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-ignore-placement</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1386,9 +1367,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-justify"><code>text-justify</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-justify</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1614,9 +1594,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-rotate"><code>text-rotate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-rotate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -1829,9 +1808,8 @@ BharatMaps_EXPORT
  `symbolPlacement` is set to an expression that evaluates to or
  `BharatMapsSymbolPlacementPoint`. Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#layout-symbol-text-writing-mode"><code>text-writing-mode</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-writing-mode</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2065,9 +2043,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-icon-translate"><code>icon-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2094,9 +2071,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-icon-translate"><code>icon-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2130,9 +2106,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `iconImageName` is non-`nil`, and
  `iconTranslation` is non-`nil`. Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-icon-translate-anchor"><code>icon-translate-anchor</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>icon-translate-anchor</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2354,9 +2329,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-text-translate"><code>text-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2383,9 +2357,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`. Otherwise,
  it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-text-translate"><code>text-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -2419,9 +2392,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `text` is non-`nil`, and
  `textTranslation` is non-`nil`. Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-text-translate-anchor"><code>text-translate-anchor</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>text-translate-anchor</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  

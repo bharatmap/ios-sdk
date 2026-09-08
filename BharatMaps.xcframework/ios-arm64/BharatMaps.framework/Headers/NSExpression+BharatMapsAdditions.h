@@ -17,9 +17,8 @@ typedef NSString *BharatMapsExpressionInterpolationMode NS_TYPED_ENUM;
  An `NSString` identifying the `linear` interpolation type in an `NSExpression`.
 
  This attribute corresponds to the `linear` value in the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#interpolate"><code>interpolate</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>interpolate</code>
+ expression operator in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
     BharatMapsExpressionInterpolationModeLinear;
@@ -28,9 +27,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
  An `NSString` identifying the `expotential` interpolation type in an `NSExpression`.
 
  This attribute corresponds to the `exponential` value in the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#interpolate"><code>interpolate</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>interpolate</code>
+ expression operator in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
     BharatMapsExpressionInterpolationModeExponential;
@@ -39,17 +37,16 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
  An `NSString` identifying the `cubic-bezier` interpolation type in an `NSExpression`.
 
  This attribute corresponds to the `cubic-bezier` value in the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#interpolate"><code>interpolate</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>interpolate</code>
+ expression operator in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
     BharatMapsExpressionInterpolationModeCubicBezier;
 
 /**
- Methods for creating expressions that use Mapbox-specific functionality and for
+ Methods for creating expressions that use Bharat Maps-specific functionality and for
  converting to and from the JSON format defined in the
- <a href="https://maplibre.org/maplibre-style-spec/expressions/">MapLibre Style Spec</a>.
+ style specification.
  */
 @interface NSExpression (BharatMapsAdditions)
 
@@ -57,54 +54,50 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
 
 /**
  `NSExpression` variable that corresponds to the
- <a href="https://maplibre.org/maplibre-style-spec/expressions/#zoom"><code>zoom</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>zoom</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *zoomLevelVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#heatmap-density"><code>heatmap-density</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>heatmap-density</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *heatmapDensityVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#line-progress"><code>line-progress</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>line-progress</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *lineProgressVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#geometry-type"><code>geometry-type</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>geometry-type</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *geometryTypeVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a href="https://maplibre.org/maplibre-style-spec/expressions/#id"><code>id</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>id</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *featureIdentifierVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/#accumulated"><code>id</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>id</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *featureAccumulatedVariableExpression;
 
 /**
  `NSExpression` variable that corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/expressions/#properties"><code>properties</code></a>
- expression operator in the MapLibre Style Spec.
+ <code>properties</code>
+ expression operator in the style specification.
  */
 @property (class, nonatomic, readonly) NSExpression *featureAttributesVariableExpression;
 
@@ -214,7 +207,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
  from JSON data.
 
  The Foundation object is interpreted according to the
- [MapLibre Style Spec](https://maplibre.org/maplibre-style-spec/expressions/).
+ style specification.
  See the
  “[Information for Style Authors](../for-style-authors.html#setting-attribute-values)”
  guide for a correspondence of operators and types between the style
@@ -231,7 +224,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
  An equivalent Foundation object that can be serialized as JSON.
 
  The Foundation object conforms to the
- [MapLibre Style Spec](https://maplibre.org/maplibre-style-spec/expressions/).
+ style specification.
  See the
  “[Information for Style Authors](../for-style-authors.html#setting-attribute-values)”
  guide for a correspondence of operators and types between the style
@@ -248,9 +241,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsExpressionInterpolationMode
  Returns a copy of the receiver localized into the given locale.
 
  This method assumes the receiver refers to the feature attributes that are
- available in vector tiles supplied by the
- <a href="https://www.mapbox.com/vector-tiles/mapbox-streets-v8/#overview">Mapbox Streets
- source</a>. On iOS, the user can set the system’s preferred language in Settings, General Settings,
+ available in supported streets vector tile sources. On iOS, the user can set the system’s preferred language in Settings, General Settings,
  Language & Region. On macOS, the user can set the system’s preferred language in the Language &
  Region pane of System Preferences.
 

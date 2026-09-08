@@ -36,9 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/heatmap-example/">Create a
- heatmap layer</a> example to learn how to add this style layer to your map.
+ See the Create a
+ heatmap layer example to learn how to add this style layer to your map.
 
  ### Example
 

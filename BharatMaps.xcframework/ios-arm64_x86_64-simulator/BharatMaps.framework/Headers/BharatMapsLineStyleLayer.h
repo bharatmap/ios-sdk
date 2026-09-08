@@ -92,12 +92,10 @@ typedef NS_ENUM(NSUInteger, BharatMapsLineTranslationAnchor) {
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/shape-collection/">Add multiple
- shapes from a single shape source</a> example to learn how to add a line to
- your map using this style layer. See the <a
- href="https://docs.mapbox.com/ios/maps/examples/runtime-add-line/">Add a line
- style layer from GeoJSON</a> example to learn how to add and style line data to
+ See the Add multiple
+ shapes from a single shape source example to learn how to add a line to
+ your map using this style layer. See the Add a line
+ style layer from GeoJSON example to learn how to add and style line data to
  an ``BharatMapsMapView`` object at runtime.
 
  ### Example
@@ -329,9 +327,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `linePattern` is set to `nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-line-dasharray"><code>line-dasharray</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>line-dasharray</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -514,9 +511,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points downward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-line-translate"><code>line-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>line-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -540,9 +536,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points upward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-line-translate"><code>line-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>line-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -576,9 +571,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `lineTranslation` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-line-translate-anchor"><code>line-translate-anchor</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>line-translate-anchor</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  

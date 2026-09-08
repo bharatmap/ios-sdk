@@ -20,9 +20,8 @@ typedef NSString *BharatMapsShapeSourceOption NS_STRING_ENUM;
  `YES` clusters the points by radius into groups. The default value is `NO`.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-cluster"><code>cluster</code></a>
- source property in the MapLibre Style Spec.
+ <code>cluster</code>
+ source property in the style specification.
 
  This option only affects point features within an ``BharatMapsShapeSource`` object; it
  is ignored when creating an ``BharatMapsComputedShapeSource`` object.
@@ -78,9 +77,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  ```
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-clusterProperties"><code>clusterProperties</code></a>
- source property in the MapLibre Style Spec.
+ <code>clusterProperties</code>
+ source property in the style specification.
 
  This option only affects point features within an ``BharatMapsShapeSource`` object; it
  is ignored when creating an ``BharatMapsComputedShapeSource`` object.
@@ -93,9 +91,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  maximum zoom level, the shapes are not clustered.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-clusterMaxZoom"><code>clusterMaxZoom</code></a>
- source property in the MapLibre Style Spec.
+ <code>clusterMaxZoom</code>
+ source property in the style specification.
 
  This option only affects point features within an ``BharatMapsShapeSource`` object; it
  is ignored when creating an ``BharatMapsComputedShapeSource`` object.
@@ -108,9 +105,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption
  which to create vector tiles. The default value is 0.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-minzoom"><code>minzoom</code></a>
- source property in the MapLibre Style Spec.
+ <code>minzoom</code>
+ source property in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMapsShapeSourceOptionMinimumZoomLevel;
 
@@ -120,9 +116,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  zoom levels. The default value is 18.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-maxzoom"><code>maxzoom</code></a>
- source property in the MapLibre Style Spec.
+ <code>maxzoom</code>
+ source property in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMapsShapeSourceOptionMaximumZoomLevel;
 
@@ -133,8 +128,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  artifacts near tile edges and slower performance. The default value is 128.
 
  This option corresponds to the
- <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson-buffer"><code>buffer</code></a>
- source property in the MapLibre Style Spec.
+ <code>buffer</code>
+ source property in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMapsShapeSourceOptionBuffer;
 
@@ -144,9 +139,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  improves performance. The default value is 0.375.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/#sources-geojson-tolerance"><code>tolerance</code></a>
- source property in the MapLibre Style Spec.
+ <code>tolerance</code>
+ source property in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMapsShapeSourceOptionSimplificationTolerance;
 
@@ -157,9 +151,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  intended effect. The default value is `NO`.
 
  This option corresponds to the
- <a
- href="https://maplibre.org/maplibre-style-spec/sources/#geojson-lineMetrics"><code>lineMetrics</code></a>
- source property in the MapLibre Style Spec.
+ <code>lineMetrics</code>
+ source property in the style specification.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMapsShapeSourceOptionLineDistanceMetrics;
 
@@ -183,7 +176,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsShapeSourceOption BharatMaps
  use the ``BharatMapsComputedShapeSource`` or ``BharatMapsComputedShapeSource`` class.
 
  Each
- <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson"><code>geojson</code></a>
+ <code>geojson</code>
  source defined by the style JSON file is represented at runtime by an
  ``BharatMapsShapeSource`` object that you can use to refine the map’s content and
  initialize new style layers. You can also add and remove sources dynamically

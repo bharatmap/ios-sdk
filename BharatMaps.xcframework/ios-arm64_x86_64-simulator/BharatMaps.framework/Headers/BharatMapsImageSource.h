@@ -24,7 +24,7 @@ BharatMaps_EXPORT
  appearance of content supplied by the image source.
 
  Each
- <a href="https://maplibre.org/maplibre-style-spec/#sources-image"><code>image</code></a>
+ <code>image</code>
  source defined by the style JSON file is represented at runtime by an
  ``BharatMapsImageSource`` object that you can use to initialize new style layers. You
  can also add and remove sources dynamically using methods such as
@@ -39,7 +39,7 @@ BharatMaps_EXPORT
    bottomRight: CLLocationCoordinate2D(latitude: 37.936, longitude: -71.516),
    topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
  let source = BharatMapsImageSource(identifier: "radar", coordinateQuad: coordinates, url: URL(string:
- "https://maplibre.org/maplibre-gl-js-docs/assets/radar.gif")!) mapView.style?.addSource(source)
+ "https://portal.bharat-maps.com")!) mapView.style?.addSource(source)
  ```
 
  #### Related examples

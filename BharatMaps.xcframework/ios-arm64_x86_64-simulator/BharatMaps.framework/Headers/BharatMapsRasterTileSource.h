@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
  integers.
 
  The default value for this option is 512. Version 4 of the
- <a href="https://docs.mapbox.com/api/maps/#raster-tiles">Mapbox Raster Tiles API</a>
+ Bharat Maps Raster Tiles API
  requires a value of 256, as do many third-party tile servers, so consult your
  provider’s documentation for the correct value.
 
@@ -27,13 +27,13 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
  to be shown on the map. The location of and metadata about the tiles are
  defined either by an option dictionary or by an external file that conforms to
  the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
  A raster tile source is added to an ``BharatMapsStyle`` object along with one or more
  ``BharatMapsRasterStyleLayer`` objects. Use a raster style layer to control the
  appearance of content supplied by the raster tile source.
 
  Each
- <a href="https://maplibre.org/maplibre-style-spec/#sources-raster"><code>raster</code></a>
+ <code>raster</code>
  source defined by the style JSON file is represented at runtime by an
  ``BharatMapsRasterTileSource`` object that you can use to initialize new style layers. You
  can also add and remove sources dynamically using methods such as
@@ -47,8 +47,8 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
      .maximumZoomLevel: 16,
      .tileSize: 512,
      .attributionInfos: [
-         BharatMapsAttributionInfo(title: NSAttributedString(string: "© Mapbox"), url: URL(string:
- "https://mapbox.com"))
+         BharatMapsAttributionInfo(title: NSAttributedString(string: "© Bharat Maps"), url: URL(string:
+ "https://portal.bharat-maps.com"))
      ]
  ])
  mapView.style?.addSource(source)
@@ -72,9 +72,9 @@ BharatMaps_EXPORT
 
  The URL may be a full HTTP or HTTPS URL or canonical URL. The URL should
  point to a JSON file that conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
 
- If a Mapbox URL is specified, this source uses a tile size of 256. For all
+ If a Bharat Maps URL is specified, this source uses a tile size of 256. For all
  other tilesets, the default value is 512. (See the
  ``BharatMapsTileSourceOptionTileSize`` documentation for more information about tile
  sizes.) If you need to use a tile size other than the default, use the
@@ -98,7 +98,7 @@ BharatMaps_EXPORT
 
  The URL may be a full HTTP or HTTPS URL or, canonical URL. The URL should
  point to a JSON file that conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
 
  @param identifier A string that uniquely identifies the source in the style to
     which it is added.

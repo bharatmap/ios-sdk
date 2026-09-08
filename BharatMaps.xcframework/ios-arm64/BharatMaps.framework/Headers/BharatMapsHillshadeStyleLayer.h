@@ -30,12 +30,10 @@ typedef NS_ENUM(NSUInteger, BharatMapsHillshadeIlluminationAnchor) {
  
  Use a hillshade style layer to configure the color parameters of raster tiles
  loaded by an ``BharatMapsHillshadeStyleLayer`` object. For example, you could
- use a hillshade style layer to render <a
- href="https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb">Mapbox
- Terrain-RGB</a> data.
+ use a hillshade style layer to render Bharat Maps
+ Terrain-RGB data.
  
- To display posterized hillshading based on vector shapes, as with the <a
- href="https://www.mapbox.com/vector-tiles/mapbox-terrain/">Mapbox Terrain</a>
+ To display posterized hillshading based on vector shapes, as with the Bharat Maps Terrain
  source, use an ``BharatMapsHillshadeStyleLayer`` object in conjunction with
  several ``BharatMapsHillshadeStyleLayer`` objects.
 

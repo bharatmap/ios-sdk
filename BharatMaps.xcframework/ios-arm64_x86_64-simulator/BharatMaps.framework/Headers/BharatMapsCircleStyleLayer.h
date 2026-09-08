@@ -81,13 +81,10 @@ typedef NS_ENUM(NSUInteger, BharatMapsCircleTranslationAnchor) {
  ``BharatMapsStyle/addLayer:``.
 
  #### Related examples
- See the <a
- href="https://docs.mapbox.com/ios/maps/examples/dds-circle-layer/">Data-driven
- circles</a>, <a
- href="https://docs.mapbox.com/ios/maps/examples/shape-collection/">Add multiple
- shapes from a single shape source</a>, and <a
- href="https://docs.mapbox.com/ios/maps/examples/clustering/">Cluster point
- data</a> examples to learn how to add circles to your map using this style
+ See the Data-driven
+ circles, Add multiple
+ shapes from a single shape source, and Cluster point
+ data examples to learn how to add circles to your map using this style
  layer.
 
  ### Example
@@ -281,9 +278,8 @@ BharatMaps_EXPORT
  The default value of this property is an expression that evaluates to `map`.
  Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-circle-pitch-scale"><code>circle-pitch-scale</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>circle-pitch-scale</code> property in
+ the style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -411,9 +407,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points downward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-circle-translate"><code>circle-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>circle-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -437,9 +432,8 @@ BharatMaps_EXPORT
  `NSValue` object containing a `CGVector` struct set to 0 points rightward and 0
  points upward. Set this property to `nil` to reset it to the default value.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-circle-translate"><code>circle-translate</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>circle-translate</code> property in the
+ style specification.
  
  You can set this property to an expression containing any of the following:
  
@@ -473,9 +467,8 @@ BharatMaps_EXPORT
  This property is only applied to the style if `circleTranslation` is non-`nil`.
  Otherwise, it is ignored.
  
- This attribute corresponds to the <a
- href="https://maplibre.org/maplibre-style-spec/#paint-circle-translate-anchor"><code>circle-translate-anchor</code></a>
- layout property in the MapLibre Style Spec.
+ This attribute corresponds to the <code>circle-translate-anchor</code> property
+ in the style specification.
  
  You can set this property to an expression containing any of the following:
  

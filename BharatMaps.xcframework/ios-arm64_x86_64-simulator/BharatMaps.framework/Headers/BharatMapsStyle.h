@@ -24,7 +24,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT BharatMapsExceptionName const BharatMapsRedu
  The proxy object for the current map style.
 
  BharatMapsStyle provides a set of convenience methods for changing default styles included
- with MapLibre.
+ with Bharat Maps.
 
  It is also possible to directly manipulate the current map style
  via ``BharatMapsMapView/style`` by updating the style's data sources or layers.
@@ -66,7 +66,7 @@ BharatMaps_EXPORT
 /**
  The name of the style.
 
- You can customize the style’s name in Mapbox Studio.
+ You can customize the style's name in its JSON document.
  */
 @property (readonly, copy, nullable) NSString *name;
 
@@ -78,7 +78,7 @@ BharatMaps_EXPORT
  * on ``BharatMapsMapViewDelegate``.
  *
  * The JSON must conform to the
- * <a href="https://maplibre.org/maplibre-style-spec/">MapLibre Style Specification</a>.
+ * style specification.
  *
  * @throws NSInvalidArgumentException if styleJSON is nil or invalid JSON
  */
@@ -289,9 +289,7 @@ BharatMaps_EXPORT
  Attempts to localize labels in the style into the given locale.
 
  This method automatically modifies the text property of any symbol style layer
- in the style whose source is the
- <a href="https://www.mapbox.com/vector-tiles/mapbox-streets-v8/#overview">Mapbox Streets
- source</a>. On iOS, the user can set the system’s preferred language in Settings, General Settings,
+ in the style whose source uses a supported streets schema. On iOS, the user can set the system’s preferred language in Settings, General Settings,
  Language & Region. On macOS, the user can set the system’s preferred language in the Language &
  Region pane of System Preferences.
 

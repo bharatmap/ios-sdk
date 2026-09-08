@@ -77,9 +77,9 @@ FOUNDATION_EXTERN BharatMaps_EXPORT BharatMapsExceptionName const BharatMapsInva
  ``BharatMapsComputedShapeSource`` is similar to ``BharatMapsComputedShapeSource`` but is optimized for
  data sets that change dynamically or are too large to fit completely in memory.
  It is also useful for data that is divided into tiles in a format other than
- <a href="https://www.mapbox.com/vector-tiles/">Mapbox Vector Tiles</a>. For
+ MVT vector tiles. For
  <a href="http://geojson.org/">GeoJSON</a> data, use the ``BharatMapsShapeSource`` class.
- For static tiles or Mapbox Vector Tiles, use the ``BharatMapsVectorTileSource`` class.
+ For static tiles or MVT vector tiles, use the ``BharatMapsVectorTileSource`` class.
 
  You can add and remove sources dynamically using methods such as
  ``BharatMapsStyle/addSource:`` and ``BharatMapsStyle/sourceWithIdentifier:``. This class
@@ -92,8 +92,8 @@ BharatMaps_EXPORT
 /**
  Returns a custom shape data source initialized with an identifier, and a
  dictionary of options for the source according to the
- <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson">style
- specification</a>.
+ style
+ specification.
 
  This class supports the following options:
  ``BharatMapsShapeSourceOptionMinimumZoomLevel``, ``BharatMapsShapeSourceOptionMinimumZoomLevel``,
@@ -113,8 +113,8 @@ BharatMaps_EXPORT
 /**
  Returns a custom shape data source initialized with an identifier, data source, and a
  dictionary of options for the source according to the
- <a href="https://maplibre.org/maplibre-style-spec/#sources-geojson">style
- specification</a>.
+ style
+ specification.
 
  This class supports the following options:
  ``BharatMapsShapeSourceOptionMinimumZoomLevel``, ``BharatMapsShapeSourceOptionMinimumZoomLevel``,

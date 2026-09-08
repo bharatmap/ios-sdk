@@ -59,7 +59,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const NSNotificationName BharatMapsOfflinePa
  calling the ``BharatMapsOfflineStorage/removePack:withCompletionHandler:`` method.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const NSNotificationName
-    BharatMapsOfflinePackMaximumMapboxTilesReachedNotification;
+    BharatMapsOfflinePackMaximumTilesReachedNotification;
 
 /**
  A key in the `userInfo` property of a notification posted by ``BharatMapsOfflinePack``.
@@ -95,7 +95,7 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsOfflinePackUserInfoKey Bhara
  The key for an `NSNumber` object that indicates the maximum number of
   tiles that may be downloaded and stored on the current device.
  This key is used in the `userInfo` dictionary of an
- ``BharatMapsOfflinePackMaximumMapboxTilesReachedNotification`` notification. Call
+ ``BharatMapsOfflinePackMaximumTilesReachedNotification`` notification. Call
  `-unsignedLongLongValue` on the object to receive the `uint64_t`-typed tile
  limit.
  */
@@ -161,19 +161,19 @@ typedef NS_ENUM(NSUInteger, BharatMapsResourceKind) {
   BharatMapsResourceKindUnknown,
   /** Style sheet JSON file */
   BharatMapsResourceKindStyle,
-  /** TileJSON file as specified in https://maplibre.org/maplibre-style-spec/root/#sources */
+  /** TileJSON file as specified in https://portal.bharat-maps.com */
   BharatMapsResourceKindSource,
   /** A vector or raster tile as described in the style sheet at
-      https://maplibre.org/maplibre-style-spec/sources/ */
+      https://portal.bharat-maps.com */
   BharatMapsResourceKindTile,
   /** Signed distance field glyphs for text rendering. These are the URLs specified in the style
-      in https://maplibre.org/maplibre-style-spec/root/#glyphs */
+      in https://portal.bharat-maps.com */
   BharatMapsResourceKindGlyphs,
   /** Image part of a sprite sheet. It is constructed of the prefix in
-      https://maplibre.org/maplibre-style-spec/root/#sprite and a PNG file extension. */
+      https://portal.bharat-maps.com and a PNG file extension. */
   BharatMapsResourceKindSpriteImage,
   /** JSON part of a sprite sheet. It is constructed of the prefix in
-      https://maplibre.org/maplibre-style-spec/root/#sprite and a JSON file extension. */
+      https://portal.bharat-maps.com and a JSON file extension. */
   BharatMapsResourceKindSpriteJSON,
   /** Image data for a georeferenced image source. **/
   BharatMapsResourceKindImage,
@@ -185,10 +185,7 @@ typedef NS_ENUM(NSUInteger, BharatMapsResourceKind) {
  reflecting the fact that offline resources are stored in a database. The shared
  object maintains a canonical collection of offline packs in its `packs` property.
 
- Mapbox resources downloaded via this API are subject to separate Vector Tile and
- Raster Tile API pricing and are not included in the Maps SDK’s “unlimited” requests.
- See <a href="https://www.mapbox.com/pricing/">our pricing page</a> for more
- information.
+ Offline resources remain subject to the data provider's usage terms.
 
  #### Related examples
  - <doc:OfflinePackExample>
@@ -375,13 +372,13 @@ BharatMaps_EXPORT
  stored on the current device.
 
  Once this limit is reached, an
- ``BharatMapsOfflinePackMaximumMapboxTilesReachedNotification`` is posted for every
+ ``BharatMapsOfflinePackMaximumTilesReachedNotification`` is posted for every
  attempt to download additional tiles until already downloaded tiles are removed
  by calling the ``BharatMapsOfflineStorage/removePack:withCompletionHandler:`` method.
 
  @param maximumCount The maximum number of tiles allowed to be downloaded.
  */
-- (void)setMaximumAllowedMapboxTiles:(uint64_t)maximumCount;
+- (void)setMaximumAllowedTiles:(uint64_t)maximumCount;
 
 /**
  The cumulative size, measured in bytes, of all downloaded resources on disk.

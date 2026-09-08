@@ -7,7 +7,7 @@
  formula for raster-dem tilesets. The integer corresponds to one of
  the constants described in ``BharatMapsDEMEncoding``.
 
- The default value for this option is ``BharatMapsDEMEncoding/BharatMapsDEMEncodingMapbox``.
+ The default value for this option is ``BharatMapsDEMEncoding/BharatMapsDEMEncodingTerrainRGB``.
 
  This option cannot be represented in a TileJSON or style JSON file. It is used
  with the ``BharatMapsRasterDEMSource`` class and is ignored when creating a
@@ -22,10 +22,10 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsT
 typedef NS_ENUM(NSUInteger, BharatMapsDEMEncoding) {
 
   /**
-     Raster tiles generated with the [Mapbox encoding
-     formula](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb)
+     Raster tiles generated with the Terrain RGB encoding
+     formula
   */
-  BharatMapsDEMEncodingMapbox = 0,
+  BharatMapsDEMEncodingTerrainRGB = 0,
 
   /**
    Raster tiles generated with the [Mapzen Terrarium encoding
@@ -40,22 +40,21 @@ typedef NS_ENUM(NSUInteger, BharatMapsDEMEncoding) {
  (DEM) tiles to be shown on the map. The location of and metadata about the
  tiles are defined either by an option dictionary or by an external file that
  conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
  A raster DEM source is added to an ``BharatMapsStyle`` object along with one or more
  ``BharatMapsHillshadeStyleLayer`` objects. Use a hillshade style layer to control the
  appearance of content supplied by the raster DEM source.
 
  Each
- <a href="https://maplibre.org/maplibre-style-spec/#sources-raster-dem"><code>raster-dem</code></a>
+ <code>raster-dem</code>
  source defined by the style JSON file is represented at runtime by an
  ``BharatMapsRasterDEMSource`` object that you can use to initialize new style layers.
  You can also add and remove sources dynamically using methods such as
  ``BharatMapsStyle/addSource:`` and ``BharatMapsStyle/sourceWithIdentifier:``.
 
  Currently, raster DEM sources only support the format used by
- <a
- href="https://docs.mapbox.com/help/troubleshooting/access-elevation-data/#mapbox-terrain-rgb">Mapbox
- Terrain-RGB</a>.
+ Bharat Maps
+ Terrain-RGB.
 
  ### Example
 

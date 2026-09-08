@@ -3,7 +3,7 @@
 #import "BharatMapsCameraChangeReason.h"
 #import "BharatMapsRenderingStats.h"
 #import "BharatMapsTileOperation.h"
-#import "Mapbox.h"
+#import "BharatMaps.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -8,7 +8,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Methods for round-tripping values for Mapbox-defined types.
+ Methods for round-tripping values for Bharat Maps-defined types.
  */
 @interface NSValue (BharatMapsAdditions)
 
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) CLLocationCoordinate2D BharatMapsCoordinateValue;
 
 /**
- Creates a new value object containing the specified Mapbox map point structure.
+ Creates a new value object containing the specified Bharat Maps map point structure.
 
  @param point The value for the new object.
  @return A new value object that contains the coordinate and zoom level information.
@@ -37,12 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)valueWithBharatMapsMapPoint:(BharatMapsMapPoint)point;
 
 /**
- The Mapbox map point structure representation of the value.
+ The Bharat Maps map point structure representation of the value.
  */
 @property (readonly) BharatMapsMapPoint BharatMapsMapPointValue;
 
 /**
- Creates a new value object containing the specified Mapbox coordinate span
+ Creates a new value object containing the specified Bharat Maps coordinate span
  structure.
 
  @param span The value for the new object.
@@ -51,12 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)valueWithBharatMapsCoordinateSpan:(BharatMapsCoordinateSpan)span;
 
 /**
- The Mapbox coordinate span structure representation of the value.
+ The Bharat Maps coordinate span structure representation of the value.
  */
 @property (readonly) BharatMapsCoordinateSpan BharatMapsCoordinateSpanValue;
 
 /**
- Creates a new value object containing the specified Mapbox coordinate bounds
+ Creates a new value object containing the specified Bharat Maps coordinate bounds
  structure.
 
  @param bounds The value for the new object.
@@ -65,12 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)valueWithBharatMapsCoordinateBounds:(BharatMapsCoordinateBounds)bounds;
 
 /**
- The Mapbox coordinate bounds structure representation of the value.
+ The Bharat Maps coordinate bounds structure representation of the value.
  */
 @property (readonly) BharatMapsCoordinateBounds BharatMapsCoordinateBoundsValue;
 
 /**
- Creates a new value object containing the specified Mapbox coordinate
+ Creates a new value object containing the specified Bharat Maps coordinate
  quad structure.
 
  @param quad The value for the new object.
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)valueWithBharatMapsCoordinateQuad:(BharatMapsCoordinateQuad)quad;
 
 /**
- The Mapbox coordinate quad structure representation of the value.
+ The Bharat Maps coordinate quad structure representation of the value.
  */
 - (BharatMapsCoordinateQuad)BharatMapsCoordinateQuadValue;
 

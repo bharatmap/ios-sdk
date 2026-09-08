@@ -85,7 +85,7 @@ BharatMaps_EXPORT
 // MARK: - Configuring the Map
 
 /**
- Whether to include the MapLibre logo. Note this is not required.
+ Whether to include the Bharat Maps logo. Note this is not required.
  */
 @property (nonatomic, readwrite) BOOL showsLogo;
 
@@ -212,10 +212,7 @@ typedef void (^BharatMapsMapSnapshotCompletionHandler)(BharatMapsMapSnapshot *_N
  ``BharatMapsOfflineStorage`` class.
 
  From a snapshot, you can obtain an image and convert geographic coordinates to
- the image’s coordinate space in order to superimpose markers and overlays. If
- you do not need offline map functionality, you can use the `Snapshot` class in
- [MapboxStatic.swift](https://github.com/mapbox/MapboxStatic.swift/) to generate
- static map images with overlays.
+ the image’s coordinate space in order to superimpose markers and overlays.
 
  ### Example
 

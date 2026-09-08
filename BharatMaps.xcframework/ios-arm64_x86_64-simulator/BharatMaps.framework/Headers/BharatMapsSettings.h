@@ -14,13 +14,13 @@ typedef NS_ENUM(NSUInteger, BharatMapsWellKnownTileServer) {
    */
   BharatMapsMapTiler,
   /**
-   MapLibre
+   Bharat Maps
    */
-  BharatMapsMapLibre,
+  BharatMapsDefaultTileServer,
   /**
-   Mapbox
+   Hosted provider tile service
    */
-  BharatMapsMapbox
+  BharatMapsHostedTileServer
 };
 
 /**

@@ -31,10 +31,10 @@ typedef NSString *BharatMapsExceptionName NS_TYPED_EXTENSIBLE_ENUM;
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT BharatMapsExceptionName const BharatMapsAbstractClassException;
 
-/** Indicates an error occurred in the Mapbox SDK. */
+/** Indicates an error occurred in the Bharat Maps SDK. */
 FOUNDATION_EXTERN BharatMaps_EXPORT NSErrorDomain const BharatMapsErrorDomain;
 
-/** Error constants for the Mapbox SDK. */
+/** Error constants for the Bharat Maps SDK. */
 typedef NS_ENUM(NSInteger, BharatMapsErrorCode) {
   /** An unknown error occurred. */
   BharatMapsErrorCodeUnknown = -1,

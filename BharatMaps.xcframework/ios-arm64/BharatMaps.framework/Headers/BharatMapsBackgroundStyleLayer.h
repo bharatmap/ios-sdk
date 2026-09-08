@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  An ``BharatMapsBackgroundStyleLayer`` is a style layer that covers the entire
  map. Use a background style layer to configure a color or pattern to show below
- all other map content. If the style’s other layers use the Mapbox Streets
+ all other map content. If the style’s other layers use the Bharat Maps Streets
  source, the background style layer is responsible for drawing land, whereas the
  oceans and other bodies of water are drawn by
  ``BharatMapsBackgroundStyleLayer`` objects.

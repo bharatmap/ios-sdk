@@ -10,7 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
  ``BharatMapsVectorTileSourceEncoding``.
 
  The default value for this option is
- ``BharatMapsVectorTileSourceEncoding/BharatMapsVectorTileSourceEncodingMapbox``.
+ ``BharatMapsVectorTileSourceEncoding/BharatMapsVectorTileSourceEncodingMVT``.
  */
 FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsVectorTileSourceOptionEncoding;
 
@@ -21,36 +21,35 @@ FOUNDATION_EXTERN BharatMaps_EXPORT const BharatMapsTileSourceOption BharatMapsV
 typedef NS_ENUM(NSUInteger, BharatMapsVectorTileSourceEncoding) {
 
   /**
-     Vector tiles in [MVT format](https://github.com/mapbox/vector-tile-spec).
+     Vector tiles in MVT format.
   */
-  BharatMapsVectorTileSourceEncodingMapbox = 0,
+  BharatMapsVectorTileSourceEncodingMVT = 0,
 
   /**
-   Vector tiles in [MLT format](https://github.com/maplibre/maplibre-tile-spec).
+   Vector tiles in MLT format.
   */
   BharatMapsVectorTileSourceEncodingMLT = 1,
 };
 
 /**
  ``BharatMapsVectorTileSource`` is a map content source that supplies tiled vector data
- in <a href="https://www.mapbox.com/vector-tiles/">Mapbox Vector Tile</a> format
+ in MVT vector tile format
  to be shown on the map. The location of and metadata about the tiles are
  defined either by an option dictionary or by an external file that conforms to
  the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
  A vector tile source is added to an ``BharatMapsStyle`` object along with one or more
  ``BharatMapsVectorStyleLayer`` objects. A vector style layer defines the appearance of
  any content supplied by the vector tile source.
 
  ``BharatMapsVectorTileSource`` is optimized for data sets that are too large to fit
- completely in memory, such as vector tile sets or data sets managed in
- <a href="https://www.mapbox.com/studio/">Mapbox Studio</a>. For
+ completely in memory, such as large vector tile sets. For
  <a href="http://geojson.org/">GeoJSON</a> data, use the ``BharatMapsShapeSource``
  class. For tiled data that changes dynamically, the ``BharatMapsComputedShapeSource``
  class may be a suitable alternative.
 
  Each
- <a href="https://maplibre.org/maplibre-style-spec/sources/#vector"><code>vector</code></a>
+ <code>vector</code>
  source defined by the style JSON file is represented at runtime by an
  ``BharatMapsVectorTileSource`` object that you can use to initialize new style layers.
  You can also add and remove sources dynamically using methods such as
@@ -62,11 +61,8 @@ typedef NS_ENUM(NSUInteger, BharatMapsVectorTileSourceEncoding) {
  layer initialized with a vector tile source must have a non-`nil` value in its
  `sourceLayerIdentifier` property.
 
- Commonly used vector tile sources include
- <a href="https://www.mapbox.com/vector-tiles/mapbox-streets/">Mapbox Streets</a>,
- <a href="https://www.mapbox.com/vector-tiles/mapbox-terrain/">Mapbox Terrain</a>,
- and
- <a href="https://www.mapbox.com/vector-tiles/mapbox-traffic-v1/">Mapbox Traffic</a>.
+ A vector tile source can supply road, terrain, or traffic features, depending on
+ the data available from its provider.
 
  ### Example
 
@@ -75,8 +71,8 @@ typedef NS_ENUM(NSUInteger, BharatMapsVectorTileSourceEncoding) {
  ["https://example.com/vector-tiles/{z}/{x}/{y}.mvt"], options: [ .minimumZoomLevel: 9,
      .maximumZoomLevel: 16,
      .attributionInfos: [
-         BharatMapsAttributionInfo(title: NSAttributedString(string: "© Mapbox"), url: URL(string:
- "https://mapbox.com"))
+         BharatMapsAttributionInfo(title: NSAttributedString(string: "© Bharat Maps"), url: URL(string:
+ "https://portal.bharat-maps.com"))
      ]
  ])
  mapView.style?.addSource(source)
@@ -100,7 +96,7 @@ BharatMaps_EXPORT
 
  The URL may be a full HTTP or HTTPS URL or a canonical
  URL. The URL should point to a JSON file that conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
 
  @param identifier A string that uniquely identifies the source in the style to
     which it is added.
@@ -120,7 +116,7 @@ BharatMaps_EXPORT
 
  The string may be a full HTTP or HTTPS URL or a canonical URL. The string should
  point to a JSON file that conforms to the
- <a href="https://github.com/mapbox/tilejson-spec/">TileJSON specification</a>.
+ TileJSON specification.
 
  This constructor can be used for URLs that cause problems with `NSURL`’s URL
  parsing behavior. For example, URLs starting with `pmtiles://https://` were
