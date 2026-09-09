@@ -843,8 +843,9 @@ of north, the map will automatically snap to exact north.
 @property (nonatomic, getter=isPitchEnabled) BOOL pitchEnabled;
 
 /**
- A Boolean value that determines whether gestures are anchored to the center coordinate of the map
- while rotating or zooming. Default value is set to NO.
+ A Boolean value that determines whether rotate and zoom gestures are anchored to the center of the
+ visible viewport. The viewport center accounts for ``contentInset``. This applies to pinch, quick zoom,
+ double-tap zoom in, and two-finger tap zoom out. The default value is `NO`.
  */
 @property (nonatomic) BOOL anchorRotateOrZoomGesturesToCenterCoordinate;
 
