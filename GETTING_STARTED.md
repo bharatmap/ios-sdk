@@ -78,6 +78,45 @@ bharatMapView.setMapStyle(.lightSimplified)
 bharatMapView.mapStyle = .dark
 ```
 
+All four variants load their JSON from the SDK bundle, including returning to
+`.light`. Switching style preserves the camera, map padding, user-location
+visibility and follow state. Reload the current style with:
+
+```swift
+bharatMapView.mapView.reloadStyle(nil)
+```
+
+Every variant includes the same application overlay definitions:
+
+| Source | Layers | Default data |
+| --- | --- | --- |
+| `u_pin` | `u_pin` | Bundled vector tile endpoint |
+| `dynamic` | `roadevents` | Empty GeoJSON placeholder |
+| `ads` | `ads` | Empty GeoJSON placeholder |
+| `static` | `slope`, `tolls`, `sharp_turn`, `gates_exit` | Empty GeoJSON placeholder |
+
+These layers retain the light style's definitions, predicates, icon names and
+relative order in every variant. They use the same sprite resource. UPin is
+hidden by default; `setUPinLayerEnabled(_:)` persists across style changes and
+reloads, with the opposite visibility applied to `poi`, `house_name` and
+`house_number` before the app's style-loaded callback.
+
+Style loading recreates style-owned objects. Restore app-supplied sources, images,
+predicates and layers in `mapView(_:didFinishLoading:)`, using the newly loaded
+style. The SDK does not store an application's live endpoint configuration.
+To connect a vector endpoint to a placeholder, retain its SDK layer objects and
+order, remove those layers and the placeholder source, add your source with the
+same identifier, then reinsert the retained layers at their original positions.
+Use the public `BharatMapsStyle` source/layer/image APIs for this restoration.
+Keep `bharatMapView.delegate = self`; the facade forwards the callback while
+retaining its internal delegate.
+
+```swift
+func mapView(_ mapView: BharatMapsMapView, didFinishLoading style: BharatMapsStyle) {
+    restoreApplicationOverlays(in: style)
+}
+```
+
 ## 3B) Accent color
 
 `accentColor` is optional. When set, SDK uses it for route lines, user puck and accuracy ring.
