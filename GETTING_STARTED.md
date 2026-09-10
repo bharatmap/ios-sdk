@@ -1040,7 +1040,7 @@ extension ViewController: BharatMapsMapViewDelegate {
 Live navigation progress is also delivered through `BharatMapsMapViewDelegate`:
 
 ```swift
-func bharatMapView(_ bharatMapView: BharatMapView, didUpdateTripProgress progress: BharatMapsTripProgress) {
+func bharatMapView(_ bharatMapView: BharatMapView, didUpdate progress: BharatMapsTripProgress) {
     let maneuverDistance = progress.maneuverDistanceMeters
     let maneuverDuration = progress.maneuverDurationRemainingSeconds
     let tripDistance = progress.tripDistanceRemainingMeters
@@ -1050,6 +1050,9 @@ func bharatMapView(_ bharatMapView: BharatMapView, didUpdateTripProgress progres
     let currentRoad = progress.currentRoadName
     let nextRoadLabel = progress.nextRoadName   // "Current  ➜  Next"
     let voiceText = progress.voiceInstructionText
+    // Optional remaining fractions for rings. Hide/reset a ring when nil.
+    let maneuverRing = progress.maneuverRemainingFraction?.doubleValue
+    let tripRing = progress.tripRemainingFraction?.doubleValue
 }
 ```
 
@@ -1065,6 +1068,33 @@ func bharatMapView(_ bharatMapView: BharatMapView, didUpdateTripProgress progres
 - `currentRoadName`
 - `nextRoadName`
 - `voiceInstructionText`
+- `maneuverRemainingFraction` (`NSNumber?`, remaining portion in `0...1`)
+- `tripRemainingFraction` (`NSNumber?`, remaining portion in `0...1`)
+
+### Progress rings
+
+Use the fractions from each delegate snapshot directly; do not cache the first
+remaining distance as a total. Receiving your first update 120 meters into a
+200-meter approach yields `maneuverRemainingFraction = 0.4`. A subsequent
+800-meter approach with 80 meters remaining yields `0.1`.
+
+The maneuver fraction uses projection onto the complete route section leading
+to the currently announced maneuver. The SDK uses its step geometry, or the
+active route clipped between the preceding and current maneuver when step
+geometry is omitted. This follows bends in the route; the existing
+`maneuverDistanceMeters` field remains the direct distance to the maneuver for
+backward compatibility and should not be used to reconstruct this fraction.
+The trip fraction uses `tripDistanceRemainingMeters` divided by the current
+active route's reported distance. Both values are recalculated from the active
+route/step, including after reroute; they do not depend on when the UI subscribes.
+
+Fractions are `nil` when navigation is inactive, arrival/trip-end is active,
+location is unavailable, or their distance basis is unavailable/zero-length.
+For a valid section, reaching its endpoint yields zero until the next step or
+trip-end state is published. Never substitute an invented total for `nil`.
+Values are finite and clamped to `0...1`; a completed fraction is `1 - remaining`.
+The older public `BharatMapsTripProgress` initializer remains available and
+leaves both new fields `nil` when no fractions are supplied.
 
 ## 17) Simple map annotations (`BharatMapView`)
 
