@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/BharatMapView.h</key>
 		<data>
-		T2v0W0neCcVCxWcnZyU8NR8Evwg=
+		Nk1jt5cXwahmW0ysHSOHCoFatms=
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
@@ -218,11 +218,15 @@
 		</data>
 		<key>Headers/BharatMapsMapViewDelegate.h</key>
 		<data>
-		vv3lP6EYmUWRU1lM+kUf/jvHIfg=
+		pws6UTTZS3IYDL2OvoVL9HsnmEY=
 		</data>
 		<key>Headers/BharatMapsMultiPoint.h</key>
 		<data>
 		ZVdhnoUt5k5o+rN2aEfiKIkxfog=
+		</data>
+		<key>Headers/BharatMapsNavigationState.h</key>
+		<data>
+		xbG3yNIlyBGLthQotOsgQS3hSpM=
 		</data>
 		<key>Headers/BharatMapsNetworkConfiguration.h</key>
 		<data>
@@ -438,7 +442,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qf/nLzMdLFRAuyQ9oA0FReYuze8=
+		CPRcUPLDyYp1AbYCQPP3Kla7YDw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -678,7 +682,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hYs3KxsLHO5d5oNJvqdyy/EOUG5JiG0Vm3+HArIX4YM=
+			70U2P1TtMtcVdISrmmmHrZLsKWC+B56h/qTEm/C3xZo=
 			</data>
 		</dict>
 		<key>Headers/BharatMaps.h</key>
@@ -1035,7 +1039,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XFyu3k4ZqxPYtbXAjvzTWM35kxR55GwpjO+VImjob34=
+			1XueLkhxY3Kgzx8gTnFVBo6DOO5lKGGIxR9rAwHfnzw=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsMultiPoint.h</key>
@@ -1043,6 +1047,13 @@
 			<key>hash2</key>
 			<data>
 			C2n2uwyKMgtyFHpyR+vS8pGOkVqdvXg90bPSbaR7xFU=
+			</data>
+		</dict>
+		<key>Headers/BharatMapsNavigationState.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			h9BLNwIrTxYlmQLL7If0TO+r5wWDDBRQ5vaAmESvaF4=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsNetworkConfiguration.h</key>

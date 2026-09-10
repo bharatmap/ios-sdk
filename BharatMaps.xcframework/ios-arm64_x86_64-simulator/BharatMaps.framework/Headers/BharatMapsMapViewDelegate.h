@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class BharatMapsReverseGeocodingResult;
 @class BharatMapsTripProgress;
 @class BharatMapsRouteOption;
+@class BharatMapsActiveRoute;
+@class BharatMapsNavigationInstruction;
+@class BharatMapsRerouteEvent;
 
 typedef NS_ENUM(NSInteger, BharatMapCameraInteractionReason) {
     BharatMapCameraInteractionReasonUnknown = 0,
@@ -1088,6 +1091,14 @@ didFailReverseGeocodingWithError:(NSString *)message
  Called when route options are received and preview routes are prepared on ``BharatMapView``.
  */
 - (void)bharatMapView:(BharatMapView *)bharatMapView didReceiveRoutes:(NSArray<BharatMapsRouteOption *> *)routes;
+
+/// Delivered on main. A nil route/instruction clears the corresponding app-owned UI.
+- (void)bharatMapView:(BharatMapView *)mapView didChangeActiveRoute:(nullable BharatMapsActiveRoute *)route
+    NS_SWIFT_NAME(bharatMapView(_:didChangeActiveRoute:));
+- (void)bharatMapView:(BharatMapView *)mapView didChangeNavigationInstruction:(nullable BharatMapsNavigationInstruction *)instruction
+    NS_SWIFT_NAME(bharatMapView(_:didChangeNavigationInstruction:));
+- (void)bharatMapView:(BharatMapView *)mapView didChangeRerouteState:(BharatMapsRerouteEvent *)event
+    NS_SWIFT_NAME(bharatMapView(_:didChangeRerouteState:));
 
 @end
 

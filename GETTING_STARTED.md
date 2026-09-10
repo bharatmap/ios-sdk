@@ -1096,6 +1096,181 @@ Values are finite and clamped to `0...1`; a completed fraction is `1 - remaining
 The older public `BharatMapsTripProgress` initializer remains available and
 leaves both new fields `nil` when no fractions are supplied.
 
+## Navigation Session Ownership (1.0.44)
+
+Call navigation APIs and change navigation settings on the main thread.
+
+### Cancellation and overlapping requests
+
+`clearRoutePreview()` invalidates a pending route preview. `stopNavigation()`
+(including `stopNavigation(resetToRealLocation:)`) invalidates pending starts,
+reroutes and previews. A newer accepted preview/start supersedes older pending
+preview/start/reroute work. Importing routes also invalidates pending work.
+Late responses cannot redraw routes, activate guidance, move the camera, or
+resume speech after invalidation. Cancellation does not undo a request whose
+completion has already been delivered.
+
+Each supplied completion runs at most once, on main. Invalidated pending requests
+complete with `NSError(domain: NSURLErrorDomain, code: NSURLErrorCancelled)`;
+preview routes are `nil`. Cancellation completion is queued on main to avoid
+reentry while state is being cleared. Teardown cancels pending completions too;
+do not capture the map strongly in a completion if teardown should release it.
+The transport may finish later, but its result is ignored by the SDK. For
+app-owned HTTP requests, use the reroute cancellation event to cancel transport
+as well. No second completion is accepted from a reroute handler.
+
+### Import selected routes and diversions
+
+`previewNavigationRoutes(responseData:polylinePrecision:autoFit:completion:)`
+accepts the existing OSRM JSON response (`routes`, or `data.routes`) without
+making a network request. Route geometry and optional step geometry can be
+encoded polylines (specify precision, normally `6`) or GeoJSON `LineString`
+coordinates in **longitude, latitude** order. Routes require distance, duration,
+legs/steps, and valid maneuver locations. Keep custom voice/bridge fields in the
+response. Invalid data returns a `BharatMapsNavigation` error and does not replace
+the current preview. Payloads are limited to 16 MiB and precision to `0...8`.
+
+```swift
+// responseData is the response already fetched by the existing app routing policy.
+map.previewNavigationRoutes(responseData: responseData,
+                            polylinePrecision: 6,
+                            autoFit: false) { routes, error in
+    guard error == nil, let chosen = routes?.last else { return }
+    map.selectRouteOption(routeId: chosen.routeId)
+    let options = BharatNavigationSimulationOptions()
+    options.enabled = true
+    options.holdAtDestination = true
+    options.autoStopOnArrival = false
+    map.startSelectedNavigation(simulationOptions: options) { error in
+        // No second route request: the exact selected alternative is started.
+    }
+}
+```
+
+Alternatives and coordinate order are preserved. Intermediate arrival/departure
+steps are via points, not final trip completion. `autoFit: false` is draw-only
+outside active navigation, just like controlled route preview. Importing a
+preview while navigation is active stops that session first.
+
+`startSelectedNavigation(simulationOptions:completion:)` also works with
+SDK-requested route options. With `autoStopOnArrival = false`, the app controls
+its custom arrival/calibration/AR flow and calls `stopNavigation()` explicitly;
+no hidden `BharatMapsTripEndView` is required. The Boolean overload retains its
+default auto-stop policy. This does not provide or modify an app's AR UI.
+If the app draws its own calibration overlay, use the existing
+`map.setNavigationCalibrationLineEnabled(false)` to disable the SDK overlay
+without disabling guidance, progress or the user puck.
+
+### App-owned reroute policy
+
+Set `navigationRerouteHandler` before starting imported navigation. The SDK still
+detects off-route movement, but invokes this handler instead of its HTTP route
+request. Keep the existing retry, bearing/radius relaxation and candidate
+selection policy in this handler. It receives:
+
+- `requestId`: unique request identity for transport cancellation.
+- `activeRoute`: current session/revision and actual route geometry.
+- `origin`: the current reroute coordinate.
+- `bearing`: navigation course for the initial constrained attempt.
+- `remainingWaypoints`: unvisited intermediate points followed by destination.
+
+Use `[origin] + remainingWaypoints` in that order for the existing backend's
+semicolon-separated `longitude,latitude` coordinate list. Return **one selected
+route**, encoded as an OSRM response, through the provided completion. GeoJSON
+and polyline6 are supported for handler responses. The completion may be called
+from any queue; SDK application of the result occurs on main.
+
+```swift
+map.navigationRerouteHandler = { [weak routingPolicy] request, finish in
+    guard let routingPolicy else {
+        finish(nil, NSError(domain: NSURLErrorDomain, code: NSURLErrorCancelled))
+        return
+    }
+    // App-owned adapter: preserve all remaining waypoints during every retry.
+    routingPolicy.fetchSelectedRouteResponse(request: request, completion: finish)
+}
+```
+
+`routingPolicy.fetchSelectedRouteResponse` above is an app adapter, not an SDK
+method. It wraps the app's existing HTTP/retry/selection code. The SDK does not
+change endpoints or substitute a different candidate. Imported routes never
+silently fall back to an origin/destination-only SDK reroute: without a handler
+the reroute fails (code `21`) and guidance retains its route. Responses with
+multiple candidates fail (`22`); a candidate skipping/reordering remaining
+waypoints fails (`23`). Waypoint validation uses ordered projections within
+50 meters of the candidate geometry. On looped/self-overlapping routes this
+nearest-projection validation can reject an ambiguous candidate; report failure
+rather than dropping a via point. Old handler responses after stop/new start
+are ignored. Non-imported routes keep built-in rerouting unless a handler is set.
+
+### Active route and reroute lifecycle
+
+Read `activeNavigationRoute` at any time, including when attaching UI after
+start. Its immutable `locations: [CLLocation]` are the WGS84 geometry used by
+SDK guidance, in travel order (coordinate degrees, not an encoded polyline).
+`sessionId` changes for each start; `revision` starts at 1 and increments after
+successful reroute. `distanceMeters` and `durationSeconds` describe that route.
+It remains available at arrival when auto-stop is disabled and is nil after stop.
+
+```swift
+func bharatMapView(_ map: BharatMapView, didChangeActiveRoute route: BharatMapsActiveRoute?) {
+    let coordinates = route?.locations.map(\.coordinate)
+    // Update TrafficManager/RoadEvents/ads with these coordinates, or clear on nil.
+}
+
+func bharatMapView(_ map: BharatMapView, didChangeRerouteState event: BharatMapsRerouteEvent) {
+    // Pair by sessionId + requestId. States: .started, .succeeded, .failed, .cancelled.
+    // Success carries the new route; failure/cancellation retain the previous one.
+    // Ignore old-session events when updating the current session's route/UI.
+}
+```
+
+`rerouteState` exposes the latest event for consumers attaching late. Delegate
+events are queued on main; old requests still receive their terminal event with
+their old IDs so the app can end/cancel the corresponding transport/spinner.
+Active-route and instruction callbacks omit superseded snapshots. Stop clears
+the route/instruction properties and delivers nil unless a new session has
+already replaced them.
+
+### Voice preference and app speech coordination
+
+```swift
+map.navigationVoiceEnabled = voiceSetting != 0 // Set before start and on changes.
+map.navigationSpeechSuspended = true           // Before app RoadEvents/ads speech.
+// Speak using the app's existing synthesizer.
+// In its completion/cancellation handler:
+map.navigationSpeechSuspended = false
+```
+
+Voice defaults to enabled. Disabling either effective speech condition interrupts
+the current SDK utterance and clears its queue. Instruction/progress snapshots
+continue updating. Neither flag resets on start, reroute or stop. Clearing the
+temporary suspension does not override a user's mute preference, and missed
+instructions are not replayed. For overlapping app utterances, maintain a
+reference count in the app and clear suspension only after the last one ends.
+The SDK does not manage the app synthesizer or change its audio-session policy.
+Speaker/Bluetooth/background coexistence still needs physical-device testing.
+
+### Map-anchored maneuver and bridge popups
+
+`navigationInstruction` is an immutable snapshot with `location`, `text`,
+`iconName`, `sessionId`, `routeRevision` and `stepIndex`. Its location is the
+upcoming maneuver coordinate, including custom bridge instructions, not the
+user puck coordinate. It changes with the maneuver/reroute and is nil when
+undefined, at trip end or after stop.
+
+```swift
+func bharatMapView(_ map: BharatMapView,
+                  didChangeNavigationInstruction instruction: BharatMapsNavigationInstruction?) {
+    let coordinate = instruction?.location.coordinate
+    // Move the existing app popup to coordinate, update text/icon, or hide on nil.
+}
+```
+
+The existing instruction notification also includes the exact same snapshot
+under `BharatMapViewNavigationInstructionSnapshotKey` when available. An absent
+snapshot means the popup must be hidden. No app UI replacement is required.
+
 ## 17) Simple map annotations (`BharatMapView`)
 
 `BharatMapView` now provides high-level helpers for point/line/polygon/marker annotations.

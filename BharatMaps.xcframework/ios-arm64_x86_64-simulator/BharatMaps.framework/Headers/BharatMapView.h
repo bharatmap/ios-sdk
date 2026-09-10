@@ -10,6 +10,7 @@
 #import "BharatMapsPointAnnotation.h"
 #import "BharatMapsPolyline.h"
 #import "BharatMapsPolygon.h"
+#import "BharatMapsNavigationState.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,6 +64,7 @@ BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationInstr
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationInstructionIconNameKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationInstructionTextKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationInstructionDistanceKey;
+BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationInstructionSnapshotKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationTripProgressDidChangeNotification;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationTripProgressManeuverDistanceKey;
 BharatMaps_EXPORT FOUNDATION_EXTERN NSString *const BharatMapViewNavigationTripProgressManeuverDurationRemainingKey;
@@ -109,6 +111,26 @@ BharatMaps_EXPORT
 
 /// Latest preview route options from requestRoutes.
 @property (nonatomic, copy, readonly) NSArray<BharatMapsRouteOption *> *routeOptions;
+
+/// Current route/instruction, including for consumers attaching after start. Nil after stop.
+@property (nonatomic, strong, readonly, nullable) BharatMapsActiveRoute *activeNavigationRoute;
+@property (nonatomic, strong, readonly, nullable) BharatMapsNavigationInstruction *navigationInstruction;
+@property (nonatomic, strong, readonly, nullable) BharatMapsRerouteEvent *rerouteState;
+/// Default YES. Muting interrupts current/queued SDK speech; instruction updates continue.
+@property (nonatomic, assign) BOOL navigationVoiceEnabled;
+/// Temporarily suppress SDK speech while app-owned RoadEvents/ads speech plays.
+/// This is independent of the user's navigationVoiceEnabled preference.
+@property (nonatomic, assign) BOOL navigationSpeechSuspended;
+/// Optional app-owned rerouting policy. Required for rerouting imported routes.
+@property (nonatomic, copy, nullable) BharatMapsRerouteHandler navigationRerouteHandler;
+
+/// Preview an existing OSRM response without a network request. Preserves alternatives/order.
+/// Imported routes use the app reroute handler, never silently fall back to SDK requests.
+- (void)previewNavigationRoutesWithResponseData:(NSData *)responseData
+                             polylinePrecision:(NSInteger)precision
+                                       autoFit:(BOOL)autoFit
+                                    completion:(nullable BharatRoutesCallback)completion
+    NS_SWIFT_NAME(previewNavigationRoutes(responseData:polylinePrecision:autoFit:completion:));
 
 /// Default zoom used by centerOnUserLocation() and first auto-center after user location becomes available.
 @property (nonatomic, assign) double defaultZoom;
@@ -448,6 +470,10 @@ BharatMaps_EXPORT
  */
 - (void)startSelectedNavigationWithSimulation:(BOOL)simulation
                                     completion:(nullable BharatNavigationCallback)completion NS_SWIFT_NAME(startSelectedNavigation(simulation:completion:));
+
+- (void)startSelectedNavigationWithSimulationOptions:(BharatNavigationSimulationOptions *)simulationOptions
+                                         completion:(nullable BharatNavigationCallback)completion
+    NS_SWIFT_NAME(startSelectedNavigation(simulationOptions:completion:));
 
 /**
 Clears preview routes and route selection state without starting navigation.
