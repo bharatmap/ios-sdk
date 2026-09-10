@@ -184,6 +184,12 @@ an empty tile is a successful tile. A newer update supersedes a pending older
 revision. Tile failures produce `failed` without removing the source or any
 previous traffic generation managed by the application.
 
+Removing a source with a pending update emits one `failed` terminal event with
+`BharatMapsVectorTileSourceUpdateErrorSourceRemoved`, then releases the update
+handler and source record. Late tile responses from that removed revision are
+ignored. A new source with the same identifier starts with an independent
+revision lifecycle.
+
 `mapView(_:sourceDidChange:)` reports source definition/data invalidation. It is
 not a viewport tile-readiness callback; use the update event above when switching
 traffic generations.

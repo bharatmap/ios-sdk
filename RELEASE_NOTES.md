@@ -1,10 +1,9 @@
-# 1.0.40
+# 1.0.41
 
-- Add in-place tile URL updates for existing `BharatMapsVectorTileSource` instances.
-- Add revision-scoped `pending`, `succeeded`, and `failed` source readiness events.
-- Report success only after all required current-viewport tiles finish loading and parsing.
-- Reject stale generation events and preserve normal map delegate forwarding.
+- Finish a pending vector tile source refresh with `failed` when its source is removed.
+- Release the pending handler and source record immediately after removal.
+- Ignore late tile events from the removed revision and isolate a replacement source with the same identifier.
 
-Source revision: `816aec0` in the SDK source repository.
+Source revision: `b7b0dc7` in the SDK source repository.
 
 Required third-party licenses and external data formats are preserved.

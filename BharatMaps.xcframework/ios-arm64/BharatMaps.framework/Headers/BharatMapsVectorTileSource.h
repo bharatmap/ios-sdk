@@ -46,6 +46,7 @@ typedef NS_ERROR_ENUM(BharatMapsVectorTileSourceUpdateErrorDomain, BharatMapsVec
   BharatMapsVectorTileSourceUpdateErrorInvalidTileURLTemplates,
   BharatMapsVectorTileSourceUpdateErrorTileLoadFailed,
   BharatMapsVectorTileSourceUpdateErrorStyleChanged,
+  BharatMapsVectorTileSourceUpdateErrorSourceRemoved,
 };
 
 /** A versioned loading event emitted while updating a vector tile source. */
