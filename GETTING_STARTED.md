@@ -155,6 +155,39 @@ func mapView(_ mapView: BharatMapView, didEndCameraInteraction reason: BharatMap
 
 These callbacks are user-only. Programmatic camera calls such as `fitCamera`, `centerOnUserLocation`, `recenterCamera`, and route preview camera fitting do not trigger them.
 
+### Refresh an existing vector tile source
+
+Use the source update API for timestamped traffic generations. It updates the
+existing source in place, so source and layer identifiers, predicates, and layer
+ordering stay unchanged.
+
+```swift
+let revision = trafficSource.updateTileURLTemplates([
+    "https://traffic.example.com/{z}/{x}/{y}.mvt?timestamp=\(timestamp)"
+]) { event in
+    switch event.state {
+    case .pending:
+        print("traffic refresh \(event.revision) pending")
+    case .succeeded:
+        print("traffic refresh \(event.revision) ready")
+    case .failed:
+        print("traffic refresh \(event.revision) failed: \(event.error?.localizedDescription ?? "unknown error")")
+    @unknown default:
+        break
+    }
+}
+```
+
+`succeeded` is source-specific and revision-specific. It is emitted only after
+all tiles required by the current viewport have finished loading and parsing;
+an empty tile is a successful tile. A newer update supersedes a pending older
+revision. Tile failures produce `failed` without removing the source or any
+previous traffic generation managed by the application.
+
+`mapView(_:sourceDidChange:)` reports source definition/data invalidation. It is
+not a viewport tile-readiness callback; use the update event above when switching
+traffic generations.
+
 ## 5) Validate SDK API key (required)
 
 Call once on app start:

@@ -31,6 +31,38 @@ typedef NS_ENUM(NSUInteger, BharatMapsVectorTileSourceEncoding) {
   BharatMapsVectorTileSourceEncodingMLT = 1,
 };
 
+/** The loading state of one vector tile source update revision. */
+typedef NS_ENUM(NSInteger, BharatMapsVectorTileSourceUpdateState) {
+  BharatMapsVectorTileSourceUpdateStatePending,
+  BharatMapsVectorTileSourceUpdateStateSucceeded,
+  BharatMapsVectorTileSourceUpdateStateFailed,
+};
+
+FOUNDATION_EXTERN BharatMaps_EXPORT NSErrorDomain const BharatMapsVectorTileSourceUpdateErrorDomain;
+
+typedef NS_ERROR_ENUM(BharatMapsVectorTileSourceUpdateErrorDomain, BharatMapsVectorTileSourceUpdateError) {
+  BharatMapsVectorTileSourceUpdateErrorSourceNotAttached = 1,
+  BharatMapsVectorTileSourceUpdateErrorSuperseded,
+  BharatMapsVectorTileSourceUpdateErrorInvalidTileURLTemplates,
+  BharatMapsVectorTileSourceUpdateErrorTileLoadFailed,
+  BharatMapsVectorTileSourceUpdateErrorStyleChanged,
+};
+
+/** A versioned loading event emitted while updating a vector tile source. */
+BharatMaps_EXPORT
+@interface BharatMapsVectorTileSourceUpdateEvent : NSObject
+
+@property (nonatomic, copy, readonly) NSString *sourceIdentifier;
+@property (nonatomic, readonly) NSUInteger revision;
+@property (nonatomic, readonly) BharatMapsVectorTileSourceUpdateState state;
+@property (nonatomic, strong, readonly, nullable) NSError *error;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+@end
+
+typedef void (^BharatMapsVectorTileSourceUpdateHandler)(BharatMapsVectorTileSourceUpdateEvent *event);
+
 /**
  ``BharatMapsVectorTileSource`` is a map content source that supplies tiled vector data
  in MVT vector tile format
@@ -155,6 +187,22 @@ BharatMaps_EXPORT
                   tileURLTemplates:(NSArray<NSString *> *)tileURLTemplates
                            options:(nullable NSDictionary<BharatMapsTileSourceOption, id> *)options
     NS_DESIGNATED_INITIALIZER;
+
+/**
+ Updates this source's tile URL templates without replacing the source or its layers.
+
+ The event handler first receives `Pending`, then exactly one terminal event for
+ the returned revision. `Succeeded` means every tile needed by the current
+ viewport for this revision has completed loading and parsing. Starting another
+ update supersedes any pending revision.
+
+ @param tileURLTemplates New vector tile URL templates.
+ @param eventHandler Versioned loading events for this update.
+ @return A monotonically increasing revision for this source instance.
+ */
+- (NSUInteger)updateTileURLTemplates:(NSArray<NSString *> *)tileURLTemplates
+                        eventHandler:(BharatMapsVectorTileSourceUpdateHandler)eventHandler
+    NS_SWIFT_NAME(updateTileURLTemplates(_:eventHandler:));
 
 // MARK: Accessing a Source’s Content
 
