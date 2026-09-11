@@ -1098,6 +1098,23 @@ leaves both new fields `nil` when no fractions are supplied.
 
 ## Navigation Session Ownership (1.0.44)
 
+### Accelerated simulation (1.0.45)
+
+Simulation supports `speedMultiplier` values including `1`, `8` and `100` without
+capping the requested speed. Simulated guidance advances by traveled route
+distance, catching up across all maneuvers/via boundaries passed in one tick.
+It publishes the current upcoming instruction rather than replaying skipped
+instructions. Final arrival is emitted once when the simulator reaches the end
+of the route, even if the native location display coalesces intermediate updates.
+Intermediate via arrivals do not end the trip.
+
+With `holdAtDestination = true` and `autoStopOnArrival = false`, the arrival event
+leaves the navigation session and simulated destination available until explicit
+stop or the next start. The default auto-stop path remains available. Stop,
+reroute and new start invalidate old simulation callbacks. No app-side arrival
+synthesis or private step advancement is required. This change is limited to
+simulation; physical GPS maneuver thresholds are unchanged.
+
 Call navigation APIs and change navigation settings on the main thread.
 
 ### Cancellation and overlapping requests
