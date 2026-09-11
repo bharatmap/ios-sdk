@@ -243,7 +243,8 @@ bharatMapView.validateLicense(apiKey: "BMK_TEST_xxx") { result, error in
         print("license error: \(error.localizedDescription)")
         return
     }
-    print("license ok token=\(result?["token"] ?? "")")
+    // The same callback succeeds for online validation and a valid offline authorization.
+    print("license source: \(result?["validationSource"] ?? "online")")
 }
 ```
 
@@ -261,6 +262,43 @@ Notes:
 - validation endpoint: `https://portal.bharat-maps.com/sdk/v1/license/validate`
 - until validation succeeds, map interaction and navigation/location APIs stay locked
 - successful response token is also cached in `bharatMapView.licenseToken`
+
+### Offline authorization
+
+Call the same `validateLicense(apiKey:)` on every process launch. No application-owned
+license cache or extra unlock API is needed. The SDK tries the server first (8-second
+request timeout). On temporary network unavailability, HTTP 429 or HTTP 5xx it can
+restore a signed authorization previously saved in this application's device-only
+Keychain. The callback returns success and `isLicenseValidated` becomes `true`.
+`validationSource` is `"online"` or `"offline"`; an online result's `offlineAvailable`
+indicates whether the signed authorization was successfully persisted.
+
+- Validity is at most **24 hours after successful online validation**, capped by the
+  API key and subscription expiry. There is **no grace period** and an offline
+  restoration never extends the expiry.
+- A first launch offline, a missing/expired/invalid signature, a changed API key or
+  app identity stays locked. Switching identity discards the previous authorization.
+- Offline authorization is bound to iOS, the API-key fingerprint, the registered
+  app ID and the actual bundle ID. Register the real bundle ID. A differing `appId`
+  override remains online-compatible but does not receive offline authorization.
+- An explicit server rejection immediately discards the saved authorization and
+  locks existing map instances. TLS verification errors and malformed responses do
+  not unlock the map. A later successful online validation can authorize it again.
+- A revocation made while the device is unreachable cannot be learned offline;
+  the signed authorization remains usable only until its existing expiry. The SDK
+  checks expiry on foreground entry and during a running session. It rejects
+  detected wall-clock rollback against the saved observation and uses an uptime
+  deadline within the current process; this is not a claim of tamper-proof time
+  on a compromised device.
+- Servers without offline-signing configuration remain online-only. An activation
+  performed with older SDK versions cannot create this new persistent authorization;
+  validate online once after upgrading.
+
+This authorizes access to **already available** offline map resources; it does not
+download tiles, glyphs or sprites, expand an MBTiles archive's zoom coverage, or make
+REST search/navigation available without a network. Keep the existing local-source
+and downloaded-resource setup. Never log or persist API keys or license tokens in
+application diagnostics.
 
 ## 6) Simplified user location API (`BharatMapView`)
 

@@ -187,6 +187,9 @@ BharatMaps_EXPORT
 
 /**
  Validates SDK API key against Bharat licensing backend using current app bundle id.
+ On temporary network failure, restores an unexpired signed device-local authorization
+ from a previous online validation. Offline validity is at most 24 hours and does not
+ extend on restoration. The callback includes validationSource (online/offline).
  */
 - (void)validateLicense:(NSString *)apiKey
              completion:(nullable BharatLicenseValidationCallback)completion NS_SWIFT_NAME(validateLicense(apiKey:completion:));
