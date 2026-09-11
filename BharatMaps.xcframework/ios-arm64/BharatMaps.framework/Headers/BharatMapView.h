@@ -114,6 +114,23 @@ BharatMaps_EXPORT
 
 /// Current route/instruction, including for consumers attaching after start. Nil after stop.
 @property (nonatomic, strong, readonly, nullable) BharatMapsActiveRoute *activeNavigationRoute;
+/// Main-thread, synchronous. One level per adjacent pair in activeNavigationRoute.locations.
+/// Valid levels: unknown, low, moderate, heavy, severe (case-sensitive). Nil clears.
+/// Returns NO without mutation for stale session/revision, inactive/arrived navigation,
+/// invalid values/count/palette, or a non-main-thread call. No camera or guidance effects.
+- (BOOL)updateNavigationRouteCongestion:(nullable NSArray<NSString *> *)levels
+                            sessionId:(NSString *)sessionId
+                             revision:(NSUInteger)revision
+    NS_SWIFT_NAME(updateNavigationRouteCongestion(levels:sessionId:revision:));
+/// Optional overrides for moderate/heavy/severe. Low/unknown always use accentColor.
+/// Missing palette entries use #F9A825 / #EF6C00 / #C62828. Palette is replaced, not merged.
+- (BOOL)updateNavigationRouteCongestion:(nullable NSArray<NSString *> *)levels
+                            sessionId:(NSString *)sessionId
+                             revision:(NSUInteger)revision
+                              palette:(nullable NSDictionary<NSString *, UIColor *> *)palette
+    NS_SWIFT_NAME(updateNavigationRouteCongestion(levels:sessionId:revision:palette:));
+- (BOOL)clearNavigationRouteCongestionForSessionId:(NSString *)sessionId revision:(NSUInteger)revision
+    NS_SWIFT_NAME(clearNavigationRouteCongestion(sessionId:revision:));
 @property (nonatomic, strong, readonly, nullable) BharatMapsNavigationInstruction *navigationInstruction;
 @property (nonatomic, strong, readonly, nullable) BharatMapsRerouteEvent *rerouteState;
 /// Default YES. Muting interrupts current/queued SDK speech; instruction updates continue.
