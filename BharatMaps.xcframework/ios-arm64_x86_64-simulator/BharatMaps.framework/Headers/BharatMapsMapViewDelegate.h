@@ -1097,6 +1097,11 @@ didFailReverseGeocodingWithError:(NSString *)message
     NS_SWIFT_NAME(bharatMapView(_:didChangeActiveRoute:));
 - (void)bharatMapView:(BharatMapView *)mapView didChangeNavigationInstruction:(nullable BharatMapsNavigationInstruction *)instruction
     NS_SWIFT_NAME(bharatMapView(_:didChangeNavigationInstruction:));
+/// Delivered on main once when a queued navigation utterance actually starts.
+/// Text is the final normalized utterance text. Repeated utterances each produce an event.
+/// This does not indicate completion or guarantee audible hardware output.
+- (void)bharatMapView:(BharatMapView *)mapView didStartNavigationSpeech:(NSString *)text
+    NS_SWIFT_NAME(bharatMapView(_:didStartNavigationSpeech:));
 - (void)bharatMapView:(BharatMapView *)mapView didChangeRerouteState:(BharatMapsRerouteEvent *)event
     NS_SWIFT_NAME(bharatMapView(_:didChangeRerouteState:));
 

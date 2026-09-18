@@ -1370,6 +1370,27 @@ map.navigationSpeechSuspended = true           // Before app RoadEvents/ads spee
 map.navigationSpeechSuspended = false
 ```
 
+Since iOS SDK 1.0.49, to log each navigation utterance when the synthesizer actually starts it, implement
+this optional method on your existing `BharatMapsMapViewDelegate`:
+
+```swift
+func bharatMapView(_ mapView: BharatMapView, didStartNavigationSpeech text: String) {
+    print("[Navigation voice] \(text)")
+}
+```
+
+The callback runs on the main thread and contains the final normalized text
+passed to `AVSpeechSynthesizer`. Each utterance start produces one event, including
+repeated identical phrases. Muted/suspended instructions and queued utterances
+cancelled before starting produce no event. Interrupting a phrase after it starts
+does not undo its start event. This is not a completion event or proof of audible
+hardware output. Events belong only to the originating map instance; no delegate
+event is delivered after that map is released.
+
+`TripProgress.voiceInstructionText` remains a progress snapshot, not a speech
+event. Do not use snapshot changes to count or log spoken phrases. Existing
+voice preferences, cooldowns, queueing and RoadEvents/ads suspension are unchanged.
+
 Voice defaults to enabled. Disabling either effective speech condition interrupts
 the current SDK utterance and clears its queue. Instruction/progress snapshots
 continue updating. Neither flag resets on start, reroute or stop. Clearing the

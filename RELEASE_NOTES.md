@@ -1,3 +1,13 @@
+# 1.0.49
+
+- Add optional `BharatMapsMapViewDelegate.bharatMapView(_:didStartNavigationSpeech:)` for each navigation utterance that actually starts in AVSpeechSynthesizer.
+- Deliver final normalized text on main, once per utterance including repeated identical phrases. Do not emit for muted/suspended instructions or utterances cancelled before starting.
+- Preserve queue, voice settings, cooldowns and app RoadEvents/ads coordination. Clear pending speech identities on stop/mute/suspension, isolate map instances and detach the synthesizer on teardown.
+- The event indicates speech start, not completion or guaranteed audible output. Trip-progress voice text remains a snapshot, not a speech event.
+- Add usage documentation, Swift interface verification and runtime coverage. Thirty speech checks passed, including real synthesizer events in simulated navigation and after public reroute; existing navigation-cutover and trip-progress suites passed. Cancellation/order/two-map edge cases use deterministic test injection; physical-device audio/Bluetooth/background coexistence remain unverified.
+
+Source revision: a61e7916ff3b93d326bb1b29280cb5efeb68c2c1 in the SDK source repository.
+
 # 1.0.48
 
 - Fix live vector source refresh flicker in `updateTileURLTemplates`: keep rendered content while replacements load and parse; preserve unchanged symbol identity.
