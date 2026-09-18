@@ -200,6 +200,13 @@ Use the source update API for timestamped traffic generations. It updates the
 existing source in place, so source and layer identifiers, predicates, and layer
 ordering stay unchanged.
 
+While replacement tiles load and parse, the SDK keeps each tile's currently
+rendered content. Ready replacements update in place; unchanged symbols retain
+their placement identity instead of disappearing and fading in again. A
+successful empty tile removes its previous features. A failed tile retains its
+previous content, and a later revision can retry it. This is a tile-by-tile
+refresh, not an atomic transaction across the entire source.
+
 ```swift
 let revision = trafficSource.updateTileURLTemplates([
     "https://traffic.example.com/{z}/{x}/{y}.mvt?timestamp=\(timestamp)"
@@ -220,8 +227,9 @@ let revision = trafficSource.updateTileURLTemplates([
 `succeeded` is source-specific and revision-specific. It is emitted only after
 all tiles required by the current viewport have finished loading and parsing;
 an empty tile is a successful tile. A newer update supersedes a pending older
-revision. Tile failures produce `failed` without removing the source or any
-previous traffic generation managed by the application.
+revision. Tile failures produce `failed` without removing the source or clearing
+the failed tile's previously rendered content. Camera, user location and
+navigation state are not changed by this API.
 
 Removing a source with a pending update emits one `failed` terminal event with
 `BharatMapsVectorTileSourceUpdateErrorSourceRemoved`, then releases the update
