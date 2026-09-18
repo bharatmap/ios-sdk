@@ -1362,6 +1362,16 @@ already replaced them.
 
 ### Voice preference and app speech coordination
 
+Since iOS SDK 1.0.50, maneuver wording uses the original English instruction
+templates. Road names use `onto` (for example, `Turn left onto Service Road`);
+destination signposts can use `towards`. U-turn, slight/sharp turn, fork, merge,
+exit and roundabout instructions retain their distinct templates. Bridge
+overrides use the original `Keep right to take ... flyover` / `keep left/right`
+wording. Segment-start phrases use `Go straight for ..., Then ...`, preparation
+uses `in ...`, and the final warning uses the maneuver text alone. Timing,
+distance thresholds, voice/rate, number normalization and speech coordination
+are unchanged. No application-side text replacement is needed.
+
 ```swift
 map.navigationVoiceEnabled = voiceSetting != 0 // Set before start and on changes.
 map.navigationSpeechSuspended = true           // Before app RoadEvents/ads speech.

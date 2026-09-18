@@ -442,7 +442,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fmwFmTehYBTKrg6l43ryxOE4Now=
+		ELPyoXkkWN8oAu2YzTHB3r6ZS2Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -572,6 +572,10 @@
 		<key>metal-cpp-ignores.txt</key>
 		<data>
 		uMGrCvyHKFsDNBGz4XDWpo8x7wc=
+		</data>
+		<key>navigation-instructions-en.json</key>
+		<data>
+		7d0n8LDGHWRI246lzW7myLc+As8=
 		</data>
 		<key>nl.lproj/Localizable.strings</key>
 		<dict>
@@ -1563,6 +1567,13 @@
 			<key>hash2</key>
 			<data>
 			WcqQFu5EetPhQBNcIA3q0/C0lmlhERSlPynDeZQedDI=
+			</data>
+		</dict>
+		<key>navigation-instructions-en.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			txNm8Ufx0e4PbYbgEGr9dwouT2pmZyixRjxPu/aGQgI=
 			</data>
 		</dict>
 		<key>nl.lproj/Localizable.strings</key>

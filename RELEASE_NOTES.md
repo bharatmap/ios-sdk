@@ -1,3 +1,13 @@
+# 1.0.50
+
+- Restore pre-migration English maneuver templates: ordinary road names use "onto", destination signposts retain "towards". Preserve distinct turn/U-turn, slight/sharp, continue, fork, merge, exit, name/ref and roundabout wording.
+- Restore "Go straight for ..., Then ..." / "in ..." composition and original flyover/keep-left/keep-right bridge phrases. Keep punctuation in road names.
+- Keep timing, distance thresholds, voice/rate, number normalization, mute/suspension, route selection and didStartNavigationSpeech unchanged.
+- Validate 499 legacy formatter fixtures and all three phrase stages, bridge cases, speech-start lifecycle, actual simulator speech before/after reroute, navigation cutover and trip-progress regressions. Physical-device speaker/Bluetooth/background output is not verified.
+- No application workaround or public API change. Android is unchanged.
+
+Source revision: 41d09989d9cc20fd7312bf74af349bf39a6edc0e in the SDK source repository.
+
 # 1.0.49
 
 - Add optional `BharatMapsMapViewDelegate.bharatMapView(_:didStartNavigationSpeech:)` for each navigation utterance that actually starts in AVSpeechSynthesizer.
