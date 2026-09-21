@@ -442,7 +442,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		W76/BwDCsRV0h9mIZ1VqBcOMNcQ=
+		N47oW6jJlzskJ36+vK3akJ8QcbU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -619,15 +619,15 @@
 		</data>
 		<key>style_dark.json</key>
 		<data>
-		nMgBVbx0vRVo1AcGyGqqLX3RXE0=
+		o5imCokLT/XvpMdCkzm70IiKtgY=
 		</data>
 		<key>style_simplified.json</key>
 		<data>
-		5Ul+0XsAhzJKkMZWxTyy25y/mXI=
+		FseNT4t7h56U1SWZDOknF9N39zE=
 		</data>
 		<key>style_simplified_dark.json</key>
 		<data>
-		atwUEXdd+jhvLGjrazia1lNtwmM=
+		wovFoNil/xQHZWB/x4fxAjqyZWw=
 		</data>
 		<key>sv.lproj/Localizable.strings</key>
 		<dict>
@@ -1623,21 +1623,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jf158qPljG3Ec3AlTaHkEIa753Sf2xg6ctJBhN18VWQ=
+			zpXD4Hj+JbxSFKlnqknTyYVhVVVgFMXtnvJsLXeNTk4=
 			</data>
 		</dict>
 		<key>style_simplified.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JiSIfg6UKijn1SP1gfcR1DzJp7yeTqSxsIhaBWbu8SQ=
+			8UdAdLZkkm+RIsZNhq15bHGA8iJvJ/oo2T9nt3r72b4=
 			</data>
 		</dict>
 		<key>style_simplified_dark.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YVVPDNmQWpU8TYr8GWWLdtoTQYoLHaToJofOcejkBWI=
+			03Lk5JjWK6JZICVfQ/SOyBcperPqWErIs11Sroq8fHA=
 			</data>
 		</dict>
 		<key>sv.lproj/Localizable.strings</key>

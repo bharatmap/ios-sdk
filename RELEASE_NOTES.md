@@ -1,3 +1,11 @@
+# 1.0.53
+
+- Load house numbers from Martin in all four built-in styles, including dark and simplified variants.
+- Preserve each style's layer order, colors, layout and zoom thresholds. No camera, navigation or API changes.
+- Packaged style parity checked on both platforms.
+
+Source revision: 8575dc80aeeeff0bdb8ea7f58ae3c1c040a12ffc.
+
 # 1.0.52
 
 - Restore the original house_number symbol layer in default/light style, with its original placement, minzoom, layout and paint.
