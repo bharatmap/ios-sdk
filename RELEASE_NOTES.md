@@ -1,3 +1,11 @@
+# 1.0.51
+
+- Remove only the legacy house_number style layer from bundled default/light style.json.
+- Dark and simplified styles, sources, other layers and public APIs are unchanged.
+- No replacement source is added in this release; server/Martin migration is separate.
+
+Source revision: 6011f17e6660d2afd30faad53b75620075e0d11e.
+
 # 1.0.50
 
 - Restore pre-migration English maneuver templates: ordinary road names use "onto", destination signposts retain "towards". Preserve distinct turn/U-turn, slight/sharp, continue, fork, merge, exit, name/ref and roundabout wording.

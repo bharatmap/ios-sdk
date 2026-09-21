@@ -2513,36 +2513,6 @@
             }
         },
         {
-            "id": "house_number",
-            "type": "symbol",
-            "source": "composite",
-            "source-layer": "house_number",
-            "minzoom": 16.75,
-            "layout": {
-                "text-field": "{house_number}",
-                "text-font": ["Noto Sans Bold"],
-                "text-size": 8.5,
-                "visibility": "visible",
-                "text-max-width": 7,
-                "text-offset": [0.45, -0.05],
-                "text-pitch-alignment": "auto",
-                "icon-image": "icon_building_num",
-                "text-anchor": "left",
-                "text-justify": "center",
-                "icon-size": 0.5,
-                "symbol-avoid-edges": false,
-                "symbol-spacing": 250,
-                "symbol-z-order": "auto",
-                "text-padding": 2
-            },
-            "paint": {
-                "icon-opacity": 0.75,
-                "text-color": "rgba(131, 136, 157, 1)",
-                "text-halo-color": "rgba(255, 255, 255, 1)",
-                "text-halo-width": 1
-            }
-        },
-        {
             "id": "house_name",
             "type": "symbol",
             "source": "composite",
