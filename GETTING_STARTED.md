@@ -58,6 +58,12 @@ final class ViewController: UIViewController, BharatMapsMapViewDelegate {
 
 ## 3A) Built-in map styles
 
+Since 1.0.52, the default/light style loads house numbers from the separate
+`martin_house_numbers` vector source (MVT layer `house_number`, z16 tiles with
+overzoom). Existing house-number styling and tap callbacks are preserved;
+`address` may be absent. Dark and simplified styles are unchanged. Server data
+updates do not push a redraw of tiles already loaded by the map.
+
 Supported enum cases:
 - `.light`
 - `.dark`
