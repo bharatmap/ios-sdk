@@ -1,3 +1,12 @@
+# 1.0.55
+
+- Persist the full Martin house-number revision snapshot atomically, scoped to the tile source URL. Restore it before the first render after restart.
+- Keep saved revision keys during initial feed failures/offline restart; no global tile-cache purge or map-startup delay. Cached tiles are still required offline.
+- Increase only house-number text-size by 1 (8.5 to 9.5) in all four built-in styles.
+- Native cold-restart, failed-feed, source-isolation, renderer regression and production Martin smoke checks passed. Physical-device smoothness remains unverified.
+
+Source revision: 7a09b98a2cd94c97dcf89c402c9a966388180cf5.
+
 # 1.0.54
 
 - Automatically refresh Martin house numbers in all four styles while a licensed map is active.

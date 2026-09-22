@@ -2,7 +2,7 @@
 
 This repository distributes `BharatMaps` as a binary Swift Package.
 
-Current release: **1.0.54**. See [Getting Started](GETTING_STARTED.md) for the public API.
+Current release: **1.0.55**. See [Getting Started](GETTING_STARTED.md) for the public API.
 
 ## Install
 
