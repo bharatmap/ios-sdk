@@ -160,6 +160,12 @@ BharatMaps_EXPORT
 
 /// Current built-in map style.
 @property (nonatomic, assign) BharatMapStyle mapStyle;
+
+/** Automatically polls house-number changes while the map is active. Default YES. */
+- (BOOL)isHouseNumbersAutoRefreshEnabled NS_SWIFT_NAME(isHouseNumbersAutoRefreshEnabled());
+- (void)setHouseNumbersAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setHouseNumbersAutoRefreshEnabled(_:));
+/** Requests one catch-up while active, including when automatic polling is disabled. */
+- (void)refreshHouseNumbers;
 /// Current map viewport padding.
 @property (nonatomic, assign) UIEdgeInsets mapPadding;
 

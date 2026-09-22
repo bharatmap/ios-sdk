@@ -66,6 +66,22 @@ overzoom). Existing house-number styling and tap callbacks are preserved;
 and visibility zoom thresholds. Server data
 updates do not push a redraw of tiles already loaded by the map.
 
+### Automatic house-number updates
+
+The SDK polls changes only while a licensed map is active and refreshes affected
+Martin tiles without replacing the style or moving the camera. Resume catches up;
+network errors retry. HTTP 204 removes old house numbers. UPin and tap callbacks
+keep their existing behavior. Automatic polling is enabled by default.
+
+```swift
+mapView.setHouseNumbersAutoRefreshEnabled(true) // Default; no application polling needed.
+mapView.refreshHouseNumbers() // Optional manual catch-up while active.
+```
+
+Disabling polling cancels feed requests, not normal map loading. Manual catch-up
+also works with polling disabled. These methods must run on the UI thread.
+Updates are eventual, not instantaneous; network/polling latency applies.
+
 Supported enum cases:
 - `.light`
 - `.dark`
