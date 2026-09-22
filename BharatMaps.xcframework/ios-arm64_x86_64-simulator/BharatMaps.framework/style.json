@@ -2527,7 +2527,7 @@
             "layout": {
                 "text-field": "{house_number}",
                 "text-font": ["Noto Sans Bold"],
-                "text-size": 8.5,
+                "text-size": 9.5,
                 "visibility": "visible",
                 "text-max-width": 7,
                 "text-offset": [0.45, -0.05],

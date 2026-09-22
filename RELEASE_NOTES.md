@@ -1,4 +1,12 @@
-# 1.0.55
+# 1.0.56
+
+- Replaces unusable 1.0.55: its staging copy skipped same-size, same-timestamp style files, invalidating the signed resource manifest. Do not use 1.0.55.
+- Packages the verified iOS restart persistence correction and house-number text-size 9.5 in all four styles.
+- Checksum-based staging and strict codesign verification cover both complete framework slices.
+
+Source revision: 7a09b98a.
+
+# 1.0.55 (unusable; superseded by 1.0.56)
 
 - Persist the full Martin house-number revision snapshot atomically, scoped to the tile source URL. Restore it before the first render after restart.
 - Keep saved revision keys during initial feed failures/offline restart; no global tile-cache purge or map-startup delay. Cached tiles are still required offline.

@@ -82,7 +82,7 @@ Disabling polling cancels feed requests, not normal map loading. Manual catch-up
 also works with polling disabled. These methods must run on the UI thread.
 Updates are eventual, not instantaneous; network/polling latency applies.
 
-Since 1.0.55, iOS preserves the complete house-number revision snapshot across
+Since 1.0.56, iOS preserves the complete house-number revision snapshot across
 app restarts and restores it before rendering. A failed initial poll keeps the
 last saved revision keys, including when offline; rendering still requires the
 corresponding cached tiles. No application-side cache workaround is needed.
