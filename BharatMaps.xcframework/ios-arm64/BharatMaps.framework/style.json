@@ -9,6 +9,14 @@
             "minzoom": 13,
             "maxzoom": 16
         },
+        "martin_roads": {
+            "type": "vector",
+            "tiles": [
+                "https://map.bharat-maps.com/martin/v1/roads/{z}/{x}/{y}.pbf"
+            ],
+            "minzoom": 13,
+            "maxzoom": 16
+        },
         "martin_house_numbers": {
             "type": "vector",
             "tiles": ["https://map.bharat-maps.com/martin/v1/house_number/{z}/{x}/{y}.pbf"],
@@ -752,7 +760,7 @@
         {
             "id": "mix_road_others",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 14,
             "maxzoom": 22,
@@ -766,7 +774,7 @@
         {
             "id": "mix_road_steps",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 14,
             "maxzoom": 22,
@@ -785,7 +793,7 @@
                 "mapbox:featureComponent": "walking-cycling",
                 "mapbox:group": "Walking, cycling, etc., surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 13,
             "maxzoom": 24,
@@ -817,7 +825,7 @@
         {
             "id": "mix_road_path",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 13,
             "maxzoom": 22,
@@ -868,7 +876,7 @@
                 "mapbox:featureComponent": "walking-cycling",
                 "mapbox:group": "Walking, cycling, etc., surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 14,
             "maxzoom": 22,
@@ -897,7 +905,7 @@
                 "mapbox:featureComponent": "walking-cycling",
                 "mapbox:group": "Walking, cycling, etc., surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 13,
             "maxzoom": 22,
@@ -935,7 +943,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 13,
             "maxzoom": 24,
@@ -965,7 +973,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 13,
             "maxzoom": 24,
@@ -995,7 +1003,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1025,7 +1033,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1055,7 +1063,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "track",
             "minzoom": 14,
             "maxzoom": 24,
@@ -1097,7 +1105,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "unclassified_unknown",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1139,7 +1147,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "service",
             "minzoom": 16,
             "maxzoom": 24,
@@ -1181,7 +1189,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 15,
             "maxzoom": 24,
@@ -1227,7 +1235,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1260,7 +1268,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1293,7 +1301,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1326,7 +1334,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1354,7 +1362,7 @@
         {
             "id": "road_track",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "track",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1369,7 +1377,7 @@
         {
             "id": "road_restricted",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1416,7 +1424,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "service",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1459,7 +1467,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "track",
             "minzoom": 14,
             "maxzoom": 24,
@@ -1498,7 +1506,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1541,7 +1549,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "unclassified_unknown",
             "minzoom": 13,
             "maxzoom": 24,
@@ -1580,7 +1588,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1612,7 +1620,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1646,7 +1654,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 11,
             "maxzoom": 24,
@@ -1674,7 +1682,7 @@
         {
             "id": "road_motorway_trunk",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 11,
             "maxzoom": 24,
@@ -2187,7 +2195,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 13,
             "maxzoom": 24,
@@ -2277,7 +2285,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 13,
             "maxzoom": 24,
@@ -2308,7 +2316,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 13,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2337,7 +2345,7 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 13,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2364,7 +2372,7 @@
         {
             "id": "bridge_center_line_residential",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2406,7 +2414,7 @@
         {
             "id": "bridge_center_line_secondary",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2420,7 +2428,7 @@
         {
             "id": "bridge_center_line_primary",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2434,7 +2442,7 @@
         {
             "id": "bridge_center_line_trunk",
             "type": "line",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2687,7 +2695,7 @@
         {
             "id": "roadname_trunk_motorway",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 13,
             "filter": ["all"],
@@ -2713,7 +2721,7 @@
         {
             "id": "roadname_primary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 13,
             "filter": ["all"],
@@ -2739,7 +2747,7 @@
         {
             "id": "roadname_secondary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 13,
             "filter": ["all"],
@@ -2766,7 +2774,7 @@
         {
             "id": "roadname_service",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "service",
             "minzoom": 15,
             "filter": ["all"],
@@ -2793,7 +2801,7 @@
         {
             "id": "roadname_tertiary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 14,
             "filter": ["all"],
@@ -2819,7 +2827,7 @@
         {
             "id": "roadname_residential",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 15,
             "filter": ["all"],
@@ -2852,7 +2860,7 @@
         {
             "id": "roadname_unclassified",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "unclassified_unknown",
             "minzoom": 14,
             "filter": ["all"],
@@ -2879,7 +2887,7 @@
         {
             "id": "roadname_tracks",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "track",
             "minzoom": 13,
             "filter": ["all"],
@@ -2904,7 +2912,7 @@
         {
             "id": "roadname_mix_numbers",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "mix_road",
             "minzoom": 13,
             "filter": ["all"],
@@ -2939,7 +2947,7 @@
         {
             "id": "roadarrow_(-1)_unclassified",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "unclassified_unknown",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -2954,7 +2962,7 @@
         {
             "id": "roadarrow_(-1)_resedential",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -2969,7 +2977,7 @@
         {
             "id": "roadarrow_(-1)_tertiary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -2984,7 +2992,7 @@
         {
             "id": "roadarrow_(-1)_service",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "service",
             "minzoom": 15,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -2999,7 +3007,7 @@
         {
             "id": "roadarrow_(-1)_secondary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3014,7 +3022,7 @@
         {
             "id": "roadarrow_(-1)_primary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3029,7 +3037,7 @@
         {
             "id": "roadarrow_(-1)_trunk",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3044,7 +3052,7 @@
         {
             "id": "roadarrow_1_unclassified",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "unclassified_unknown",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3058,7 +3066,7 @@
         {
             "id": "roadarrow_1_residential",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "residential",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3072,7 +3080,7 @@
         {
             "id": "roadarrow_1_tertiary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3086,7 +3094,7 @@
         {
             "id": "roadarrow_1_service",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "service",
             "minzoom": 15,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3100,7 +3108,7 @@
         {
             "id": "roadarrow_1_secondary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3114,7 +3122,7 @@
         {
             "id": "roadarrow_1_primary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3128,7 +3136,7 @@
         {
             "id": "roadarrow_1_trunk_motor",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 14,
             "filter": ["any", ["==", "oneway", "yes"]],
@@ -3225,7 +3233,7 @@
         {
             "id": "roadnumbers_tertiary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "tertiary",
             "minzoom": 13,
             "maxzoom": 14,
@@ -3250,7 +3258,7 @@
         {
             "id": "roadnumbers_secondary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "secondary",
             "minzoom": 13,
             "maxzoom": 14,
@@ -3275,7 +3283,7 @@
         {
             "id": "roadnumbers_primary",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "primary",
             "minzoom": 12,
             "maxzoom": 14,
@@ -3300,7 +3308,7 @@
         {
             "id": "roadnumbers_trunk_motarway",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_roads",
             "source-layer": "trunk_motorway",
             "minzoom": 13,
             "maxzoom": 14,

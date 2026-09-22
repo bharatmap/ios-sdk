@@ -88,6 +88,35 @@ last saved revision keys, including when offline; rendering still requires the
 corresponding cached tiles. No application-side cache workaround is needed.
 House-number text size increases from 8.5 to 9.5 in all four built-in styles.
 
+### Automatic detailed-road updates (1.0.57)
+
+All four built-in styles use `martin_roads` for detailed roads at canonical zoom
+13 through 16, with overzoom above 16. Low-zoom roads, railway layers and
+airport/legacy alias layers keep their existing sources and styling.
+
+```swift
+mapView.setRoadsAutoRefreshEnabled(true) // Default.
+let enabled = mapView.isRoadsAutoRefreshEnabled()
+mapView.refreshRoads() // Optional manual catch-up, including with polling disabled.
+```
+
+Call on the main thread. Automatic polling runs only while the licensed map is
+active. Road refresh updates affected tile revisions without replacing the style,
+moving the camera or modifying navigation/follow state. Normal tile loading is
+not disabled when polling is disabled. Network errors retry without clearing
+previously rendered data; an empty tile removes its old features.
+
+Road cursor, baseline and per-tile revisions are saved together and restored
+before rendering after restart. State is scoped to the tile-source URLs and is
+independent of house-number refresh. Offline rendering requires cached tiles;
+the SDK does not download an offline region through these methods.
+
+Feature-query consumers should identify roads using `(table_no, gid)`, not gid
+alone. The original gid property is retained; the MVT feature identifier is
+globally unique across physical road partitions. Source-layer names and existing
+style layer IDs remain unchanged, but detailed-road source IDs are now
+`martin_roads` instead of `composite`.
+
 Supported enum cases:
 - `.light`
 - `.dark`

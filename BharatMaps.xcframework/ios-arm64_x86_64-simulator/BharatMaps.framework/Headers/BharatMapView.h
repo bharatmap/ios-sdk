@@ -166,6 +166,11 @@ BharatMaps_EXPORT
 - (void)setHouseNumbersAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setHouseNumbersAutoRefreshEnabled(_:));
 /** Requests one catch-up while active, including when automatic polling is disabled. */
 - (void)refreshHouseNumbers;
+/** Independently polls high-zoom road changes while the map is active. Default YES. */
+- (BOOL)isRoadsAutoRefreshEnabled NS_SWIFT_NAME(isRoadsAutoRefreshEnabled());
+- (void)setRoadsAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setRoadsAutoRefreshEnabled(_:));
+/** Requests one road-only catch-up, including when automatic polling is disabled. */
+- (void)refreshRoads;
 /// Current map viewport padding.
 @property (nonatomic, assign) UIEdgeInsets mapPadding;
 
