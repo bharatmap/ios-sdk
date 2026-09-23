@@ -1,3 +1,12 @@
+# 1.0.58
+
+- Adds opt-in installation-bound Martin session protection: App Attest and device-only Keychain, ES256 DPoP, SDK-owned refresh and bounded recovery.
+- Existing licenses without Martin protection retain current behavior. Installing this release does not enable production enforcement. Server registration and real platform attestation validation are required before activation.
+- Credentials stay in headers; roads/house-number URLs and revision/cache identity are preserved. Legacy production tiles and subtiles are unchanged.
+- Binary artifact smoke and resource checks passed using provider fixtures; this does not claim real production attestation.
+
+Source revision: 5fb9acf36f1bc57fb299e51a0e181e699c249151.
+
 # 1.0.56
 
 - Replaces unusable 1.0.55: its staging copy skipped same-size, same-timestamp style files, invalidating the signed resource manifest. Do not use 1.0.55.

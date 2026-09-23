@@ -1637,3 +1637,33 @@ if let point {
 
 bharatMapView.clearMapAnnotations()
 ```
+
+## Martin Session Protection (1.0.58)
+
+For registered applications whose validated license contains
+`martinProtection.mode = required`, the SDK automatically prepares an App Attest
+session and adds installation-bound DPoP authorization to Martin roads and
+house-number TileJSON, change-feed and tile requests. Continue calling the normal
+`validateLicense` API independently of map/style readiness. Do not wait for tiles
+before validating the license; do not add an application-level signing interceptor.
+
+The app must support App Attest (iOS 14 or later, supported real device) and have the
+App Attest capability/entitlement and matching provisioning profile. The registered
+App Identifier Prefix, bundle ID and production/development environment must match.
+A simulator cannot certify production attestation. Missing capability or server
+configuration denies protected requests instead of falling back to anonymous tiles.
+
+Session refresh is SDK-owned; apps do not need to repeat license validation every
+five minutes. The installation PoP key and App Attest metadata use device-only
+Keychain storage; private keys are not exposed to app code. Queued resource work
+is bounded and does not block the main thread or the license/token transport.
+
+Legacy `/data/production` authentication is unchanged. Subtiles are not protected
+by this mechanism. `bm_revision` and existing cache identities are preserved;
+credentials are headers, not URL parameters. Authorization failures must not be
+interpreted as empty tiles or deletion events.
+
+This opt-in transport is available from 1.0.58; it is absent from 1.0.57.
+Existing license configurations without Martin protection retain their behavior.
+Production activation requires joint issuer/gateway/SDK checks and real-device
+attestation verification. Installing the framework alone does not activate it.
