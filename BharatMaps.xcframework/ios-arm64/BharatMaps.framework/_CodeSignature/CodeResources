@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/BharatMapView.h</key>
 		<data>
-		spRensVjlXiw0lCYC3Jxrhm4HvE=
+		Ps7UpqUUrsLRg1CP5LGMgNHD79k=
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Headers/BharatMapsDefines.h</key>
 		<data>
-		gedAdOp26ZGT6rbOA5Qh38RL9Es=
+		rcg7GeeTSRscbqD9i0bNnzLlkvw=
 		</data>
 		<key>Headers/BharatMapsDisplayUtils.h</key>
 		<data>
@@ -442,7 +442,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		er6iRYFske04GZVDKM8qjHhkFW0=
+		7FT8hdmjmPdLpgwBjtY75U7bsqM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -615,19 +615,19 @@
 		</dict>
 		<key>style.json</key>
 		<data>
-		W76rBb+TqyrSmdErEp0mOVLgqiE=
+		eFP9ygdLfgk77IRFpU3twNdh0Qg=
 		</data>
 		<key>style_dark.json</key>
 		<data>
-		r3NO8jkBd6YZx1pqBWNLTBMUfRk=
+		G12Ct2vGEoyAPVkvRVrvG//42WY=
 		</data>
 		<key>style_simplified.json</key>
 		<data>
-		fGdC4z9o9XPV5k6zj1gSU4aef5I=
+		lVyWX06A4ASM6nXzwol1DHd8Ouw=
 		</data>
 		<key>style_simplified_dark.json</key>
 		<data>
-		69NFAxYTtrw66jTFofU48AWkHTc=
+		8ajBJSQqzLZBN0rz+cU3gGyxoxs=
 		</data>
 		<key>sv.lproj/Localizable.strings</key>
 		<dict>
@@ -686,7 +686,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zsulduJZ/L1NzHOiDMYeelFt0iIpGfx8V6auJcu49Bc=
+			zzn0lE/4E/6upys1UHdTWQn8UCm1WJrAH8H1L3fQAZg=
 			</data>
 		</dict>
 		<key>Headers/BharatMaps.h</key>
@@ -868,7 +868,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			keAuq0VXoXlokzpfPJMW+948L+j1WWhFm6E2WX/NPT0=
+			AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsDisplayUtils.h</key>
@@ -1616,28 +1616,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BfexGjfuPiQhvpyFgW0wuMIvUZfjoIgllstTYTj8PVA=
+			mGfi9c4VVV/DSi17plkyDlOKJDoqKKZ2+usjCjrwIEE=
 			</data>
 		</dict>
 		<key>style_dark.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yr4hPwCVuTsWZXyusIzMl2QTmpMm5sm0CUuX9tmASzg=
+			0iS1D8N6U7FVsqvAGfIg3YhwaJI+EOA27Ot7uaukTKw=
 			</data>
 		</dict>
 		<key>style_simplified.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DKvehTBGjqUxhIjq9A5IBoA6Et80RTT+qKefVki7ZqQ=
+			5gBZyfVKppQ5getzf5hZgl3koKnHzU3UMeANlr9hfPE=
 			</data>
 		</dict>
 		<key>style_simplified_dark.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			26tfAMqTbYG8zp4Xdx4uHcEtw5L+EJaE0vpfnipxifU=
+			FCsze551XqlxCokYSKeJIkDY7jUECiAh1fBOxCFIT2s=
 			</data>
 		</dict>
 		<key>sv.lproj/Localizable.strings</key>

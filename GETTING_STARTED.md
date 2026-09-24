@@ -88,6 +88,37 @@ last saved revision keys, including when offline; rendering still requires the
 corresponding cached tiles. No application-side cache workaround is needed.
 House-number text size increases from 8.5 to 9.5 in all four built-in styles.
 
+### Martin POI layers (1.0.59)
+
+All four built-in styles use the authenticated `martin_pois` vector source at
+canonical zoom 16, with overzoom above 16. All 13 datasets are encoded in one MVT
+layer and one style layer named `poi` to avoid per-layer rendering overhead.
+`poiLayerIds` currently returns `["poi"]`; use this discovery list for queries. The old `poi_pmgsy` and `traff_trans_nature` POI layers are
+retired. Independent building-name labels remain unchanged. Simplified styles
+keep POI labels hidden by default; disabling UPin restores each style's declared
+visibility rather than forcing hidden labels on.
+
+```swift
+let poiLayers = mapView.poiLayerIds
+mapView.setPoisAutoRefreshEnabled(true) // Default.
+mapView.refreshPois() // Manual catch-up, also available when polling is disabled.
+```
+
+Call on the main thread.
+`isPoisAutoRefreshEnabled()` reports the polling setting. Automatic polling runs
+only for an active licensed map. Cursor, baseline and per-tile revisions are
+persisted together, independently of road and house-number revisions. Cached
+revisions are restored on style load; offline display still requires cached tiles.
+Refresh does not replace the style, move the camera or change navigation/follow.
+
+For raw features, use `(dataset, gid)` as stable identity. Original `gid`,
+`layer`, `table_no` and category properties are preserved; the MVT feature ID is
+namespaced across datasets. POI icons prefer the exact category code, then the
+first 13-character category code, then the generic icon; raw properties are never
+rewritten. Built-in POI taps and nearby queries cover all 13
+datasets. Access requires the server-registered Martin `pois` source permission;
+applications do not need a separate POI API key.
+
 ### Automatic detailed-road updates (1.0.57)
 
 All four built-in styles use `martin_roads` for detailed roads at canonical zoom

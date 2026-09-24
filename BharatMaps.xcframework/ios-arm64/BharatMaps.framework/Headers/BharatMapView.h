@@ -171,6 +171,12 @@ BharatMaps_EXPORT
 - (void)setRoadsAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setRoadsAutoRefreshEnabled(_:));
 /** Requests one road-only catch-up, including when automatic polling is disabled. */
 - (void)refreshRoads;
+/// Actual POI category style-layer IDs, including layers hidden by the selected theme.
+@property (nonatomic, copy, readonly) NSArray<NSString *> *poiLayerIds;
+/// Independently polls POI changes while the map is active. Default YES.
+- (BOOL)isPoisAutoRefreshEnabled NS_SWIFT_NAME(isPoisAutoRefreshEnabled());
+- (void)setPoisAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setPoisAutoRefreshEnabled(_:));
+- (void)refreshPois;
 /// Current map viewport padding.
 @property (nonatomic, assign) UIEdgeInsets mapPadding;
 
