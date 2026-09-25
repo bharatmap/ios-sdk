@@ -938,7 +938,7 @@
                 ]
             }
         },
-        {
+        {"id":"bridge_road_unclassified_case","type":"line","metadata":{"mapbox:featureComponent":"road-network","mapbox:group":"Road network, surface"},"source":"martin_roads","source-layer":"unclassified_unknown","minzoom":13,"maxzoom":24,"filter":["any",["==","bridge","yes"]],"layout":{"line-cap":["step",["zoom"],"butt",14,"butt"],"line-join":["step",["zoom"],"miter",14,"round"],"visibility":"visible"},"paint":{"line-width":["interpolate",["exponential",1.5],["zoom"],5,0.2,18,22],"line-color":"rgba(216, 219, 232, 1)"}},{
             "id": "bridge_road_tertiary_case",
             "type": "line",
             "metadata": {
@@ -1111,7 +1111,7 @@
             "source-layer": "unclassified_unknown",
             "minzoom": 13,
             "maxzoom": 24,
-            "filter": ["all"],
+            "filter": ["!=", "bridge", "yes"],
             "layout": {
                 "line-cap": ["step", ["zoom"], "butt", 14, "round"],
                 "line-join": ["step", ["zoom"], "miter", 14, "round"],
@@ -1307,7 +1307,7 @@
             "source-layer": "tertiary",
             "minzoom": 11,
             "maxzoom": 24,
-            "filter": ["all"],
+            "filter": ["!=", "bridge", "yes"],
             "layout": {
                 "line-cap": ["step", ["zoom"], "butt", 14, "round"],
                 "line-join": ["step", ["zoom"], "miter", 14, "round"],
@@ -1555,7 +1555,7 @@
             "source-layer": "unclassified_unknown",
             "minzoom": 13,
             "maxzoom": 24,
-            "filter": ["all"],
+            "filter": ["!=", "bridge", "yes"],
             "layout": {
                 "line-cap": ["step", ["zoom"], "butt", 14, "round"],
                 "line-join": ["step", ["zoom"], "miter", 14, "round"],
@@ -1594,7 +1594,7 @@
             "source-layer": "tertiary",
             "minzoom": 11,
             "maxzoom": 24,
-            "filter": ["all"],
+            "filter": ["!=", "bridge", "yes"],
             "layout": {
                 "line-cap": "butt",
                 "line-join": "bevel",
@@ -2227,8 +2227,8 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
-            "source-layer": "unclassified",
+            "source": "martin_roads",
+            "source-layer": "unclassified_unknown",
             "minzoom": 13,
             "maxzoom": 24,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2257,8 +2257,8 @@
                 "mapbox:featureComponent": "road-network",
                 "mapbox:group": "Road network, surface"
             },
-            "source": "composite",
-            "source-layer": "tertiray",
+            "source": "martin_roads",
+            "source-layer": "tertiary",
             "minzoom": 13,
             "maxzoom": 24,
             "filter": ["any", ["==", "bridge", "yes"]],
@@ -2388,8 +2388,8 @@
         {
             "id": "bridge_center_line_unclassified",
             "type": "line",
-            "source": "composite",
-            "source-layer": "unclassified",
+            "source": "martin_roads",
+            "source-layer": "unclassified_unknown",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
             "layout": {"line-join": "round", "visibility": "visible"},
@@ -2402,8 +2402,8 @@
         {
             "id": "bridge_center_line_tertiray",
             "type": "line",
-            "source": "composite",
-            "source-layer": "tertiray",
+            "source": "martin_roads",
+            "source-layer": "tertiary",
             "minzoom": 14.5,
             "filter": ["any", ["==", "bridge", "yes"]],
             "layout": {"line-join": "round", "visibility": "visible"},
