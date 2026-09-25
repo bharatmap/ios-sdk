@@ -670,7 +670,6 @@
                     ]
                 },
                 "line-width": 1,
-                "line-dasharray": [1],
                 "line-gap-width": 0,
                 "line-opacity": 1
             }
@@ -717,7 +716,6 @@
                     ]
                 },
                 "line-width": 1,
-                "line-dasharray": [1],
                 "line-gap-width": 0,
                 "line-opacity": 1
             }

@@ -1701,6 +1701,10 @@ attestation verification. Installing the framework alone does not activate it.
 
 ## Martin Basemap Layers
 
+Version 1.0.63 restores the continuous longitudinal railway stroke in every theme.
+The existing transverse sleeper pattern, colors, widths, layer order and zoom
+visibility remain unchanged; no application changes are required.
+
 All four bundled themes use the shared `martin_basemap` vector source for water
 areas, waterways, India's outline, state boundaries, railways, landuse polygons,
 trees, country names and state names. Its canonical tile zooms are 0 through 16;
