@@ -1699,6 +1699,29 @@ Existing license configurations without Martin protection retain their behavior.
 Production activation requires joint issuer/gateway/SDK checks and real-device
 attestation verification. Installing the framework alone does not activate it.
 
+## Martin Basemap Layers
+
+All four bundled themes use the shared `martin_basemap` vector source for water
+areas, waterways, India's outline, state boundaries, railways, landuse polygons,
+trees, country names and state names. Its canonical tile zooms are 0 through 16;
+higher map zooms reuse zoom-16 tiles. Existing layer IDs, zoom visibility, colors,
+filters and simplified-theme visibility are preserved.
+
+Basemap changes refresh automatically while the licensed map is active. Refresh
+changes tile revisions in place, without replacing the style or moving the camera.
+The feed and persisted revision state are independent of roads, POIs, house numbers,
+administrative points and building names. Access requires the server-issued
+`basemap` source permission; the SDK does not grant permissions itself.
+
+```swift
+mapView.setBasemapAutoRefreshEnabled(true) // Default.
+mapView.refreshBasemap() // Optional explicit refresh, including when auto refresh is disabled.
+let enabled = mapView.isBasemapAutoRefreshEnabled()
+```
+
+This migration does not include village polygons, world polygons, sea polygons,
+building footprints, airports, low-zoom roads or other locality labels.
+
 ## Martin Administrative and Building Labels
 
 Version 1.0.60 migrates only `offline_admin_sub_locality` and

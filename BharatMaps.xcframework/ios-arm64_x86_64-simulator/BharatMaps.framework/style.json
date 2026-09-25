@@ -3,6 +3,7 @@
     "name": "production",
     "metadata": {"maputnik:renderer": "mbgljs"},
     "sources": {
+"martin_basemap": {"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/basemap/{z}/{x}/{y}.pbf"],"minzoom":0,"maxzoom":16},
         "composite": {
             "type": "vector",
             "tiles": ["https://map.bharat-maps.com/data/production/{z}/{x}/{y}.pbf"],
@@ -90,8 +91,8 @@
         {
             "id": "offline_soi_fill",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_soi",
+            "source": "martin_basemap",
+            "source-layer": "soi_polygon",
             "minzoom": 0,
             "maxzoom": 13,
             "layout": {"visibility": "visible"},
@@ -104,7 +105,7 @@
         {
             "id": "soi_fill",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "soi_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -131,7 +132,7 @@
         {
             "id": "state_boundaries",
             "type": "fill",
-            "source": "local",
+            "source": "martin_basemap",
             "source-layer": "stateborder_polygon",
             "minzoom": 4,
             "maxzoom": 8,
@@ -145,8 +146,8 @@
         {
             "id": "offline_landuse_forest_wood_4-7",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": [
@@ -165,8 +166,8 @@
         {
             "id": "offline_landuse_island",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "island"]],
@@ -179,8 +180,8 @@
         {
             "id": "offline_landuse_glacier-copy",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "glacier"]],
@@ -193,8 +194,8 @@
         {
             "id": "offline_landuse_beach",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "beach"]],
@@ -207,8 +208,8 @@
         {
             "id": "offline_landuse_cliff",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "cliff"]],
@@ -221,8 +222,8 @@
         {
             "id": "offline_landuse_peak",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "peak"]],
@@ -235,8 +236,8 @@
         {
             "id": "offline_landuse_scrub",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "scrub"]],
@@ -250,8 +251,8 @@
         {
             "id": "offline_landuse_industrial_quarry",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_2_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_2_polygon",
             "minzoom": 8,
             "maxzoom": 13,
             "filter": [
@@ -269,8 +270,8 @@
         {
             "id": "offline_landuse_commercial",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_landuse_2_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_2_polygon",
             "minzoom": 8,
             "maxzoom": 13,
             "filter": ["any", ["==", "fclass", "commercial"]],
@@ -284,7 +285,7 @@
         {
             "id": "landuse_forest_wood_7-10",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -306,7 +307,7 @@
         {
             "id": "landuse_glacier",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "glacier"]],
@@ -319,7 +320,7 @@
         {
             "id": "landuse_island",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "island"]],
@@ -332,7 +333,7 @@
         {
             "id": "landuse_beach",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "beach"]],
@@ -345,7 +346,7 @@
         {
             "id": "landuse_cliff",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "cliff"]],
@@ -358,7 +359,7 @@
         {
             "id": "landuse_peak",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "peak"]],
@@ -371,7 +372,7 @@
         {
             "id": "landuse_scrub",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "scrub"]],
@@ -385,7 +386,7 @@
         {
             "id": "landuse_industrial_quarry",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_2_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -404,7 +405,7 @@
         {
             "id": "landuse_commercial",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_2_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -419,7 +420,7 @@
         {
             "id": "landuse_traffic",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": [
@@ -442,7 +443,7 @@
         {
             "id": "landuse_transport",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": [
@@ -464,7 +465,7 @@
         {
             "id": "landuse_region_hilly",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "region"]],
@@ -478,7 +479,7 @@
         {
             "id": "landuse_farm",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -497,7 +498,7 @@
         {
             "id": "landuse_park_grass",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": [
@@ -518,7 +519,7 @@
         {
             "id": "landuse_military",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -532,7 +533,7 @@
         {
             "id": "landuse_heath",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "heath"], ["==", "fclass", "meadow"]],
@@ -545,7 +546,7 @@
         {
             "id": "landuse_cemetery",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "filter": ["any", ["==", "fclass", "cemetry"]],
@@ -558,7 +559,7 @@
         {
             "id": "pofw_pois_traffic_trasport_polygon",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 13,
             "maxzoom": 15,
@@ -569,8 +570,8 @@
         {
             "id": "offline_water_areas",
             "type": "fill",
-            "source": "local",
-            "source-layer": "offline_water_areas",
+            "source": "martin_basemap",
+            "source-layer": "water_areas",
             "minzoom": 10,
             "maxzoom": 13,
             "filter": ["all"],
@@ -584,8 +585,8 @@
         {
             "id": "offline_water_lines",
             "type": "line",
-            "source": "local",
-            "source-layer": "offline_waterway_line",
+            "source": "martin_basemap",
+            "source-layer": "waterway_line",
             "minzoom": 10,
             "maxzoom": 13,
             "filter": ["all"],
@@ -599,7 +600,7 @@
         {
             "id": "water_areas",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "water_areas",
             "minzoom": 13,
             "maxzoom": 24,
@@ -614,7 +615,7 @@
         {
             "id": "water_lines",
             "type": "line",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "waterway_line",
             "minzoom": 13,
             "maxzoom": 24,
@@ -629,8 +630,8 @@
         {
             "id": "offline_rail_line_name",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_railwayline_polygon",
+            "source": "martin_basemap",
+            "source-layer": "railwayline_polygon",
             "minzoom": 9,
             "maxzoom": 13,
             "filter": ["all"],
@@ -651,8 +652,8 @@
         {
             "id": "offline_rail_4-16-first",
             "type": "line",
-            "source": "local",
-            "source-layer": "offline_railwayline_polygon",
+            "source": "martin_basemap",
+            "source-layer": "railwayline_polygon",
             "minzoom": 4,
             "maxzoom": 13,
             "filter": ["all"],
@@ -677,7 +678,7 @@
         {
             "id": "rail_6-16-sec",
             "type": "line",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "railwayline_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -698,7 +699,7 @@
         {
             "id": "rail_4-16-first",
             "type": "line",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "railwayline_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -724,7 +725,7 @@
         {
             "id": "rail_line_name",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "railwayline_polygon",
             "minzoom": 13,
             "maxzoom": 24,
@@ -3348,8 +3349,8 @@
         {
             "id": "offline_admin_name_countries",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_countries_point",
+            "source": "martin_basemap",
+            "source-layer": "countries_point",
             "minzoom": 0,
             "maxzoom": 4,
             "filter": ["all"],
@@ -3387,8 +3388,8 @@
         {
             "id": "offline_admin_name_state",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_state_point",
+            "source": "martin_basemap",
+            "source-layer": "state_point",
             "minzoom": 4,
             "maxzoom": 7,
             "filter": ["all"],
@@ -3628,7 +3629,7 @@
         {
             "id": "name_pofw_pois_traffic_trasport_polygon",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 15,
             "filter": ["all"],
@@ -3651,7 +3652,7 @@
         {
             "id": "name_landuse_1",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_1_polygon",
             "minzoom": 15,
             "filter": ["all"],
@@ -3674,7 +3675,7 @@
         {
             "id": "name_landuse_2",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_2_polygon",
             "minzoom": 15,
             "filter": ["all"],
@@ -3697,7 +3698,7 @@
         {
             "id": "name_landuse_3",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "landuse_3_polygon",
             "minzoom": 15,
             "filter": ["all"],
@@ -3721,7 +3722,7 @@
         {
             "id": "name_water_line",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "waterway_line",
             "minzoom": 14,
             "filter": ["any", ["==", "$type", "LineString"]],
@@ -3742,7 +3743,7 @@
         {
             "id": "name_watera_reas",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "water_areas",
             "minzoom": 15,
             "filter": ["all"],
@@ -3765,8 +3766,8 @@
         {
             "id": "offline_name_landuse_1",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_landuse_1_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_1_polygon",
             "minzoom": 7,
             "maxzoom": 13,
             "filter": ["all"],
@@ -3790,8 +3791,8 @@
         {
             "id": "offline_name_landuse_2",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_landuse_2_polygon",
+            "source": "martin_basemap",
+            "source-layer": "landuse_2_polygon",
             "minzoom": 11,
             "maxzoom": 13,
             "filter": ["all"],
@@ -3817,8 +3818,8 @@
         {
             "id": "offline_name_watera_reas",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_water_areas",
+            "source": "martin_basemap",
+            "source-layer": "water_areas",
             "minzoom": 10.5,
             "maxzoom": 13,
             "filter": ["all"],
@@ -3841,8 +3842,8 @@
         {
             "id": "offline_name_water_line",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_waterway_line",
+            "source": "martin_basemap",
+            "source-layer": "waterway_line",
             "minzoom": 10,
             "maxzoom": 13,
             "filter": ["any", ["==", "$type", "LineString"]],
@@ -3863,7 +3864,7 @@
         {
             "id": "tree",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "tree",
             "minzoom": 15,
             "maxzoom": 24,

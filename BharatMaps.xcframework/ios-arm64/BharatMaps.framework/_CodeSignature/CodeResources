@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/BharatMapView.h</key>
 		<data>
-		dP4KsINZ/SHgoTtFqOx6ZYLJeT8=
+		R7gCFULuYoyII/WpV2ySiCOhiF4=
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
@@ -442,7 +442,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		TXKr2Wy3G0ripbydrpPr+bw+ghI=
+		N6a5AsVo0eL7pGMlwi+y/3tlfBE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -615,19 +615,19 @@
 		</dict>
 		<key>style.json</key>
 		<data>
-		e4pditlgEEOupiRQ3LHigRmP2ig=
+		MGg76odlY+Cw+2IcWiNxO4/13oY=
 		</data>
 		<key>style_dark.json</key>
 		<data>
-		wP0DkO3dQPnXuC1mGrqPSYgl/qU=
+		bOvYHwCSZckfDt9CVcTjbymqGM4=
 		</data>
 		<key>style_simplified.json</key>
 		<data>
-		0fbDV1zXNjuT0aiCtEOSdaC4cpM=
+		SAyeQs3okTQqg4FLrDq+USPJjQ0=
 		</data>
 		<key>style_simplified_dark.json</key>
 		<data>
-		ifHSB34/JrCeV2kLXl+X1xKMbqQ=
+		QS6g4XfA9RzRjIQDhBVAvtbZ7QA=
 		</data>
 		<key>sv.lproj/Localizable.strings</key>
 		<dict>
@@ -686,7 +686,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			f7sADKJdU/uzfeyuMMIF/nTNHV4XkE0C7MUaH/BATTg=
+			9/SMAJiBSGAeeyOUGwunCMp4w2uBD1AHhld7WTfVGzE=
 			</data>
 		</dict>
 		<key>Headers/BharatMaps.h</key>
@@ -1616,28 +1616,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n3I2Si9S+wygP1uFMZR2zZY6OKl/qb/inpy4vVTIRys=
+			7WE/EtpC/Oku+1162htnqZSJNE57CoPh0L8W30/uEvU=
 			</data>
 		</dict>
 		<key>style_dark.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			taOBTnbwvoA8cZHtxgKENnfCYRx3vq4K9k6n/KH4hus=
+			3BTv8uW7I6nhO+nk8BdpDIRkxrV5LBBjzkxcLEKDv5c=
 			</data>
 		</dict>
 		<key>style_simplified.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7VLyBWFM7xPljXXIFTQ5iYP6VTC24acDrD6iLdv6C4E=
+			YKbcORtOBABwHeXp0mClz3iUjCKSaQ0OUOCmTRHXQeQ=
 			</data>
 		</dict>
 		<key>style_simplified_dark.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4j3wRKUkHCtDhO8XY3dBZpOWPkD/WzEgRMyHYbsqf3U=
+			Fr3aFGoL6OrNSTyahthZ6RSyH/YQ/dQ0X5fgL/dxvuQ=
 			</data>
 		</dict>
 		<key>sv.lproj/Localizable.strings</key>

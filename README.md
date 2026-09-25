@@ -2,7 +2,7 @@
 
 This repository distributes `BharatMaps` as a binary Swift Package.
 
-Current release: **1.0.61**. See [Getting Started](GETTING_STARTED.md) for the public API.
+Current release: **1.0.62**. See [Getting Started](GETTING_STARTED.md) for the public API.
 
 **Do not use 1.0.55:** it has a packaging regression (stale style resources and invalid resource signatures). Use 1.0.56 or later.
 
