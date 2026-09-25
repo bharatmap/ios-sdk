@@ -177,6 +177,14 @@ BharatMaps_EXPORT
 - (BOOL)isPoisAutoRefreshEnabled NS_SWIFT_NAME(isPoisAutoRefreshEnabled());
 - (void)setPoisAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setPoisAutoRefreshEnabled(_:));
 - (void)refreshPois;
+/// Independently refreshes admin_points while the licensed map is active. Default YES.
+- (BOOL)isAdminPointsAutoRefreshEnabled NS_SWIFT_NAME(isAdminPointsAutoRefreshEnabled());
+- (void)setAdminPointsAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setAdminPointsAutoRefreshEnabled(_:));
+- (void)refreshAdminPoints;
+/// Independently refreshes building_names while the licensed map is active. Default YES.
+- (BOOL)isBuildingNamesAutoRefreshEnabled NS_SWIFT_NAME(isBuildingNamesAutoRefreshEnabled());
+- (void)setBuildingNamesAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setBuildingNamesAutoRefreshEnabled(_:));
+- (void)refreshBuildingNames;
 /// Current map viewport padding.
 @property (nonatomic, assign) UIEdgeInsets mapPadding;
 

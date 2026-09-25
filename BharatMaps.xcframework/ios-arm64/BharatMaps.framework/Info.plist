@@ -5,7 +5,7 @@
 	<key>BharatMapsApiKey</key>
 	<string>0000000000</string>
 	<key>BharatMapsSourceRevision</key>
-	<string>0040b4f40996f611ab4c3495d4deb6fb95531b99</string>
+	<string>019db91ff58a2b15175af3f9b8a2f7db44c6688b</string>
 	<key>BuildMachineOSBuild</key>
 	<string>25G83</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -21,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.59</string>
+	<string>1.0.60</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -29,7 +29,7 @@
 		<string>iPhoneOS</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.59</string>
+	<string>1.0.60</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformName</key>

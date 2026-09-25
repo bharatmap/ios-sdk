@@ -57,7 +57,7 @@
         }
     ,
         "martin_pois": {"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/pois/{z}/{x}/{y}.pbf"],"minzoom":16,"maxzoom":16}
-    },
+    ,"martin_admin_points":{"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/admin_points/{z}/{x}/{y}.pbf"],"minzoom":11,"maxzoom":15},"martin_building_names":{"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/building_names/{z}/{x}/{y}.pbf"],"minzoom":15,"maxzoom":16}},
     "sprite": "https://assets.bharat-maps.com/icons/sprite?3",
     "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
     "layers": [
@@ -2573,7 +2573,7 @@
         {
             "id": "house_name",
             "type": "symbol",
-            "source": "composite",
+            "source": "martin_building_names",
             "source-layer": "building_names",
             "minzoom": 15.75,
             "layout": {
@@ -3558,8 +3558,8 @@
         {
             "id": "offline_admin_sub_locality",
             "type": "symbol",
-            "source": "local",
-            "source-layer": "offline_sub_locality_1_point",
+            "source": "martin_admin_points",
+            "source-layer": "admin_points",
             "minzoom": 11.5,
             "maxzoom": 13,
             "filter": ["all"],
@@ -3594,8 +3594,8 @@
         {
             "id": "admin_sub_locality_2",
             "type": "symbol",
-            "source": "composite",
-            "source-layer": "sub_locality_2_point",
+            "source": "martin_admin_points",
+            "source-layer": "admin_points",
             "minzoom": 13,
             "maxzoom": 16,
             "filter": ["all"],
