@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select a version tag
+3. Select version `1.0.64` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -529,6 +529,14 @@ bharatMapView.enableUserLocation()
 ```
 
 When bottom-sheet height changes, call `setNavigationCameraViewport(...)` again. Active navigation follow/recenter uses the latest viewport.
+
+Navigation follow restores this viewport after foreground entry and map resizing;
+it does not resume follow if the user or an app camera operation stopped it.
+Real navigation suppresses small stationary display jitter (reported speed below
+0.5 m/s, within an accuracy-derived 2–8 m radius). This includes the location/course
+seen by delegate-provided user-location annotation views. Movement or missing speed
+releases the hold. Route calculations, trip progress and `currentNavigationLocation`
+continue to use the unfiltered provider location. Simulation is not filtered.
 
 ## 7) Quick navigation start (no alternative selection)
 

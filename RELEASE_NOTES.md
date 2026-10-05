@@ -1,3 +1,13 @@
+# 1.0.64
+
+- Apply a coherent navigation camera target so center, heading, pitch and zoom do not cancel each other. Restore the stored viewport on foreground entry and map resize without forcing free-camera follow.
+- Stabilize small stationary real-navigation display jitter, including native/delegate custom puck location and course. Navigation calculations and currentNavigationLocation retain unfiltered provider input; simulation is unchanged.
+- Preserve existing custom puck images and delegate views. No new public API or host integration changes are required.
+- Local native regressions passed: 33 checks for delegate puck, 33 for image puck, and 43 navigation/session/reroute checks. Physical-device driving remains separate acceptance.
+
+Source revision: 42e857de6257f6e32197cc3cbb286dff163e573b.
+Fix revision: 4361656f358491f7a7795f3a5a25a6792ecedfe5.
+
 # 1.0.63
 
 - Restore continuous railway strokes in all four themes by removing two invalid single-element dash arrays. Sleepers and other styling remain unchanged.
