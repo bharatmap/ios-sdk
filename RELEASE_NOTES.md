@@ -1,3 +1,12 @@
+# 1.0.65
+
+- Synchronize the navigation follow camera and native user puck using one interpolated geographic sample per display tick. Keep the puck projected on the map instead of positioning it as a fixed overlay.
+- Animate navigation viewport changes on the same timeline. Coalesce identical mapPadding assignments that mirror an active navigation viewport transition.
+- Preserve raw navigation locations/progress, custom image and delegate-provided puck views, free-camera takeover, and explicit recenter behavior. No new public API or application-owned timeout is introduced.
+- Verified deterministic native simulator tests for per-frame motion, turns, speed/viewport changes, built-in simulation, mirrored padding, lifecycle/style reload, and navigation/session/reroute contracts. Physical-device driving and full long-route acceptance remain separate.
+
+Source revision: a369c96b207cceac89200624b4c5e1b3eab0bb85.
+
 # 1.0.64
 
 - Apply a coherent navigation camera target so center, heading, pitch and zoom do not cancel each other. Restore the stored viewport on foreground entry and map resize without forcing free-camera follow.

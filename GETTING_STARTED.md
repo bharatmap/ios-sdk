@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.64` or a newer compatible release
+3. Select version `1.0.65` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -529,6 +529,16 @@ bharatMapView.enableUserLocation()
 ```
 
 When bottom-sheet height changes, call `setNavigationCameraViewport(...)` again. Active navigation follow/recenter uses the latest viewport.
+
+The follow anchor is the center of the padded map viewport: `x = (width + left - right) / 2`,
+`y = (height + top - bottom) / 2`, in map-local points. The SDK does not know where
+an application zoom bar is placed. Choose the viewport from your control layout;
+do not apply the same bottom-sheet offset twice. Navigation camera and puck use
+the same interpolated geographic sample during follow, including course changes.
+The puck remains geographically projected, not a fixed screen overlay. Raw
+navigation locations and progress callbacks are not delayed by display animation.
+Manual gestures and explicit app camera takeover still release follow;
+`recenterCamera()` restores it. Any timeout before recentering belongs to the app.
 
 Navigation follow restores this viewport after foreground entry and map resizing;
 it does not resume follow if the user or an app camera operation stopped it.
