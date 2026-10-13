@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.66` or a newer compatible release
+3. Select version `1.0.67` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -1794,3 +1794,26 @@ road source in all themes. Existing style-layer IDs are retained. Ordinary
 road surfaces and casings exclude bridge features to avoid duplicate styling;
 road labels, directional arrows and low-zoom roads are unchanged. No new API
 or source permission is required.
+
+### Rendered user location for overlays
+
+Use `currentRenderedUserLocation` when an overlay must start at the visible puck,
+not at the latest raw/navigation fix. On the main thread, register an observer:
+
+```swift
+let token = mapView.addRenderedUserLocationObserver { location in
+    updateCalibrationOverlay(from: location.coordinate)
+}
+let snapshot = mapView.currentRenderedUserLocation
+// When the overlay finishes:
+mapView.removeRenderedUserLocationObserver(token)
+```
+
+Registration delivers an immediate snapshot when available, then display-frame
+positions, including after arrival. The sample is for drawing, not GPS accuracy
+or raw navigation progress. Keep the token and remove it when no longer needed.
+
+Simulated `holdAtDestination` holds the road-route endpoint, while the original
+off-road destination remains the calibration target. Real walking after arrival
+is not snapped back to the route. Active route animation follows intermediate
+vertices instead of cutting turns; distant off-route fixes remain unsnapped.

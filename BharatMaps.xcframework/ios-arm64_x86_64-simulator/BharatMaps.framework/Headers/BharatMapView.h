@@ -104,6 +104,11 @@ BharatMaps_EXPORT
 @property (nonatomic, strong, readonly, nullable) CLLocation *currentUserLocation;
 /// Current navigation location. During simulation this returns simulated location when available.
 @property (nonatomic, strong, readonly, nullable) CLLocation *currentNavigationLocation;
+/** Display sample for overlays. Raw/navigation progress semantics are unchanged. Main thread only. */
+@property (nonatomic, strong, readonly, nullable) CLLocation *currentRenderedUserLocation;
+/** Returns an observer token. Delivers a snapshot immediately when available, then display-frame samples. */
+- (id)addRenderedUserLocationObserver:(void (^)(CLLocation *location))observer NS_SWIFT_NAME(addRenderedUserLocationObserver(_:));
+- (void)removeRenderedUserLocationObserver:(id)token NS_SWIFT_NAME(removeRenderedUserLocationObserver(_:));
 /// Current simulated navigation location, if simulated navigation is active or held.
 @property (nonatomic, strong, readonly, nullable) CLLocation *currentSimulatedNavigationLocation;
 /// Whether navigation session is currently active.
