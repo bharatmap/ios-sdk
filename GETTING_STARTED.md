@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.65` or a newer compatible release
+3. Select version `1.0.66` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -604,6 +604,23 @@ bharatMapView.startNavigation(origin: origin, destination: destination, simulati
 `setNavigationRouteVanishingEnabled(false)` is the default for backward compatibility. This affects only the SDK-owned active navigation route. It does not disable app-owned route polylines, route progress callbacks, maneuver callbacks, custom user puck, or navigation camera.
 
 ### Taxi simulation legs
+
+Active navigation vanishing geometry is updated from the displayed puck animation
+sample, not the next GPS target. This also applies after a manual camera gesture;
+moving the puck and trimming the line do not resume camera follow.
+
+While following, navigation zoom adapts to speed and proximity to the upcoming
+maneuver, with a deadband and delayed zoom-out to avoid oscillation. A manual
+camera gesture releases navigation follow; recenter restores it. Existing
+programmatic camera ownership semantics are unchanged (in active navigation,
+`moveCameraTo` alone does not release navigation follow).
+
+For a deterministic variable-speed simulation, set
+`options.variableSpeedEnabled = true` before starting navigation. The replay
+accelerates after maneuvers and brakes before the next maneuver. `speedMultiplier`
+scales the entire profile. The default is `false`, preserving constant-speed replay.
+This option is copied with the session options and retained on reroute and the next
+leg when reusing those options. It is a testing profile, not a traffic model.
 
 Use simulation options when a driver flow has multiple simulated legs and the puck must stay at the simulated destination instead of jumping back to GPX/system location.
 

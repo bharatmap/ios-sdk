@@ -30,6 +30,8 @@ BharatMaps_EXPORT
 @property (nonatomic, assign) BOOL autoStopOnArrival;
 /// Multiplies default simulation speed. Values <= 0 are treated as 1.
 @property (nonatomic, assign) double speedMultiplier;
+/// Opt-in acceleration and braking around maneuvers. Defaults to NO.
+@property (nonatomic, assign) BOOL variableSpeedEnabled;
 
 - (instancetype)init;
 - (instancetype)initWithEnabled:(BOOL)enabled
