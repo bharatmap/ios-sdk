@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.67` or a newer compatible release
+3. Select version `1.0.68` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -1817,3 +1817,9 @@ Simulated `holdAtDestination` holds the road-route endpoint, while the original
 off-road destination remains the calibration target. Real walking after arrival
 is not snapped back to the route. Active route animation follows intermediate
 vertices instead of cutting turns; distant off-route fixes remain unsnapped.
+
+Navigation position follows the route segments; puck and follow-camera bearing
+rotate continuously along the shortest angular arc instead of jumping at a
+vertex. Angular settling can continue after a position update completes. A new
+fix resumes from the displayed angle. This does not change navigation viewport,
+free-camera/recenter ownership, or the rendered-location observer contract.
