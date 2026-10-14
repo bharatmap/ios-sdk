@@ -19,7 +19,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.68` or a newer compatible release
+3. Select version `1.0.69` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## 2) Add required Info.plist key
@@ -1823,3 +1823,13 @@ rotate continuously along the shortest angular arc instead of jumping at a
 vertex. Angular settling can continue after a position update completes. A new
 fix resumes from the displayed angle. This does not change navigation viewport,
 free-camera/recenter ownership, or the rendered-location observer contract.
+
+### Named flyover and underpass instructions
+
+Named bridge instructions preserve the supplied road name and append `flyover`
+or `underpass` only when the corresponding type is missing as a whole word,
+ignoring case. `Fly Over`, `Fly-over`, `Bridge`, `Under Pass`, and `Under-pass`
+are recognized (Bridge is a flyover synonym, not an underpass synonym).
+For example, `Gopalpura Flyover` produces `Keep right to take Gopalpura Flyover`,
+not `Gopalpura Flyover flyover`. Keep-left/right and unnamed instructions are
+unchanged. Displayed instruction text and voice instructions share this formatter.

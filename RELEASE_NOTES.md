@@ -1,3 +1,10 @@
+# 1.0.69
+
+- Avoid duplicate flyover/underpass types in named navigation instructions. Recognize whole words case-insensitively, including Fly Over, Fly-over, Bridge, Under Pass and Under-pass.
+- Preserve names, keep-left/right directions and generic unnamed instructions. Display text and voice share the same formatter; speech timing is unchanged.
+- 44 shared Android/iOS formatting cases passed against the production Objective-C formatter on macOS Foundation. Device and simulator framework slices built; no simulator was launched and physical-device runtime validation is not claimed.
+
+Source revision: a0f81762bd98ebc9f39e510930b4e5196b6a7e94.
 # 1.0.68
 
 - Fix the 1.0.67 regression that snapped navigation camera and puck bearing at route vertices. Keep position on the polyline; rotate over the shortest angular arc with a bounded rate, starting from the rendered angle on every retarget.
