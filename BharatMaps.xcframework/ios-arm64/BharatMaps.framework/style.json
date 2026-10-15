@@ -119,7 +119,7 @@
         {
             "id": "dummy_sea",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "dummy_sea_polygon",
             "minzoom": 13,
             "maxzoom": 24,
