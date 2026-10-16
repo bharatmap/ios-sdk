@@ -9,6 +9,7 @@
 #import "BharatMapsPluginStyleLayer.h"
 
 #import "BharatMapView.h"
+#import "BharatMapsDataClient.h"
 #import "BharatMapsAdvancedAnnotation.h"
 #import "BharatMapsAdvancedAnnotationOptions.h"
 #import "BharatMapsRouteOption.h"

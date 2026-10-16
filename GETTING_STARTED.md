@@ -19,8 +19,28 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.70` or a newer compatible release
+3. Select version `1.0.71` or a newer compatible release
 4. Add product `BharatMaps`
+
+## Authenticated data requests (1.0.71)
+
+Register your application ID with its API key in the Developer Portal and validate
+that license through the existing map initialization API. The SDK registers its
+installation key and refreshes short-lived access tokens automatically. Third-party
+apps do not need to configure App Attest or a Google Cloud project. Apps explicitly
+configured for Apple/Google verification retain that requirement.
+
+`BharatMapsDataClient` provides search, housing, nearby, reverse and UPin requests.
+Search and housing accept `q`, `lat`, `lon`; nearby accepts `category`, `lat`, `lon`
+and an optional `limit` (1–100); reverse accepts `lat`, `lon`; UPin accepts `q`.
+Responses use the existing `hits.hits` envelope with public fields. UPin search does
+not return private personalized delivery details. HTTP 429 and `Retry-After` report
+shared quotas; do not immediately retry quota denials. Built-in reverse geocoding
+uses the same authenticated client.
+
+The Objective-C entry point is `taskForOperation:parameters:completion:`. The returned
+`NSURLSessionDataTask` starts suspended: call `resume` and retain it for cancellation.
+Dispatch UI work from the completion handler to the main queue.
 
 ## 2) Add required Info.plist key
 

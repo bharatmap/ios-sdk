@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		PWi/Xvu9I57US6BnMe0M1iGfQCE=
+		9eLWalrOSCaAlCFdf5k5r4fpltE=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
-		gECaWzw01h67vPKqdNDXPbcJ0Fs=
+		vq9vL8GmW3S7cF8e0WGqrWw9PX8=
 		</data>
 		<key>Headers/BharatMapsActionJournalOptions.h</key>
 		<data>
@@ -111,6 +111,10 @@
 		<key>Headers/BharatMapsCustomStyleLayer.h</key>
 		<data>
 		/gxuTBaigz4HHYfEmVfajJeBk8U=
+		</data>
+		<key>Headers/BharatMapsDataClient.h</key>
+		<data>
+		1I8JmVqql57WT/pUoH0kqUclV10=
 		</data>
 		<key>Headers/BharatMapsDefaultStyle.h</key>
 		<data>
@@ -442,7 +446,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZF6FuIkXruAmgqyygzEf+f6ZODM=
+		roduym0tvTz+bO/OSLscz616ck4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -672,7 +676,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0bVA4Kki9A0+8m3diGGA7KA1un8lhQggrKoQPoMXVdQ=
+			NBT2r8MlzrJI+FUB60I2g9/RqbxfpLmsOVuE9nqxi1I=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
@@ -693,7 +697,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/TV8Kp+qr8iZAeCF+HPEQ4S60mNMUM/zqPV0FxoLv/A=
+			FgtC3R0LigAOxwZI/0pBtrZtgyykGeaj/dyrEXnrFQM=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsActionJournalOptions.h</key>
@@ -855,6 +859,13 @@
 			<key>hash2</key>
 			<data>
 			jveA6DoIfWFSZWhElPbeHCeD16sns53/Bbpi5CkfUAs=
+			</data>
+		</dict>
+		<key>Headers/BharatMapsDataClient.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			A+7H5ynqlwEzsVPKI8HznwkfvzmZCvgAiivQWGnLe44=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsDefaultStyle.h</key>
