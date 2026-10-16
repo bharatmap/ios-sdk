@@ -17,7 +17,8 @@ BharatMaps_EXPORT
 /**
  Creates a suspended task. Call resume to start or cancel to stop it.
  The server validates operation parameters and must have data access enabled for the organization.
- Search and housing take q/lat/lon; reverse takes lat/lon; nearby takes category/lat/lon and optional limit; UPin takes q.
+ Search and housing take q/lat/lon; reverse takes lat/lon; nearby takes category/lat/lon and optional limit.
+ Route search and UPin authorization parameters are documented in GETTING_STARTED.md. Maximum body size is 1 MiB.
  Completion runs on the session's background queue; HTTP errors and Retry-After remain in the response.
  */
 + (NSURLSessionDataTask *)taskForOperation:(BharatMapsDataOperation)operation
