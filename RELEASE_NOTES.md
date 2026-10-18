@@ -1,3 +1,12 @@
+# 1.0.73
+
+- Add BharatMapsMartinAuthorization.state() and addListener(_:) with an immutable, sanitized status/error snapshot. Initial and subsequent delivery is asynchronous on the main queue; cancellation or subscription deallocation ends delivery.
+- Observe the existing shared authorization operation. License acceptance alone is not ready. Preserve readiness while an existing token is usable during refresh; report session expiry, bounded preparation timeout, denial and temporary failure. Invalidation and identity changes discard queued old-state updates.
+- Tile source 502/503 responses remain independent of authorization readiness. Observing state adds no network probes or retry loop.
+- Host state and existing transport fixtures passed, including recovery, cancellation and tile 502/503 readiness. The public Swift device client compiled and linked against this XCFramework; arm64/x86_64 simulator API typechecks, exported classes, signatures, versions and all four styles passed. No simulator was launched. Physical iPhone runtime and production attestation were not verified for this release.
+
+Source revision: 0853a3154ea0690920e17c7d1902482082035bde.
+
 # 1.0.72
 
 - Raise the signed data request limit to 1 MiB for complete route polygons. Method, URL and exact-body signature binding remain required.

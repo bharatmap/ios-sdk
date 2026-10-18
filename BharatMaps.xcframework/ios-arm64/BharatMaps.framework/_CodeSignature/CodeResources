@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
-		vq9vL8GmW3S7cF8e0WGqrWw9PX8=
+		VUSqeW7YYqRF4X2macynuTOjUUA=
 		</data>
 		<key>Headers/BharatMapsActionJournalOptions.h</key>
 		<data>
@@ -223,6 +223,10 @@
 		<key>Headers/BharatMapsMapViewDelegate.h</key>
 		<data>
 		v0tGlI5rQtQZNEBZVwtKh6raC/Y=
+		</data>
+		<key>Headers/BharatMapsMartinAuthorization.h</key>
+		<data>
+		i5IIqG7FjEic8682CFfEOYhDHRc=
 		</data>
 		<key>Headers/BharatMapsMultiPoint.h</key>
 		<data>
@@ -446,7 +450,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+GSdk0a4bNtB+1fKyid78WIUaBQ=
+		p+71dF1Ol4v1hI6mtppwQK8sVHw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -697,7 +701,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FgtC3R0LigAOxwZI/0pBtrZtgyykGeaj/dyrEXnrFQM=
+			ZV9DZ3kwajqT32TrpqxgUUQyOpCne4/enwq0/X2gx6g=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsActionJournalOptions.h</key>
@@ -1055,6 +1059,13 @@
 			<key>hash2</key>
 			<data>
 			JScWa+RNJbNZT39Gplfwr/iJSSmM2HohHngm3LCPKdE=
+			</data>
+		</dict>
+		<key>Headers/BharatMapsMartinAuthorization.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fMEFBpUbFFNPJzG8vuHvPYafGOiD3PKxeDwUqQCQ5Uo=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsMultiPoint.h</key>

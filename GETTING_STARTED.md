@@ -19,8 +19,59 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.72` or a newer compatible release
+3. Select version `1.0.73` or a newer compatible release
 4. Add product `BharatMaps`
+
+## Martin authorization state (1.0.73)
+
+Observe the SDK's existing shared authorization independently of style loading:
+
+```swift
+private var martinSubscription: BharatMapsMartinAuthorizationSubscription?
+
+func observeAuthorization() {
+    let current = BharatMapsMartinAuthorization.state()
+    handleMartinAuthorization(current)
+    martinSubscription = BharatMapsMartinAuthorization.addListener { [weak self] snapshot in
+        self?.handleMartinAuthorization(snapshot)
+    }
+}
+
+func stopObservingAuthorization() {
+    martinSubscription?.cancel()
+    martinSubscription = nil
+}
+```
+
+`state()` is synchronous and safe from any queue. The listener asynchronously receives
+an initial current snapshot and subsequent changes on the main queue. Retain the
+subscription; releasing it or calling `cancel()` ends delivery and releases the
+listener. Cancellation suppresses queued callbacks; an executing callback may finish.
+Use a weak owner capture to avoid retaining the owner through its subscription.
+
+| Status | Meaning |
+| --- | --- |
+| `.licenseUnavailable` | No validated license is applied, including after invalidation. Error: `.licenseNotValidated`. |
+| `.disabled` | The applied license omits Martin protection or explicitly sets its mode to `disabled`. Martin tile requests do not require a session. This does not authorize signed data requests. |
+| `.preparing` | The existing authorization operation is preparing its first usable session. License validation alone does not mean ready. |
+| `.ready` | A valid, unexpired shared session exists. It remains ready during refresh and temporary refresh failures while that session is usable. |
+| `.denied` | Local app ID/API key configuration is invalid (`.configurationInvalid`) or the authorization server denied access (`.serverDenied`). |
+| `.retryableFailure` | No usable session is available: `.unavailable`, `.timeout` (preparation exceeded 45 seconds), or `.sessionExpired`. |
+
+Other statuses use `.none` for `errorCode`. Snapshots expose only status and a
+sanitized error code, never credentials, token contents, or server error bodies.
+Session expiry updates the state even when there are no tile requests. A preparation
+timeout does not cancel the shared operation; a later success can restore `.ready`.
+
+Repeated validation of the same identity preserves a usable session. Identity changes
+and invalidation clear readiness and discard queued updates from the old identity.
+Updates may coalesce to the latest snapshot; the listener is not an audit log of every
+intermediate transition. Recovery uses existing SDK requests, session refresh and license
+revalidation; subscribing does not add network requests, probes, or a separate retry loop.
+
+Authorization readiness does not guarantee tile availability. A tile source returning
+502/503 can fail while authorization remains `.ready`; handle source/style failures
+separately when deciding whether to dismiss an application's loading screen.
 
 ## Authenticated data requests (1.0.72)
 

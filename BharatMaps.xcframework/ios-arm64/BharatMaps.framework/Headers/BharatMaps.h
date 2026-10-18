@@ -10,6 +10,7 @@
 
 #import "BharatMapView.h"
 #import "BharatMapsDataClient.h"
+#import "BharatMapsMartinAuthorization.h"
 #import "BharatMapsAdvancedAnnotation.h"
 #import "BharatMapsAdvancedAnnotationOptions.h"
 #import "BharatMapsRouteOption.h"
