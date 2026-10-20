@@ -3,13 +3,7 @@
     "name": "production",
     "metadata": {"maputnik:renderer": "mbgljs"},
     "sources": {
-"martin_basemap": {"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/basemap/{z}/{x}/{y}.pbf"],"minzoom":0,"maxzoom":16},
-        "composite": {
-            "type": "vector",
-            "tiles": ["https://map.bharat-maps.com/data/production/{z}/{x}/{y}.pbf"],
-            "minzoom": 13,
-            "maxzoom": 16
-        },
+"martin_basemap": {"type":"vector","tiles":["https://map.bharat-maps.com/martin/v1/basemap/{z}/{x}/{y}.pbf"],"minzoom":0,"maxzoom":16,"attribution":"<a href=\"https://sites.research.google/gr/open-buildings/\">Google Open Buildings</a>"},
         "martin_roads": {
             "type": "vector",
             "tiles": [
@@ -745,7 +739,7 @@
         {
             "id": "buildings_2D_1",
             "type": "fill",
-            "source": "composite",
+            "source": "martin_basemap",
             "source-layer": "one_polygon_last",
             "minzoom": 15,
             "maxzoom": 24,
@@ -1406,17 +1400,6 @@
                 "line-opacity": 1,
                 "line-dasharray": [2, 0.5]
             }
-        },
-        {
-            "id": "road_airport",
-            "type": "line",
-            "source": "composite",
-            "source-layer": "airport",
-            "minzoom": 12,
-            "maxzoom": 24,
-            "filter": ["all"],
-            "layout": {"visibility": "visible"},
-            "paint": {"line-color": "rgba(191, 189, 189, 1)", "line-width": 2}
         },
         {
             "id": "road_service",
