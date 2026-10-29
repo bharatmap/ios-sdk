@@ -1,5 +1,32 @@
 # BharatMaps iOS SDK: Quick Start
 
+## Administrative simulator access (1.0.76)
+
+An iOS simulator cannot provide App Attest. For an administrator-approved simulator,
+opt in before creating or validating a map's license, normally in application startup:
+
+```swift
+#if DEBUG && targetEnvironment(simulator)
+let enabled = BharatMapsMartinAuthorization.enableSimulatorAccess()
+#endif
+```
+
+The call returns `false` on physical devices or after authorization is configured.
+It never grants access itself. Once the normal license is validated, obtain
+`BharatMapsMartinAuthorization.simulatorPairingInfo()` over the trusted local debug
+channel. It returns `platform`, `appId`, `tenantId`, public `jwk` and RFC7638
+`expectedJkt`; it never exposes a private key or API key. The administrator approves
+this exact identity and existing API-key ID through the Portal developer-grant CLI
+with `platform: "ios"`. Without that grant, authorization remains denied. Relaunch
+after approval to retry immediately; the SDK retains its normal denial cooldown.
+
+The simulator uses a separate Keychain PoP key and metadata namespace. Rebuilding
+the same app preserves the key; erasing the simulator or losing its Keychain requires
+new approval. This is administrative development access, not Apple or hardware
+attestation. App Attest remains the physical-device path. License validation, signed
+one-use challenges, DPoP, token lifetime, scopes, quotas and revocation still apply.
+Portal and gateway support for iOS developer grants must be deployed before pairing.
+
 ## Immediate viewport updates (1.0.75)
 
 `mapPadding` in Swift (`setMapPadding:` in Objective-C) uses `UIEdgeInsets` in points. It applies immediately, without a second animation or smoothing step. It preserves follow/tracking and any running center/zoom/bearing/pitch transition and its completion callback. The update supersedes padding captured by that transition, including when setting the same current padding, so later transition frames and completion cannot restore an old target inset.
@@ -26,7 +53,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.75` or a newer compatible release
+3. Select version `1.0.76` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
@@ -1812,6 +1839,8 @@ App Attest capability/entitlement and matching provisioning profile. The registe
 App Identifier Prefix, bundle ID and production/development environment must match.
 A simulator cannot certify production attestation. Missing capability or server
 configuration denies protected requests instead of falling back to anonymous tiles.
+SDK 1.0.76 adds the explicit administrative simulator path documented above; it is
+never selected automatically after an App Attest failure.
 
 Session refresh is SDK-owned; apps do not need to repeat license validation every
 five minutes. The installation PoP key and App Attest metadata use device-only

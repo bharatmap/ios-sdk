@@ -42,6 +42,17 @@ BharatMaps_EXPORT
 
 BharatMaps_EXPORT
 @interface BharatMapsMartinAuthorization : NSObject
+/**
+ Opts this process into administratively approved simulator access before license validation.
+ Returns NO on a physical device or after authorization has been configured. This does not grant access.
+ The simulator installation must be paired by an administrator using simulatorPairingInfo().
+ */
++ (BOOL)enableSimulatorAccess NS_SWIFT_NAME(enableSimulatorAccess());
+/**
+ Public pairing identity for this simulator installation after license validation, or nil when unavailable.
+ Contains platform, appId, tenantId, public jwk and expectedJkt only. Never contains a private key or API key.
+ */
++ (nullable NSDictionary<NSString *, id> *)simulatorPairingInfo NS_SWIFT_NAME(simulatorPairingInfo());
 /** Current state; license validation alone does not imply ready. Safe from any queue. */
 + (BharatMapsMartinAuthorizationSnapshot *)state NS_SWIFT_NAME(state());
 /**

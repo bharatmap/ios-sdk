@@ -1,3 +1,13 @@
+# 1.0.76
+
+- Add explicit simulator opt-in through `BharatMapsMartinAuthorization.enableSimulatorAccess()` before license validation, and expose the public installation identity through `simulatorPairingInfo()` for administrative pairing.
+- A valid license and an administrator-approved grant bound to the app, tenant, API key and installation public key are required. The simulator signs challenges and requests with its separate Keychain key. This does not claim hardware attestation or weaken physical-device App Attest.
+- Preserve ordinary authorization, expiry, revocation, quotas, state notifications and authenticated transport. Calls on physical devices cannot enable simulator access.
+- Public Swift APIs compile for device arm64 and simulator arm64/x86_64. Both framework slices pass signature, version, style-resource and exported-symbol compatibility checks. Full binary simulator fixtures cover pairing, denial, refresh, revocation and the existing transport/App Attest provider paths.
+- The iOS app was launched on iPhone 18 Pro / iOS 27.0 Simulator with a finite, explicitly approved production grant: startup splash dismissed and authenticated map tiles rendered. No physical-device runtime was performed for this release.
+
+Source revision: 13db7fc76fc295e8b19f13df9ec174a6620f72b9.
+
 # 1.0.75
 
 - Apply immediate map viewport padding independently of center/zoom/bearing/pitch transitions. Keep the existing public setter and units, preserve follow and completion callbacks, and avoid additional smoothing.
