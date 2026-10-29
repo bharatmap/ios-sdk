@@ -196,7 +196,9 @@ BharatMaps_EXPORT
 - (BOOL)isBasemapAutoRefreshEnabled NS_SWIFT_NAME(isBasemapAutoRefreshEnabled());
 - (void)setBasemapAutoRefreshEnabled:(BOOL)enabled NS_SWIFT_NAME(setBasemapAutoRefreshEnabled(_:));
 - (void)refreshBasemap;
-/// Current map viewport padding.
+/// Current viewport padding in points; applied immediately without smoothing.
+/// Preserves follow and active camera transitions, replacing their captured padding.
+/// Later explicit camera or navigation viewport updates may replace this value.
 @property (nonatomic, assign) UIEdgeInsets mapPadding;
 
 /// Last validated license token returned by licensing backend.

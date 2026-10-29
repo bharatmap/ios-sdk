@@ -1,3 +1,13 @@
+# 1.0.75
+
+- Apply immediate map viewport padding independently of center/zoom/bearing/pitch transitions. Keep the existing public setter and units, preserve follow and completion callbacks, and avoid additional smoothing.
+- New host-driven padding supersedes the padding captured by the current ease/fly/atomic transition, including no-op values; subsequent camera frames and completion cannot restore the old target. Later explicit camera transitions may own padding again.
+- Swift callers assign mapPadding; Objective-C callers use setMapPadding:. Keep native tracking and navigation camera state while applying the viewport immediately, including during recenter.
+- Shared native viewport regression passed. Device/simulator XCFramework builds, exported-class compatibility, Swift API compilation/linking, signatures and all four style resources passed. Simulator slices were compiled only; no simulator was launched.
+- Physical iPhone runtime was not performed because the device was unavailable. The extended iOS camera/navigation fixture is prepared for a physical device.
+
+Source revision: c0a7309a28b9bd2960a2c975fc4aff0f346b3304.
+
 # 1.0.74
 
 - Load building footprints (`one_polygon_last`) from the authenticated Martin basemap in all four bundled themes.

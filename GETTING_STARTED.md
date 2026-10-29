@@ -1,5 +1,12 @@
 # BharatMaps iOS SDK: Quick Start
 
+## Immediate viewport updates (1.0.75)
+
+`mapPadding` in Swift (`setMapPadding:` in Objective-C) uses `UIEdgeInsets` in points. It applies immediately, without a second animation or smoothing step. It preserves follow/tracking and any running center/zoom/bearing/pitch transition and its completion callback. The update supersedes padding captured by that transition, including when setting the same current padding, so later transition frames and completion cannot restore an old target inset.
+
+Call the setter on the UI/main thread once per host layout/animation frame. Subsequent explicit camera transitions or navigation viewport changes can take ownership of padding again. The separate navigation viewport configuration remains unchanged. Use explicit animated-padding APIs only when the SDK should animate the viewport, rather than once per host animation frame. Explicit camera transitions still replace previous camera transitions.
+
+
 ## SDK naming and resources
 
 Use `import BharatMaps` and the `BharatMapView` facade. The Objective-C umbrella
@@ -19,7 +26,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.73` or a newer compatible release
+3. Select version `1.0.75` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
@@ -552,7 +559,7 @@ Behavior:
 - `centerOnUserLocation()` uses `defaultZoom`
 - In normal map mode, recenter animates center, requested zoom, north-up heading and zero pitch together. Location updates continue updating the puck during the transition without interrupting camera animation. After finishing, the camera smoothly catches up to the latest fix at the requested zoom before resuming ordinary follow.
 - A user camera gesture, disabling location, a newer recenter, or an app-owned camera movement cancels the previous recenter. Its delayed completion cannot restore follow or reset the camera. GPS updates are never suppressed; no app-side animation workaround is needed.
-- `setMapPadding(...)` and `animateMapPadding(...)` are coordinated with startup and explicit recenter. Padding updates cannot interrupt the target user coordinate or requested zoom; an active padding animation resumes after recenter with its remaining duration.
+- Assign `mapPadding` for immediate viewport updates during startup or recenter, without interrupting the target coordinate or zoom. This supersedes older padding animations and deferred padding targets. `animateMapPadding(_:duration:)` is the explicit animated path; its deferred animation resumes after recenter only if no newer immediate viewport update superseded it.
 - if GPS is not available yet and `defaultLocation` is valid, center fallback uses `defaultLocation`
 
 ### Map padding (instant + animated)
@@ -560,7 +567,7 @@ Behavior:
 Set map viewport padding instantly. On iOS this uses `contentInset`, so it affects the camera viewport and user-location layout:
 
 ```swift
-bharatMapView.setMapPadding(UIEdgeInsets(top: 24, left: 16, bottom: 180, right: 16))
+bharatMapView.mapPadding = UIEdgeInsets(top: 24, left: 16, bottom: 180, right: 16)
 // equivalent property style:
 bharatMapView.mapPadding = UIEdgeInsets(top: 24, left: 16, bottom: 180, right: 16)
 ```
