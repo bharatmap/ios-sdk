@@ -1,7 +1,10 @@
+#import "BharatMapsFoundation.h"
+
 #if BharatMaps_RENDER_BACKEND_METAL
 
 #import <MetalKit/MetalKit.h>
 
+BharatMaps_EXPORT
 @interface BharatMapsBackendResource : NSObject
 
 @property (nonatomic, strong) MTKView *mtkView;
@@ -19,7 +22,6 @@
 #else
 
 #import <Foundation/Foundation.h>
-#import "BharatMapsFoundation.h"
 
 BharatMaps_EXPORT
 @interface BharatMapsBackendResource : NSObject

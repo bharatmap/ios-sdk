@@ -1,5 +1,13 @@
 # BharatMaps iOS SDK: Quick Start
 
+## Metal rendering (1.0.77)
+
+iOS device and simulator frameworks use Metal. This fixes missing land fill during
+continuous viewport-padding changes in the previous OpenGL build. Standard style
+layers and the high-level map API require no application changes. Custom drawing
+through `BharatMapsCustomStyleLayer` must use its Metal `renderEncoder`; the legacy
+OpenGL `context` is unavailable with this backend.
+
 ## Administrative simulator access (1.0.76)
 
 An iOS simulator cannot provide App Attest. For an administrator-approved simulator,
@@ -53,7 +61,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.76` or a newer compatible release
+3. Select version `1.0.77` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)

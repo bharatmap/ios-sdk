@@ -1,1 +1,1 @@
-
+#define BharatMaps_RENDER_BACKEND_METAL 1

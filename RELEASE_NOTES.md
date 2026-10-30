@@ -1,3 +1,13 @@
+# 1.0.77
+
+- Build the iOS device and simulator frameworks with Metal. This removes missing land fill observed while a search panel continuously changes map viewport padding in the previous OpenGL artifact.
+- Export `BharatMapsBackendResource` in the Metal build and reject non-Metal slices during release preparation. Public Objective-C classes remain exported; all four bundled styles are unchanged.
+- Standard style layers and the high-level map API require no renderer-specific application changes. Custom `BharatMapsCustomStyleLayer` drawing must use the Metal `renderEncoder`; the legacy OpenGL `context` is unavailable with this backend.
+- Device arm64 and simulator arm64/x86_64 public Swift API compilation and linking, framework signatures, packaged resources and viewport-padding regressions passed. On iPhone 18 Pro / iOS 27.0 Simulator, continuous down/up gestures from both the search header and table content kept map coverage intact, including a repeat with loaded tiles.
+- No physical-device runtime was performed for this release. License validation and Martin authorization are unchanged.
+
+Source revision: 720442bdb03ab6858ea65273ff78b61b6e3a58e2.
+
 # 1.0.76
 
 - Add explicit simulator opt-in through `BharatMapsMartinAuthorization.enableSimulatorAccess()` before license validation, and expose the public installation identity through `simulatorPairingInfo()` for administrative pairing.
