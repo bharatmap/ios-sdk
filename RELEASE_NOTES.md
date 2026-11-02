@@ -1,3 +1,14 @@
+# 1.0.82
+
+- Wait for the existing navigation renderer to finish the final simulated movement before trip-end clears guidance. Replay already emitted the route endpoint; the final sample now has zero speed for every hold/auto-stop option. Real-location arrival thresholds are unchanged.
+- Keep the completed geographic puck position while the camera leaves navigation mode, including held simulation after auto-stop. Explicit reset to real location clears the held position.
+- Preserve the original off-road destination through simulated route start and reroute; replay and hold stop at the road geometry endpoint while calibration uses the original target. Imported app-owned routes retain their own endpoint semantics.
+- Physical iPhone fixtures record emitted coordinates before hold, last active progress, the rendered endpoint before trip-end and first trip-end state. Constant/braking replay, 35–1000 m routes, final turns, via legs, 0.5x–8x multipliers, hold/auto-stop combinations and restart passed. Public route-request/reroute fixtures retained an 80 m off-road calibration target. Held rendered endpoint error at first trip-end was zero in the measured fixtures; auto-stop without hold intentionally restores the prior location provider.
+- Three background/resume cycles, stationary heading, resize, manual ownership, style reload, recenter, stop/restart and independent framing passed on physical iPhone. Metal device arm64 and simulator arm64/x86_64 slices are packaged; no simulator was launched.
+- The separate previously documented UIKit presentation-layer check at instantaneous padding jumps is not claimed fixed by this arrival change.
+
+Source revision: 305c63ac963c630d640b29a507f0dd84b5c17a78.
+
 # 1.0.81
 
 - Keep U-turn framing focused on the reversing arc and a short exit segment, instead of requiring a speed-dependent distant exit road behind the user anchor. Recognize both U-turn maneuver types and modifiers. Preserve required compound maneuvers and defer exit-road warning framing until the turn is complete.
