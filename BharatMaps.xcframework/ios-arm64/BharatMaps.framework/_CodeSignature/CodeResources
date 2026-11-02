@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		9eLWalrOSCaAlCFdf5k5r4fpltE=
+		dvHYTCbfmc5vO/5yZep1K/rG+js=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/BharatMapView.h</key>
 		<data>
-		vffAOVnG21Gn6/GU/gEwzzxB6ho=
+		JVKXJhaZfjKICrZt8P0LthJnlo4=
 		</data>
 		<key>Headers/BharatMaps.h</key>
 		<data>
@@ -450,7 +450,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C5Sb+/LjEgT/RP5MxzdK76KsBM8=
+		c5npDT9d1825a6YRaXHjoC1N8KE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -680,7 +680,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NBT2r8MlzrJI+FUB60I2g9/RqbxfpLmsOVuE9nqxi1I=
+			/PeCP68hBshdiTq+8c1EzsYAsuCRvGqs8QFWM/6bjx4=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
@@ -694,7 +694,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LVFWr0HhmKhRMmPUY2dQC5VZxy5N5ptotqvquOAw0+c=
+			RCqZm9/nXxVzt5lhihG7YrbwVaQRjz7b4QLQaDD83BU=
 			</data>
 		</dict>
 		<key>Headers/BharatMaps.h</key>

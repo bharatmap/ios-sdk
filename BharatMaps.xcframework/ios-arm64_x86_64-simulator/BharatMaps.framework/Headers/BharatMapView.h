@@ -16,6 +16,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^BharatNavigationCallback)(NSError *_Nullable error);
 
+/** Immutable shared navigation framing parameters. Distances are meters; time is seconds. */
+BharatMaps_EXPORT
+@interface BharatNavigationCameraOptions : NSObject <NSCopying>
+@property (nonatomic, readonly) double lookaheadSeconds;
+@property (nonatomic, readonly) double minimumDistance;
+@property (nonatomic, readonly) double maximumDistance;
+@property (nonatomic, readonly) double minimumZoom;
+@property (nonatomic, readonly) double maximumZoom;
+- (instancetype)init;
+- (instancetype)initWithLookaheadSeconds:(double)seconds minimumDistance:(double)minimumDistance
+                        maximumDistance:(double)maximumDistance minimumZoom:(double)minimumZoom
+                            maximumZoom:(double)maximumZoom NS_DESIGNATED_INITIALIZER;
+@end
+
+typedef NS_ENUM(NSInteger, BharatNavigationCameraEventKind) {
+    BharatNavigationCameraEventKindCamera,
+    BharatNavigationCameraEventKindAccident,
+    BharatNavigationCameraEventKindConstruction,
+    BharatNavigationCameraEventKindFire,
+    BharatNavigationCameraEventKindWarning
+};
+
+/** App-owned warning; its snapshot binds it to one session and route revision. */
+BharatMaps_EXPORT
+@interface BharatNavigationCameraEvent : NSObject
+@property (nonatomic, copy, readonly) NSString *identifier;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly) BharatNavigationCameraEventKind kind;
+@property (nonatomic, readonly) NSInteger priority;
+/// Degrees clockwise from north, or NaN if unspecified.
+@property (nonatomic, readonly) double heading;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithIdentifier:(NSString *)identifier coordinate:(CLLocationCoordinate2D)coordinate
+                             kind:(BharatNavigationCameraEventKind)kind priority:(NSInteger)priority
+                          heading:(double)heading NS_DESIGNATED_INITIALIZER;
+@end
+
 /**
  Options for simulated navigation sessions.
  */
@@ -257,6 +294,14 @@ BharatMaps_EXPORT
                              size:(CGSize)size NS_SWIFT_NAME(setUserLocationPuckImage(_:size:));
 - (void)setUserLocationPuckBearingEnabled:(BOOL)enabled NS_SWIFT_NAME(setUserLocationPuckBearingEnabled(_:));
 - (void)setUserLocationPuckBearingMode:(BharatMapsUserLocationPuckBearingMode)mode NS_SWIFT_NAME(setUserLocationPuckBearingMode(_:));
+/// Main thread. Applies to the next matched update or recenter.
+- (void)setNavigationCameraOptions:(BharatNavigationCameraOptions *)options NS_SWIFT_NAME(setNavigationCameraOptions(_:));
+/// Visible framing insets in points; camera padding still controls the user anchor.
+- (void)setNavigationCameraFramingViewport:(UIEdgeInsets)viewport NS_SWIFT_NAME(setNavigationCameraFramingViewport(_:));
+- (void)clearNavigationCameraFramingViewport NS_SWIFT_NAME(clearNavigationCameraFramingViewport());
+/// Authoritative replacement; empty clears. Returns NO for stale session/revision.
+- (BOOL)updateNavigationCameraEvents:(NSArray<BharatNavigationCameraEvent *> *)events
+                          sessionId:(NSString *)sessionId revision:(NSUInteger)revision NS_SWIFT_NAME(updateNavigationCameraEvents(_:sessionId:revision:));
 - (void)setNavigationCameraViewport:(UIEdgeInsets)viewport NS_SWIFT_NAME(setNavigationCameraViewport(_:));
 
 - (void)animateCameraTo:(CLLocationCoordinate2D)location

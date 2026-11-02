@@ -1,5 +1,98 @@
 # BharatMaps iOS SDK: Quick Start
 
+## Independent navigation framing (1.0.79)
+
+Camera padding determines the user anchor. Pass the **real visible map rectangle**
+separately when the anchor uses a narrow padding band:
+
+```swift
+// All measurements are map-local UIKit points.
+map.mapPadding = UIEdgeInsets(top: anchorY - 30, left: 0,
+    bottom: mapHeight - anchorY - 30, right: 0)
+map.setNavigationCameraFramingViewport(UIEdgeInsets(top: visibleTop, left: 0,
+    bottom: mapHeight - visibleBottom, right: 0))
+```
+
+`visibleTop` is the bottom of the header; `visibleBottom` is the top of the controls
+that cover the map. The framing rectangle must include the user anchor. Existing
+`setNavigationCameraViewport(_:)` can continue to set navigation anchor padding.
+Call the framing setter after the existing padding update in the host layout callback.
+It leaves anchor padding and geographic camera animation intact and retargets only
+follow zoom through the existing renderer. Free-camera/overview mode only stores the
+bounds. Use `recenterCamera()` when explicitly resuming follow for a fresh fit.
+
+`clearNavigationCameraFramingViewport()` restores fitting against camera padding.
+Without an explicit framing viewport, behavior is unchanged. Collapsed bounds or geometry outside the configured zoom range hold the current zoom. Insets must be finite and nonnegative; calls are main-thread
+only. Framing persists across route sessions and style changes, independently of
+traffic or warning snapshots. A recreated map requires the host to restore its layout.
+
+## Adaptive navigation camera (1.0.78)
+
+Android and iOS use the same geometry policy and configuration defaults inside the
+existing embedded navigation camera.
+
+```swift
+map.setNavigationCameraOptions(BharatNavigationCameraOptions())
+if let route = map.activeNavigationRoute {
+    let event = BharatNavigationCameraEvent(
+        identifier: "warning-42", coordinate: coordinate,
+        kind: .camera, priority: 2, heading: .nan)
+    let accepted = map.updateNavigationCameraEvents(
+        [event], sessionId: route.sessionId, revision: route.revision)
+    // An authoritative clear uses the current identity and an empty array.
+    map.updateNavigationCameraEvents([], sessionId: route.sessionId, revision: route.revision)
+}
+map.recenterCamera()
+```
+
+`BharatNavigationCameraOptions(lookaheadSeconds:minimumDistance:maximumDistance:minimumZoom:maximumZoom:)`
+accepts optional tuning with the same units and defaults as Android. Event kinds
+are `.camera`, `.accident`, `.construction`, `.fire`, and `.warning`. Coordinates
+use `CLLocationCoordinate2D`, heading is degrees clockwise from north or `.nan`.
+
+The default follow horizon is `clamp(filteredSpeed * 20 seconds, 120 m, 1000 m)`.
+Missing or inaccurate speed preserves the last trusted estimate; an unknown initial
+speed uses 10 m/s. A three-second time filter suppresses stop/start noise. Important
+turns and nearby maneuver groups shorten the horizon while retaining their approach,
+turn geometry and a 30–100 m tail. `continue`, `depart`, `arrive`, `notification` and
+`new name` steps do not independently request a close-up.
+
+Zoom comes from projecting that geometry at the existing user anchor, bearing and
+pitch into the effective padded viewport. Defaults allow zoom 12–18. Normal zoom-target
+changes use a 0.15 deadband, at most 0.5 zoom/s inward, and 0.35 zoom/s outward after
+a two-second delay. The geometric ceiling for a required maneuver/event overrides
+the delay/rate when retaining the old scale would hide it. A temporarily collapsed viewport, or geometry outside the configured zoom range,
+holds the displayed zoom until a usable frame is available. Existing platform camera
+animation still owns interpolation; padding does not start another camera controller.
+An explicit host padding update becomes the current navigation viewport, including
+subsequent GPS frames and recenter; it is not replaced by a previously saved viewport.
+
+Events are application data: the SDK does not scan rendered features or request a
+backend. Each authoritative snapshot is bound to the active `sessionId` and
+`routeRevision`; stale snapshots return false. Empty replaces the active list with
+no events. Temporary absence from a rendered query is **not** an authoritative clear:
+the application must retain its already discovered relevant events. IDs must be unique
+inside a snapshot. A new coordinate/heading for an unpassed ID updates its projection.
+
+Only upcoming events within 20 m of route geometry and the current lookahead are
+considered. Optional heading rejects the opposite route direction (75-degree
+threshold). Current along-route progress chooses the applicable occurrence on a loop;
+a passed ID cannot reappear during the same route revision, including after GPS rollback
+or an empty snapshot. New session, reroute, stop and arrival clear active event state;
+passed-ID history is reset with the route revision. Priority 0–3 resolves simultaneous
+warnings (higher values first), then the nearer event wins. A warning never removes a required maneuver.
+
+A coordinate alone cannot establish road identity between adjacent parallel roads;
+provide heading when the warning is directional and prefilter semantic applicability
+in the application. Unknown or unloaded offscreen warnings cannot influence the camera.
+No backend expansion is included. Gestures and overview retain their existing
+camera takeover behavior. Programmatic camera calls during active navigation retain
+their existing follow semantics. There is no SDK auto-recenter timer. Call `recenterCamera()` to resume
+the current adaptive frame; an application-owned idle timer can use that same method.
+Settings and calls are main-thread only. Options persist across style changes; a newly
+created map uses defaults and requires the host to restore its configuration.
+
+
 ## Metal rendering (1.0.77)
 
 iOS device and simulator frameworks use Metal. This fixes missing land fill during
@@ -61,7 +154,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.77` or a newer compatible release
+3. Select version `1.0.79` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)

@@ -1,3 +1,13 @@
+# 1.0.79
+
+- Add the shared adaptive navigation framing policy, immutable camera options, and application-owned warning snapshots bound to the current navigation session and route revision.
+- Add `setNavigationCameraFramingViewport(_:)` and `clearNavigationCameraFramingViewport()`. Insets use map-local UIKit points and bound the real visible map rectangle while existing camera padding continues to define the user anchor.
+- Retarget only follow zoom through the existing renderer, retaining active geographic movement. Clear restores fitting against camera padding. Gestures, overview and existing programmatic camera ownership semantics are preserved.
+- Physical iPhone public-API acceptance passed: 250 m lookahead fills approximately 97% instead of 4% of visible space at the same anchor; clear, gesture takeover, recenter and style reload passed. Shared projection regressions cover portrait/landscape and three bearings. Metal device/simulator builds, all three Swift architecture interfaces, signatures, bundled styles and public branding checks passed; simulator slices were compiled only.
+- The separate frame-by-frame UIKit presentation-layer check at instantaneous padding jumps also fails on published 1.0.77. Measured geographic anchor error is about 0.001–0.002 pt; this presentation-layer check is not reported as passing acceptance.
+
+Source revision: 2b97bf035b2a7963aa1a70e97422db2f1f9b7c5b.
+
 # 1.0.77
 
 - Build the iOS device and simulator frameworks with Metal. This removes missing land fill observed while a search panel continuously changes map viewport padding in the previous OpenGL artifact.
