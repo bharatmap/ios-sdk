@@ -1,3 +1,11 @@
+# 1.0.84
+
+- Align the iOS package version with Android 1.0.84, which fixes displayed-endpoint arrival and false end-of-route reroutes on Android.
+- iOS runtime code and public interfaces are unchanged. Both architecture-slice binaries match 1.0.83 after removing signatures; only version/source metadata and signatures changed. Framework signatures and bundled styles were verified.
+- Physical iPhone arrival and lifecycle evidence remains the 1.0.82 verification; no new iPhone runtime test was performed for this metadata-only update.
+
+Source revision: c14ae7e349951995bec9ca7845ab9c8d37d2d3d6.
+
 # 1.0.83
 
 - Align the iOS package version with Android 1.0.83, which fixes replay queue mutation and reentrant route assignment on Android.
