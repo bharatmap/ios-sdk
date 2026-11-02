@@ -1,3 +1,15 @@
+# 1.0.81
+
+- Keep U-turn framing focused on the reversing arc and a short exit segment, instead of requiring a speed-dependent distant exit road behind the user anchor. Recognize both U-turn maneuver types and modifiers. Preserve required compound maneuvers and defer exit-road warning framing until the turn is complete.
+- Fit U-turn geometry through the displayed-to-target camera transition so early zoom-in does not clip the remaining arc while the camera is still rotating. Existing renderers retain movement, gesture ownership and zoom rate control; no global zoom floor is added.
+- Shared projection regressions cover both directions, three radii, constant and braking speed profiles, stops, compound turns, roundabout exits and portrait/landscape/compact viewports.
+- Metal device arm64 and simulator arm64/x86_64 release builds, signatures, versions, bundled styles and all 162 exported device Objective-C classes were verified. Simulator slices were compiled only.
+- Physical iPhone fixtures passed with the prepared release framework: constant-speed 10 m radius U-turn (minimum zoom 17.87), braking 3 m radius U-turn (17.55), and wide 40 m radius U-turn (17.40). The remaining arc stayed inside the viewport in every sampled rendered frame; maximum geographic anchor error was 0.072 UIKit points. These are deterministic SDK fixtures, not the original application route.
+- Physical iPhone independent framing, clear, style reload, gesture ownership, stationary heading, resize, three background/resume cycles, recenter and navigation stop/restart checks passed.
+- The previously documented UIKit presentation-layer test remains unresolved and is not reported as passing.
+
+Source revision: 80037e434a2ac1179cbab1385c262375322aaa2f.
+
 # 1.0.80
 
 - Fix distance expressions in source queries by supplying the canonical tile ID to vector, GeoJSON and custom geometry filter evaluation. Spatial filters can now evaluate feature coordinates instead of rejecting them for missing tile context.
