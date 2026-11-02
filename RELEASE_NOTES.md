@@ -1,3 +1,11 @@
+# 1.0.83
+
+- Align the iOS package version with Android 1.0.83, which fixes replay queue mutation and reentrant route assignment on Android.
+- iOS runtime code and public interfaces are unchanged from 1.0.82. Both architecture-slice binaries match 1.0.82 after removing their signatures; only version/source metadata and signatures changed. Framework signatures and bundled styles were verified.
+- Physical iPhone arrival and lifecycle results remain those recorded for 1.0.82; no new iPhone runtime test was performed for this metadata-only update.
+
+Source revision: a3106ed4599086ab80ecb7eb0350c4c923e7c8ed.
+
 # 1.0.82
 
 - Wait for the existing navigation renderer to finish the final simulated movement before trip-end clears guidance. Replay already emitted the route endpoint; the final sample now has zero speed for every hold/auto-stop option. Real-location arrival thresholds are unchanged.
