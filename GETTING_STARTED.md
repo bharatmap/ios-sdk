@@ -154,7 +154,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.79` or a newer compatible release
+3. Select version `1.0.80` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)

@@ -1,3 +1,12 @@
+# 1.0.80
+
+- Fix distance expressions in source queries by supplying the canonical tile ID to vector, GeoJSON and custom geometry filter evaluation. Spatial filters can now evaluate feature coordinates instead of rejecting them for missing tile context.
+- Preserve public APIs, source-query thread requirements and application-owned address selection.
+- Metal device arm64 and simulator arm64/x86_64 release slices built and passed framework version, signature and bundled-style verification. All 162 exported device Objective-C classes are retained. Simulator slices were compiled only.
+- Shared-core distance regression and address parity were exercised on physical Android hardware. No new physical iPhone runtime acceptance was performed for this release. The previously documented presentation-layer check remains unresolved.
+
+Source revision: 810a9ac0e41576ba4f3c2b0c16f29c2e6c6cb96d.
+
 # 1.0.79
 
 - Add the shared adaptive navigation framing policy, immutable camera options, and application-owned warning snapshots bound to the current navigation session and route revision.
