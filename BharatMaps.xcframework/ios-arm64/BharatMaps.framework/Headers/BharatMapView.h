@@ -153,6 +153,15 @@ BharatMaps_EXPORT
 /// Whether camera is currently following user location.
 @property (nonatomic, assign, readonly) BOOL cameraFollowingUser;
 
+/**
+ Multiplies the SDK navigation and selected/alternative preview line and border widths.
+ Defaults to 1.0. Updates existing layers and persists across route/style changes.
+ Does not affect app-owned lines, pucks, markers or arrows. Main thread only.
+ Must be finite and positive, with scaled widths representable as finite floats;
+ invalid values raise NSInvalidArgumentException without changing the current value.
+ */
+@property (nonatomic, assign) CGFloat routeLineWidthMultiplier;
+
 /// Latest preview route options from requestRoutes.
 @property (nonatomic, copy, readonly) NSArray<BharatMapsRouteOption *> *routeOptions;
 

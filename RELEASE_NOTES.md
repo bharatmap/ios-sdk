@@ -1,3 +1,12 @@
+# 1.0.86
+
+- Add public `BharatMapView.routeLineWidthMultiplier`, default 1.0, for the SDK navigation and selected/alternative preview line and border widths. Set `map.routeLineWidthMultiplier = 1.15` on the main thread for 7.59/9.43-point navigation/selected widths and 6.21/7.82-point alternative widths.
+- Update existing route layers without rebuilding their geometry. Widths are always derived from base constants, so repeated assignments do not accumulate. The value survives route selection, navigation start/progress, reroute and style reload; preview layers are restored through the existing redraw path after style reload.
+- Reject nonfinite/nonpositive multipliers and values producing overflowing float widths with NSInvalidArgumentException, preserving the prior value. App-owned lines, pucks, markers, arrows and speech are unchanged.
+- Device arm64 and simulator arm64/x86_64 framework builds completed. Tests, the separate Swift interface test, and simulator/device runs were intentionally skipped at the owner's request. Behavior was reviewed in the source diff, not runtime-validated.
+
+Source revision: 35381e258de74ca39ce84f9a2b25c97f476b6e46.
+
 # 1.0.85
 
 - Add public `BharatMapView.releaseCamera()` for explicit app zoom/ease controls. Follow stays disabled while navigation, simulation and puck updates continue; `recenterCamera()` restores follow.

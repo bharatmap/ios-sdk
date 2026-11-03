@@ -93,6 +93,20 @@ Settings and calls are main-thread only. Options persist across style changes; a
 created map uses defaults and requires the host to restore its configuration.
 
 
+## Route line width (1.0.86)
+
+Set `map.routeLineWidthMultiplier = 1.15` on the main thread to scale the SDK's
+navigation and selected/alternative preview lines and their borders. Default is
+`1.0`; setting it again replaces the multiplier, and `1.0` restores base widths.
+Existing layers update immediately. The value persists across route selection,
+navigation start/progress, reroute and style reload. App-owned lines, pucks,
+markers and arrows are unaffected.
+
+At `1.15`, navigation/selected preview line and border widths are 7.59/9.43 points;
+alternative preview widths are 6.21/7.82 points. Values must be finite and positive,
+with scaled widths representable as finite floats. Invalid values raise
+`NSInvalidArgumentException` and leave the previous value unchanged.
+
 ## Metal rendering (1.0.77)
 
 iOS device and simulator frameworks use Metal. This fixes missing land fill during
@@ -154,7 +168,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.85` or a newer compatible release
+3. Select version `1.0.86` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
