@@ -535,6 +535,14 @@ BharatMaps_EXPORT
  */
 - (void)recenterCamera NS_SWIFT_NAME(recenterCamera());
 
+/**
+ Releases camera follow for explicit app camera controls. Navigation, simulation,
+ and puck rendering continue. Call before changing the camera or zoom directly;
+ follow remains disabled until recenterCamera() or another explicit follow request.
+ Must be called on the main thread.
+ */
+- (void)releaseCamera NS_SWIFT_NAME(releaseCamera());
+
 /// Returns YES when any user-follow mode is active.
 - (BOOL)isUserLocationFollowEnabled;
 

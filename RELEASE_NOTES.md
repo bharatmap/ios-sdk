@@ -1,3 +1,14 @@
+# 1.0.85
+
+- Add public `BharatMapView.releaseCamera()` for explicit app zoom/ease controls. Follow stays disabled while navigation, simulation and puck updates continue; `recenterCamera()` restores follow.
+- Stop clearing map padding at ARRIVED. Held replay retains the endpoint anchor while the host keeps control of arrival-panel padding animations.
+- Normalize the continuous navigation bearing at the native camera and CLLocation API boundaries. Left turns no longer pass a negative heading that native iOS interprets as "keep direction", or an invalid negative puck course.
+- Fit mandatory maneuver geometry against each displayed navigation frame's center, heading, pitch and viewport. This uses the existing display-link and preserves independent framing; no global minimum zoom is added.
+- Simulator iPhone 18 Pro Max checks passed: compound left turn and valid rendered course, manual animated zoom/ease/recenter, held ARRIVED with fixed/animated padding and custom image/delegate pucks, left/right tight and wide U-turns, braking, and roundabout with resize. C++ projection/bearing regressions and the public Swift interface check passed.
+- Physical iPhone 15 Pro Max control runs on public 1.0.84 reproduced all three original failures. The prepared 1.0.85 framework then passed nine physical SDK scenarios: ARRIVED with animated padding/image-puck, manual animated zoom/ease/recenter, compound left turn, left/right tight and wide U-turns, braking, and roundabout with resize. The compound corner remained visible in all 313 sampled frames; maximum U-turn geographic anchor error was 0.073 points. Consumer-app integration of the published package remains separate.
+
+Source revision: c5ed525f80e1bc68c1ad6d7bf1e30b6ba8416abf.
+
 # 1.0.84
 
 - Align the iOS package version with Android 1.0.84, which fixes displayed-endpoint arrival and false end-of-route reroutes on Android.

@@ -154,7 +154,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.84` or a newer compatible release
+3. Select version `1.0.85` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
@@ -836,6 +836,22 @@ maneuver, with a deadband and delayed zoom-out to avoid oscillation. A manual
 camera gesture releases navigation follow; recenter restores it. Existing
 programmatic camera ownership semantics are unchanged (in active navigation,
 `moveCameraTo` alone does not release navigation follow).
+For explicit app controls, call `releaseCamera()` before setting zoom or invoking
+`moveCameraTo`, `easeCameraTo`, or `animateCameraTo`. It sets
+`cameraFollowingUser` to false and preserves navigation, simulation, and moving
+puck updates. Camera ownership stays with the app until `recenterCamera()` or
+another explicit follow request. Call camera APIs on the main thread.
+
+```swift
+map.releaseCamera()
+map.mapView.setZoomLevel(map.mapView.zoomLevel - 1, animated: true)
+// Later, on Locate:
+map.recenterCamera()
+```
+
+ARRIVED no longer clears map padding. Held simulation keeps the endpoint at the
+existing anchor; the host continues to own arrival-panel layout and can animate
+`mapPadding` through the existing API.
 
 For a deterministic variable-speed simulation, set
 `options.variableSpeedEnabled = true` before starting navigation. The replay
