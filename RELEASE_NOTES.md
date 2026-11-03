@@ -1,3 +1,12 @@
+# 1.0.87
+
+- Add public Swift `BharatMapView.selectRouteOption(at:tolerance:) -> Bool` for requested and imported preview routes. Points are local to the public map view; tolerance is a finite, nonnegative square half-size in UIKit points. Calls are main-thread only; no gesture recognizer is added.
+- Use renderer hit-testing on preview lines and borders, including the configured routeLineWidthMultiplier. Exact hits precede tolerance-only hits; the selected route wins overlaps, then original route-options order breaks ties. Repeated overlap taps do not cycle routes.
+- Changed selections reuse selectRouteOption and RouteSelectionDidChange. An already-selected hit returns true without another event. Misses, invalid inputs, out-of-bounds points, missing rendered previews and active navigation return false without changing state. Speech, camera, puck, markers and app-owned lines are unchanged.
+- Device arm64 and simulator arm64/x86_64 builds completed. No tests were added or run (including the separate Swift interface test); no application, device or simulator was launched, at the owner's request. Source review is complete; runtime acceptance remains pending.
+
+Source revision: 2de20afc227eae6da71bf3766628efdc8f994008.
+
 # 1.0.86
 
 - Add public `BharatMapView.routeLineWidthMultiplier`, default 1.0, for the SDK navigation and selected/alternative preview line and border widths. Set `map.routeLineWidthMultiplier = 1.15` on the main thread for 7.59/9.43-point navigation/selected widths and 6.21/7.82-point alternative widths.

@@ -1,5 +1,30 @@
 # BharatMaps iOS SDK: Quick Start
 
+## Select a preview route by map point (1.0.87)
+
+Forward a tap from the host's existing gesture handler on the main thread:
+
+```swift
+let point = gesture.location(in: map)
+let hit = map.selectRouteOption(at: point, tolerance: 12)
+```
+
+`point` uses the public `BharatMapView`'s local UIKit coordinates. `tolerance`
+is a finite, nonnegative number of points: the renderer queries a square extending
+that far in each direction, clipped to the view. Zero requires an exact hit on
+the rendered preview line or border. Exact hits win over tolerance-only hits;
+within either group the current selection wins, then the original route-options
+order breaks ties. Repeated taps on an overlap therefore do not cycle routes.
+
+Returns `true` on a hit, including the current selection. A changed selection
+uses the existing `selectRouteOption(routeId:)` path and `RouteSelectionDidChange`
+event; an unchanged selection emits no duplicate event. A miss, invalid input,
+an out-of-bounds point, no rendered preview, or active navigation returns `false`
+without changing state. Applies to requested and imported `previewNavigationRoutes`
+previews. The renderer accounts for `routeLineWidthMultiplier`, including `1.15`.
+No new recognizer is installed; camera, active navigation, speech, puck, markers,
+and app-owned lines are unaffected. Query after the preview has rendered.
+
 ## Independent navigation framing (1.0.79)
 
 Camera padding determines the user anchor. Pass the **real visible map rectangle**
@@ -168,7 +193,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.86` or a newer compatible release
+3. Select version `1.0.87` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)

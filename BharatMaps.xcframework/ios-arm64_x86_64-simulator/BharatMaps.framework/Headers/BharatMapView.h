@@ -586,6 +586,21 @@ BharatMaps_EXPORT
 - (BOOL)selectRouteOption:(NSString *)routeId NS_SWIFT_NAME(selectRouteOption(routeId:));
 
 /**
+ Selects a rendered preview route at a point in this BharatMapView's local UIKit
+ coordinate system. Main thread only. Tolerance is a finite, nonnegative number
+ of points extending a square around the point; zero requires an exact hit.
+ Exact line/border hits take priority over tolerance hits. Within either group,
+ the current selection wins, then the original route-options order breaks ties.
+ Returns YES for a hit, including the already-selected route (without another
+ selection event). A changed selection uses selectRouteOption: and its existing
+ selection event. Returns NO without changes for a miss, invalid input, a point
+ outside the view, no rendered preview, or active navigation. No gesture
+ recognizer is installed. Rendered widths include routeLineWidthMultiplier.
+ */
+- (BOOL)selectRouteOptionAtPoint:(CGPoint)point tolerance:(CGFloat)tolerance
+    NS_SWIFT_NAME(selectRouteOption(at:tolerance:));
+
+/**
  Starts navigation from the currently selected preview route.
  */
 - (void)startSelectedNavigationWithSimulation:(BOOL)simulation
