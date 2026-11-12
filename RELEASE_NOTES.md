@@ -1,3 +1,9 @@
+# 1.0.88
+
+- Extend shared navigation camera framing on approach to significant maneuvers using vehicle speed. Existing anchor and padding still apply.
+
+Source revision: d8ce121eaf9e3ef2a492d9530f2fe480b4dfe2b0.
+
 # 1.0.87
 
 - Add public Swift `BharatMapView.selectRouteOption(at:tolerance:) -> Bool` for requested and imported preview routes. Points are local to the public map view; tolerance is a finite, nonnegative square half-size in UIKit points. Calls are main-thread only; no gesture recognizer is added.
