@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		dvHYTCbfmc5vO/5yZep1K/rG+js=
+		MKgPaWwUjWSEiI+mdjK+xzOfUPQ=
 		</data>
 		<key>Base.lproj/Localizable.strings</key>
 		<data>
@@ -234,7 +234,7 @@
 		</data>
 		<key>Headers/BharatMapsNavigationState.h</key>
 		<data>
-		xbG3yNIlyBGLthQotOsgQS3hSpM=
+		24zjPFj+0nDNeP9akQN1FavsEJM=
 		</data>
 		<key>Headers/BharatMapsNetworkConfiguration.h</key>
 		<data>
@@ -450,7 +450,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0+iAkvlwz+ZBRuEX3Wy5Mtn1ruc=
+		5a7aQYpHpvFIA6JF1HNm9jlo4pE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -680,7 +680,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/PeCP68hBshdiTq+8c1EzsYAsuCRvGqs8QFWM/6bjx4=
+			jCDKDdiNheGaNZKuZw7avmAjGQlJRr6/p+Dnpcw7K/Q=
 			</data>
 		</dict>
 		<key>Base.lproj/Localizable.strings</key>
@@ -1079,7 +1079,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h9BLNwIrTxYlmQLL7If0TO+r5wWDDBRQ5vaAmESvaF4=
+			fs2ES86EAmdPtfk2QaWd8WOG0pNRzdARsJagj/RCqlE=
 			</data>
 		</dict>
 		<key>Headers/BharatMapsNetworkConfiguration.h</key>

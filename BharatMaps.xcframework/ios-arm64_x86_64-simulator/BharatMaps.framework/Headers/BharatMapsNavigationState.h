@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, BharatMapsRerouteState) {
 
 BharatMaps_EXPORT
 @interface BharatMapsRerouteEvent : NSObject
+/// A sequence of accurate fixes confirmed backward travel on the active road.
+@property (nonatomic, readonly) BOOL wrongWay;
 @property (nonatomic, copy, readonly) NSString *sessionId;
 @property (nonatomic, copy, readonly) NSString *requestId;
 @property (nonatomic, assign, readonly) BharatMapsRerouteState state;
@@ -42,6 +44,8 @@ BharatMaps_EXPORT
 
 BharatMaps_EXPORT
 @interface BharatMapsRerouteRequest : NSObject
+/// A sequence of accurate fixes confirmed backward travel on the active road.
+@property (nonatomic, readonly) BOOL wrongWay;
 @property (nonatomic, copy, readonly) NSString *requestId;
 @property (nonatomic, strong, readonly) BharatMapsActiveRoute *activeRoute;
 @property (nonatomic, strong, readonly) CLLocation *origin;

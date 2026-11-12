@@ -1,3 +1,12 @@
+# 1.0.89
+
+- Frame the upcoming maneuver on the approach, including at a tilted driving camera angle.
+- Show numbered roundabout exits, driving-side-aware U-turn signs and confirmed flyover or service-road decisions. Update guidance when the active maneuver changes.
+- Report wrong-way reroutes and allow the warning to finish across route revisions. Interrupt superseded maneuver guidance when the route or step changes.
+- Require fresh stationary fixes near the road destination before announcing arrival. Repeated delivery of a single fix cannot confirm a stop.
+
+Source revision: dd5492405c7afef697653f9be4db35b227cc1204.
+
 # 1.0.88
 
 - Extend shared navigation camera framing on approach to significant maneuvers using vehicle speed. Existing anchor and padding still apply.
