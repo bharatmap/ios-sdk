@@ -1,3 +1,11 @@
+# 1.0.90
+
+- Add opt-in map-plane pitch for individual custom markers using setCustomMarkerPitchAlignment(id:enabled:).
+- Preserve screen-relative bearing and coordinate animations while the camera pitch changes. Existing markers use their previous rendering by default.
+- Verify device and simulator framework builds, signatures, resources and Swift API compilation. Physical CarPlay integration acceptance is pending.
+
+Source revision: fe53b106b4901f16855be74e0d30f29c83775129.
+
 # 1.0.89
 
 - Frame the upcoming maneuver on the approach, including at a tilted driving camera angle.

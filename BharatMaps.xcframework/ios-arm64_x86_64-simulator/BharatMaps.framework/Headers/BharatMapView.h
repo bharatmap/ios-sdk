@@ -411,6 +411,18 @@ BharatMaps_EXPORT
 // MARK: Custom Markers
 
 /**
+ Enables map-plane pitch for an existing custom marker. Disabled by default.
+ Bearing remains a clockwise screen-relative angle in degrees. The SDK rotates
+ the image by bearing before applying the camera pitch, without subtracting map
+ direction. Coordinate and route animations continue normally.
+ Returns NO if the identifier does not exist. Replacing a marker resets this
+ option to NO. Call on the main thread, as with other marker operations.
+ */
+- (BOOL)setCustomMarkerPitchAlignmentWithId:(NSString *)identifier
+                                   enabled:(BOOL)enabled NS_SWIFT_NAME(setCustomMarkerPitchAlignment(id:enabled:));
+
+
+/**
  Adds or replaces a lightweight custom marker.
  Use this for dynamic objects such as cars, couriers, drivers, or moving assets.
  */
