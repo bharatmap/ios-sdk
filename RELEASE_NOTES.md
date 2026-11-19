@@ -1,3 +1,12 @@
+# 1.0.91
+
+- Restore the annotation rendering behavior from before 1.0.90: BharatMapView no longer forwards viewForAnnotation to the application delegate for user location or ordinary annotations.
+- Keep opt-in map-plane pitch, screen-relative bearing and coordinate animation for custom markers using setCustomMarkerPitchAlignment(id:enabled:).
+- Physical iPhone regression passed: default user-location and annotation delegate behavior, opt-in pitch at 0/45/60 degrees, screen-relative bearings, stable marker view identity, coordinate animation, disable and removal.
+- Align the version with Android SDK 1.0.91, which fixes navigation notification growth and main-thread building-name revision persistence.
+
+Source revision: d55bae96d9b4e35c714b9279a66cac28cf70c2bf.
+
 # 1.0.90
 
 - Add opt-in map-plane pitch for individual custom markers using setCustomMarkerPitchAlignment(id:enabled:).
