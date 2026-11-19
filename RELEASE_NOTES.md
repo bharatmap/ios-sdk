@@ -1,3 +1,12 @@
+# 1.0.92
+
+- Reuse cached Martin tile ETags across bm_revision changes, allowing conditional revalidation of unchanged tiles instead of redownloading their bodies. Limit fallback to SDK-owned tile templates and preserve normal HTTP revalidation.
+- Preserve iOS license and cache visibility behavior; the Android licensed stale-cache rendering policy is not enabled on iOS. Annotation rendering defaults from 1.0.91 remain unchanged.
+- Host native revision-cache tests passed. Device and simulator framework slices are compiled and verified; no iOS runtime acceptance is claimed for this release.
+- Align the version with Android 1.0.92, which fixes licensed cold offline startup and immediate revocation on current Martin denial.
+
+Source revision: f57eb937b235179dbf319ffdb4a49c6a93fa4d54.
+
 # 1.0.91
 
 - Restore the annotation rendering behavior from before 1.0.90: BharatMapView no longer forwards viewForAnnotation to the application delegate for user location or ordinary annotations.
