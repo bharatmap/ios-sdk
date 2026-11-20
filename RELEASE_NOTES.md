@@ -1,3 +1,12 @@
+# 1.0.94
+
+- Update the shared navigation camera policy: ordinary turns fit the puck and the next maneuver point without expanding the frame for the exit road or a later turn. The complete route remains rendered.
+- Preserve existing iOS route-progress maneuver selection, camera smoothing, puck anchoring, manual control, U-turn arcs and roundabout framing. Android additionally binds selection to its active instruction step.
+- Host camera regressions passed. The prepared Metal XCFramework passed signature, version, resource and branding checks. A physical iPhone smoke test passed independent framing, fixed anchoring, manual camera control, orientation changes and style reload. The four controlled close-turn route comparisons were run on Android, not iOS.
+- Align the version with Android 1.0.94.
+
+Source revision: 7db904ba2f36d45de932263ba2f51640f4868f50.
+
 # 1.0.93
 
 - Align the package version with Android SDK 1.0.93, which corrects U-turn icon selection by the maneuver step's driving_side.
