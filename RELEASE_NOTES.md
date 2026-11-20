@@ -1,3 +1,10 @@
+# 1.0.93
+
+- Align the package version with Android SDK 1.0.93, which corrects U-turn icon selection by the maneuver step's driving_side.
+- Reuse the published 1.0.92 framework code and resources; update only version/source metadata and signatures. Existing iOS driving-side-aware U-turn signs and annotation rendering behavior remain unchanged.
+
+Source revision: 5f6ed07624924006784ab2f39d55c6c4033bd5ce.
+
 # 1.0.92
 
 - Reuse cached Martin tile ETags across bm_revision changes, allowing conditional revalidation of unchanged tiles instead of redownloading their bodies. Limit fallback to SDK-owned tile templates and preserve normal HTTP revalidation.
