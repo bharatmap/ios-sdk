@@ -1,3 +1,12 @@
+# 1.0.95
+
+- Frame U-turns progressively: approach the entry, follow the nearest unpassed quarter of the reversing arc, then return to the next maneuver or driving horizon. Preserve route geometry, puck anchoring and existing camera smoothing; no global zoom floor is added.
+- Avoid an immediate zoom-out when the active instruction switches before the camera has turned onto the U-turn approach. The entry can temporarily remain outside the viewport during that rotation.
+- The shared policy passed host camera regressions and physical Android comparisons. The Metal XCFramework is rebuilt for iOS; no new physical iOS runtime acceptance is claimed. Road basemap readability remains unverified in the isolated Android fixture.
+- Align the version with Android 1.0.95.
+
+Source revision: 72cd799becfc24e860c0fee886ac80d6022dfa00.
+
 # 1.0.94
 
 - Update the shared navigation camera policy: ordinary turns fit the puck and the next maneuver point without expanding the frame for the exit road or a later turn. The complete route remains rendered.
