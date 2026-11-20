@@ -1,3 +1,11 @@
+# 1.0.96
+
+- Align the package version with Android SDK 1.0.96.
+- Reuse the published 1.0.95 framework code and resources; update only version/source metadata and signatures. Android route-bound bridge recognition and its new public decision object are not included in iOS.
+- Verify framework signatures, version metadata and resources. No new physical iOS runtime acceptance is claimed.
+
+Source revision: 1224bf6ee3e4ff6489d70ab1f9fe3e928eb45cab.
+
 # 1.0.95
 
 - Frame U-turns progressively: approach the entry, follow the nearest unpassed quarter of the reversing arc, then return to the next maneuver or driving horizon. Preserve route geometry, puck anchoring and existing camera smoothing; no global zoom floor is added.
