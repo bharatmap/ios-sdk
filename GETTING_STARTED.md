@@ -193,7 +193,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.97` or a newer compatible release
+3. Select version `1.0.98` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
@@ -2131,7 +2131,9 @@ relative to the entry heading, never a physical right-turn instruction at the ex
 
 Explicit exit maneuvers bound the route arc across split steps. Arcs below 25 m
 use one command. Longer arcs use approach within 100 m, inside distance rounded
-to 5 m, pre-exit at 15 m, and exit at 1 m. Phases supersede obsolete speech;
+to 5 m, pre-exit, and exit at 1 m. Pre-exit starts at least 15 m ahead, advanced
+by speed to allow the short phrase plus one normal 1 Hz update and 0.5 s TTS
+startup. Phases supersede obsolete speech;
 phrases that cannot finish before the next phase are skipped. A short exit command
 can finish just after the exit. Exit numbers are not spoken.
 
