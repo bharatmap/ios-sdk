@@ -15,6 +15,21 @@ BharatMaps_EXPORT
 @end
 
 BharatMaps_EXPORT
+@interface BharatMapsRoundaboutGuidance : NSObject
+@property (nonatomic, copy, readonly) NSString *identifier;
+@property (nonatomic, copy, readonly) NSString *phase;
+@property (nonatomic, copy, readonly) NSString *text;
+@property (nonatomic, copy, readonly) NSString *destinationDirection;
+@property (nonatomic, copy, readonly) NSString *exitRoad;
+@property (nonatomic, strong, readonly) CLLocation *location;
+/// Nil when OSRM collapsed the circle without a separate exit boundary.
+@property (nonatomic, strong, readonly, nullable) CLLocation *exitLocation;
+@property (nonatomic, assign, readonly) double distanceRemainingMeters;
+/// NaN when no separate exit boundary is available.
+@property (nonatomic, assign, readonly) double arcLengthMeters;
+@end
+
+BharatMaps_EXPORT
 @interface BharatMapsNavigationInstruction : NSObject
 @property (nonatomic, copy, readonly) NSString *sessionId;
 @property (nonatomic, assign, readonly) NSUInteger routeRevision;
@@ -22,6 +37,7 @@ BharatMaps_EXPORT
 @property (nonatomic, strong, readonly) CLLocation *location;
 @property (nonatomic, copy, readonly, nullable) NSString *text;
 @property (nonatomic, copy, readonly, nullable) NSString *iconName;
+@property (nonatomic, strong, readonly, nullable) BharatMapsRoundaboutGuidance *roundaboutGuidance;
 @end
 
 typedef NS_ENUM(NSInteger, BharatMapsRerouteState) {

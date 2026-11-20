@@ -185,6 +185,8 @@ BharatMaps_EXPORT
 - (BOOL)clearNavigationRouteCongestionForSessionId:(NSString *)sessionId revision:(NSUInteger)revision
     NS_SWIFT_NAME(clearNavigationRouteCongestion(sessionId:revision:));
 @property (nonatomic, strong, readonly, nullable) BharatMapsNavigationInstruction *navigationInstruction;
+/// Progressive roundabout UI/voice language: en (default), hi, or hi-Latn.
+@property (nonatomic, copy) NSString *roundaboutGuidanceLanguage;
 @property (nonatomic, strong, readonly, nullable) BharatMapsRerouteEvent *rerouteState;
 /// Default YES. Muting interrupts current/queued SDK speech; instruction updates continue.
 @property (nonatomic, assign) BOOL navigationVoiceEnabled;

@@ -193,7 +193,7 @@ In Xcode:
 
 1. `File` -> `Add Package Dependencies...`
 2. Use URL: `https://github.com/bharatmap/ios-sdk.git`
-3. Select version `1.0.96` or a newer compatible release
+3. Select version `1.0.97` or a newer compatible release
 4. Add product `BharatMaps`
 
 ## Martin authorization state (1.0.73)
@@ -2112,3 +2112,38 @@ are recognized (Bridge is a flyover synonym, not an underpass synonym).
 For example, `Gopalpura Flyover` produces `Keep right to take Gopalpura Flyover`,
 not `Gopalpura Flyover flyover`. Keep-left/right and unnamed instructions are
 unchanged. Displayed instruction text and voice instructions share this formatter.
+
+## Progressive roundabout guidance
+
+Read `navigationInstruction.roundaboutGuidance` in
+`bharatMapView(_:didChangeNavigationInstruction:)`. This nullable
+`BharatMapsRoundaboutGuidance` is the single circle state for cards, diagrams and
+markers. Key it by the instruction session/revision and guidance `identifier`.
+The SDK owns voice; do not replay OSRM circle instructions in the host app.
+
+Fields are `phase` (`approach`, `inside`, `pre_exit`, `exit`, `single`), `text`,
+`destinationDirection` (`left`, `right`, `straight`, `uturn`, `unknown`), `exitRoad`,
+`location`, `exitLocation`, `distanceRemainingMeters` and `arcLengthMeters`.
+The instruction text/location agree with the circle snapshot. On approach,
+location/distance refer to entry; afterward they refer to the actual exit. Clear
+circle UI on nil, route replacement, arrival or stop. Destination direction is
+relative to the entry heading, never a physical right-turn instruction at the exit.
+
+Explicit exit maneuvers bound the route arc across split steps. Arcs below 25 m
+use one command. Longer arcs use approach within 100 m, inside distance rounded
+to 5 m, pre-exit at 15 m, and exit at 1 m. Phases supersede obsolete speech;
+phrases that cannot finish before the next phase are skipped. A short exit command
+can finish just after the exit. Exit numbers are not spoken.
+
+Collapsed small circles without a separate exit boundary use one entry command:
+`exitLocation` is nil and `arcLengthMeters` is NaN. Outbound road distance is not
+used as circle length. Other incomplete circle steps use generic entry wording
+and direction `unknown`. A route starting on a circle can use its explicit exit
+without an invented entry-relative direction. Slip lanes keep ordinary guidance.
+Only exit-road labels or their straight continuations before another turn are used.
+
+Set `roundaboutGuidanceLanguage` to `en` (default), `hi`, or `hi-Latn` for this
+feature's UI and speech text. Other maneuver language behavior is unchanged.
+Existing mute, stop, reroute and higher-priority navigation instructions remain in
+control of speech cancellation. Replay uses its own route-distance progress;
+GPS uses the existing route projection.
